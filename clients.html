@@ -1,78 +1,213 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>SRS Client List</title>
+<title>Router Login Guide</title>
+
+<!-- ZOOM COMPLETELY DISABLED -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
 <style>
-body {
+html, body{
+    touch-action: manipulation;
+    overscroll-behavior: none;
+    -webkit-text-size-adjust: 100%;
+}
+
+body{
     font-family: Arial, sans-serif;
-    background: #ffffff;
-    padding: 20px;
+    background:#f8fafc;
+    margin:0;
 }
-h2 {
-    margin-bottom: 10px;
+.container{
+    max-width:420px;
+    margin:20px auto;
+    padding:10px;
 }
-input, button {
-    width: 100%;
-    padding: 10px;
-    margin: 6px 0;
-    font-size: 14px;
+.brand{
+    width:100%;
+    padding:14px;
+    margin:8px 0;
+    font-size:16px;
+    background:#ffffff;
+    border:2px solid #60a5fa;
+    border-radius:8px;
+    color:#2563eb;
+    cursor:pointer;
 }
-button {
-    background: #ff9800;
-    color: white;
-    border: none;
-    font-weight: bold;
+.brand:hover{
+    background:#eff6ff;
 }
-#out {
-    margin-top: 15px;
-    white-space: pre-line;
+.details{
+    display:none;
+    background:#ffffff;
+    border-left:4px solid #60a5fa;
+    padding:10px;
+    margin-bottom:8px;
+    border-radius:6px;
+    font-size:14px;
+}
+.ip-list{
+    margin:4px 0;
+}
+.ip-list a{
+    color:#2563eb;
+    text-decoration:none;
+}
+.ip-list a:hover{
+    text-decoration:underline;
+}
+.pass{
+    margin-top:8px;
+    color:#374151;
+}
+.note{
+    font-size:12px;
+    color:#6b7280;
 }
 </style>
 </head>
+
 <body>
-
-<h2>Client Checker</h2>
-
-<input id="ip" value="192.168.1.1" placeholder="Router IP">
-<input id="user" value="admin" placeholder="Admin Username">
-<input id="pass" type="password" placeholder="Admin Password">
-
-<button onclick="check()">Check Devices</button>
-
-<div id="out">Waiting...</div>
+<div class="container">
 
 <script>
-function check() {
-    document.getElementById("out").innerText = "Checking...";
-    fetch("router.php", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({
-            ip: ip.value,
-            user: user.value,
-            pass: pass.value
-        })
-    })
-    .then(r => r.json())
-    .then(d => {
-        if (d.error) {
-            out.innerText = d.error;
-            return;
-        }
-        let txt = "Total Connected Devices: " + d.count + "\n\n";
-        d.devices.forEach((x,i)=>{
-            txt += (i+1) + ". IP: " + x.ip +
-                   " | MAC: " + x.mac +
-                   " | Name: " + x.name + "\n";
-        });
-        out.innerText = txt;
-    })
-    .catch(()=>{
-        out.innerText = "Failed to connect";
-    });
+function toggle(id){
+    var el = document.getElementById(id);
+    el.style.display = (el.style.display === "block") ? "none" : "block";
 }
 </script>
 
+<button class="brand" onclick="toggle('tplink')">TP-Link</button>
+<div class="details" id="tplink">
+<div class="ip-list">1. <a href="http://192.168.0.1" target="_blank">192.168.0.1</a></div>
+<div class="ip-list">2. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
+<div class="ip-list">3. <a href="http://tplinkwifi.net" target="_blank">tplinkwifi.net</a></div>
+<div class="pass">Default: admin / admin</div>
+</div>
+
+<button class="brand" onclick="toggle('tenda')">Tenda</button>
+<div class="details" id="tenda">
+<div class="ip-list">1. <a href="http://192.168.0.1" target="_blank">192.168.0.1</a></div>
+<div class="ip-list">2. <a href="http://tendawifi.com" target="_blank">tendawifi.com</a></div>
+<div class="pass">Default: admin / admin</div>
+</div>
+
+<button class="brand" onclick="toggle('netis')">Netis</button>
+<div class="details" id="netis">
+<div class="ip-list">1. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
+<div class="ip-list">2. <a href="http://netis.cc" target="_blank">netis.cc</a></div>
+<div class="pass">Username: admin | Password: (blank)</div>
+<div class="note">Some ISP uses guest / guest</div>
+</div>
+
+<button class="brand" onclick="toggle('dlink')">D-Link</button>
+<div class="details" id="dlink">
+<div class="ip-list">1. <a href="http://192.168.0.1" target="_blank">192.168.0.1</a></div>
+<div class="pass">Username: admin | Password: (blank)</div>
+</div>
+
+<button class="brand" onclick="toggle('huawei')">Huawei</button>
+<div class="details" id="huawei">
+<div class="ip-list">1. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
+<div class="ip-list">2. <a href="http://192.168.8.1" target="_blank">192.168.8.1</a></div>
+<div class="pass">Default: admin / admin</div>
+</div>
+
+<button class="brand" onclick="toggle('zte')">ZTE</button>
+<div class="details" id="zte">
+<div class="ip-list">1. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
+<div class="pass">Default: admin / admin</div>
+</div>
+
+<button class="brand" onclick="toggle('ruijie')">Ruijie / Reyee</button>
+<div class="details" id="ruijie">
+<div class="ip-list">1. <a href="http://192.168.110.1" target="_blank">192.168.110.1</a></div>
+<div class="ip-list">2. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
+<div class="pass">Default: admin / admin</div>
+</div>
+
+<button class="brand" onclick="toggle('xiaomi')">Xiaomi</button>
+<div class="details" id="xiaomi">
+<div class="ip-list">1. <a href="http://192.168.31.1" target="_blank">192.168.31.1</a></div>
+<div class="ip-list">2. <a href="http://miwifi.com" target="_blank">miwifi.com</a></div>
+<div class="pass">Password set on first setup</div>
+</div>
+
+<button class="brand" onclick="toggle('asus')">ASUS</button>
+<div class="details" id="asus">
+<div class="ip-list">1. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
+<div class="ip-list">2. <a href="http://router.asus.com" target="_blank">router.asus.com</a></div>
+<div class="pass">Default: admin / admin</div>
+</div>
+
+<button class="brand" onclick="toggle('netgear')">Netgear</button>
+<div class="details" id="netgear">
+<div class="ip-list">1. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
+<div class="ip-list">2. <a href="http://routerlogin.net" target="_blank">routerlogin.net</a></div>
+<div class="pass">Default: admin / password</div>
+</div>
+
+<button class="brand" onclick="toggle('mikrotik')">MikroTik</button>
+<div class="details" id="mikrotik">
+<div class="ip-list">1. <a href="http://192.168.88.1" target="_blank">192.168.88.1</a></div>
+<div class="pass">Username: admin | Password: (blank)</div>
+</div>
+
+<button class="brand" onclick="toggle('ubiquiti')">Ubiquiti</button>
+<div class="details" id="ubiquiti">
+<div class="ip-list">1. <a href="http://192.168.1.20" target="_blank">192.168.1.20</a></div>
+<div class="pass">Default: ubnt / ubnt</div>
+</div>
+
+<button class="brand" onclick="toggle('totolink')">TOTOLINK</button>
+<div class="details" id="totolink">
+<div class="ip-list">1. <a href="http://192.168.0.1" target="_blank">192.168.0.1</a></div>
+<div class="pass">Default: admin / admin</div>
+</div>
+
+<button class="brand" onclick="toggle('mercusys')">Mercusys</button>
+<div class="details" id="mercusys">
+<div class="ip-list">1. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
+<div class="pass">Default: admin / admin</div>
+</div>
+
+<button class="brand" onclick="toggle('cudy')">Cudy</button>
+<div class="details" id="cudy">
+<div class="ip-list">1. <a href="http://192.168.10.1" target="_blank">192.168.10.1</a></div>
+<div class="pass">Default: admin / admin</div>
+</div>
+
+<button class="brand" onclick="toggle('linksys')">Linksys</button>
+<div class="details" id="linksys">
+<div class="ip-list">1. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
+<div class="pass">Default: admin / admin</div>
+</div>
+
+<button class="brand" onclick="toggle('zyxel')">Zyxel</button>
+<div class="details" id="zyxel">
+<div class="ip-list">1. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
+<div class="pass">Default: admin / 1234</div>
+</div>
+
+<button class="brand" onclick="toggle('cisco')">Cisco</button>
+<div class="details" id="cisco">
+<div class="ip-list">1. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
+<div class="pass">Default: admin / admin</div>
+</div>
+
+<button class="brand" onclick="toggle('arris')">Arris</button>
+<div class="details" id="arris">
+<div class="ip-list">1. <a href="http://192.168.0.1" target="_blank">192.168.0.1</a></div>
+<div class="pass">Default: admin / password</div>
+</div>
+
+<button class="brand" onclick="toggle('xfinity')">Xfinity</button>
+<div class="details" id="xfinity">
+<div class="ip-list">1. <a href="http://10.0.0.1" target="_blank">10.0.0.1</a></div>
+<div class="pass">Default: admin / password</div>
+</div>
+
+</div>
 </body>
 </html>
