@@ -1,11 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>SRS WiFi Dashboard</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ZOOM COMPLETELY DISABLED -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <style>
+/* ---- ZOOM LOCK ---- */
+html, body {
+    touch-action: manipulation;
+    overscroll-behavior: none;
+    -webkit-text-size-adjust: 100%;
+}
+
+/* ---------- BASE ---------- */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -91,6 +102,7 @@ body {
     text-align: center;
     border-radius: 12px;
     box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    cursor: pointer;
 }
 </style>
 </head>
@@ -171,7 +183,6 @@ async function hasInternet() {
 function detectNetwork() {
     const net = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
     if (!net) return "Unknown";
-
     if (net.type === "wifi") return "Wi-Fi";
     if (net.type === "cellular") return "Mobile Data";
     return "Unknown";
@@ -180,7 +191,6 @@ function detectNetwork() {
 // ---------- STATUS ----------
 async function updateStatus() {
     const online = await hasInternet();
-
     document.getElementById("networkType").innerText = detectNetwork();
 
     if (!online) {
@@ -232,12 +242,10 @@ async function testUpload() {
 // ---------- AUTO REFRESH ----------
 setInterval(async () => {
     const online = await hasInternet();
+    updateStatus();
     if (online) {
-        updateStatus();
         testDownload();
         testUpload();
-    } else {
-        updateStatus();
     }
 }, 5000);
 
