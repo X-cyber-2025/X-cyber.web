@@ -77,12 +77,12 @@ body {
 
     <div class="stats">
         <div>
-            <div id="down">0</div>
-            <small>Kbps Download</small>
+            <div id="down">0 Kbps</div>
+            <small>Download</small>
         </div>
         <div>
-            <div id="up">0</div>
-            <small>Kbps Upload</small>
+            <div id="up">0 Kbps</div>
+            <small>Upload</small>
         </div>
     </div>
 </div>
@@ -101,7 +101,18 @@ body {
 </div>
 
 <script>
-// Online / Offline
+// ---------- Speed Formatter (SRS Update) ----------
+function formatSpeed(kbps) {
+    if (kbps < 1000) {
+        return kbps.toFixed(1) + " Kbps";
+    } else if (kbps < 1000000) {
+        return (kbps / 1000).toFixed(2) + " Mbps";
+    } else {
+        return (kbps / 1000000).toFixed(2) + " Gbps";
+    }
+}
+
+// ---------- Online / Offline ----------
 function updateStatus() {
     document.getElementById("status").innerText =
         navigator.onLine ? "Active" : "Offline";
@@ -110,35 +121,49 @@ window.addEventListener("online", updateStatus);
 window.addEventListener("offline", updateStatus);
 updateStatus();
 
-// WiFi Name (Chrome Android)
-if (navigator.connection && navigator.connection.effectiveType) {
+// ---------- Network Info ----------
+if (navigator.onLine) {
     document.getElementById("wifiName").innerText =
         "Connected: Network Active";
+} else {
+    document.getElementById("wifiName").innerText =
+        "Not Connected";
 }
 
-// Real Download Speed Test
+// ---------- Real Download Test ----------
 async function testDownload() {
-    const start = performance.now();
-    const response = await fetch("https://speed.cloudflare.com/__down?bytes=2000000");
-    await response.blob();
-    const end = performance.now();
-    const speed = (2000000 * 8) / ((end - start) / 1000) / 1000;
-    document.getElementById("down").innerText = speed.toFixed(1);
+    try {
+        const size = 2000000; // bytes
+        const start = performance.now();
+        const res = await fetch("https://speed.cloudflare.com/__down?bytes=" + size);
+        await res.blob();
+        const end = performance.now();
+        const kbps = (size * 8) / ((end - start) / 1000) / 1000;
+        document.getElementById("down").innerText = formatSpeed(kbps);
+    } catch (e) {
+        document.getElementById("down").innerText = "Error";
+    }
 }
 
-// Real Upload Speed Test
+// ---------- Real Upload Test ----------
 async function testUpload() {
-    const data = new Blob([new Uint8Array(2000000)]);
-    const start = performance.now();
-    await fetch("https://speed.cloudflare.com/__up", {
-        method: "POST",
-        body: data
-    });
-    const end = performance.now();
-    const speed = (2000000 * 8) / ((end - start) / 1000) / 1000;
-    document.getElementById("up").innerText = speed.toFixed(1);
+    try {
+        const size = 2000000;
+        const data = new Blob([new Uint8Array(size)]);
+        const start = performance.now();
+        await fetch("https://speed.cloudflare.com/__up", {
+            method: "POST",
+            body: data
+        });
+        const end = performance.now();
+        const kbps = (size * 8) / ((end - start) / 1000) / 1000;
+        document.getElementById("up").innerText = formatSpeed(kbps);
+    } catch (e) {
+        document.getElementById("up").innerText = "Error";
+    }
 }
 
+// ---------- Auto Refresh ----------
 setInterval(() => {
     if (navigator.onLine) {
         testDownload();
