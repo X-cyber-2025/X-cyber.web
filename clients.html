@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>SRS Client List</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    background: #ffffff;
+    padding: 20px;
+}
+h2 {
+    margin-bottom: 10px;
+}
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin: 6px 0;
+    font-size: 14px;
+}
+button {
+    background: #ff9800;
+    color: white;
+    border: none;
+    font-weight: bold;
+}
+#out {
+    margin-top: 15px;
+    white-space: pre-line;
+}
+</style>
+</head>
+<body>
+
+<h2>Client Checker</h2>
+
+<input id="ip" value="192.168.1.1" placeholder="Router IP">
+<input id="user" value="admin" placeholder="Admin Username">
+<input id="pass" type="password" placeholder="Admin Password">
+
+<button onclick="check()">Check Devices</button>
+
+<div id="out">Waiting...</div>
+
+<script>
+function check() {
+    document.getElementById("out").innerText = "Checking...";
+    fetch("router.php", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            ip: ip.value,
+            user: user.value,
+            pass: pass.value
+        })
+    })
+    .then(r => r.json())
+    .then(d => {
+        if (d.error) {
+            out.innerText = d.error;
+            return;
+        }
+        let txt = "Total Connected Devices: " + d.count + "\n\n";
+        d.devices.forEach((x,i)=>{
+            txt += (i+1) + ". IP: " + x.ip +
+                   " | MAC: " + x.mac +
+                   " | Name: " + x.name + "\n";
+        });
+        out.innerText = txt;
+    })
+    .catch(()=>{
+        out.innerText = "Failed to connect";
+    });
+}
+</script>
+
+</body>
+</html>
