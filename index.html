@@ -12,6 +12,36 @@ body {
     background: #f5f5f5;
 }
 
+/* ---------- START SCREEN ---------- */
+#startScreen {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, #ff9800, #ff6f00);
+}
+
+.start-btn {
+    padding: 22px 70px;
+    font-size: 28px;
+    font-weight: bold;
+    background: white;
+    color: #ff6f00;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.start-btn:hover {
+    transform: scale(1.05);
+}
+
+/* ---------- DASHBOARD ---------- */
+#dashboard {
+    display: none;
+}
+
 .header {
     background: linear-gradient(180deg, #ff9800, #ff6f00);
     color: white;
@@ -67,6 +97,14 @@ body {
 
 <body>
 
+<!-- START SCREEN -->
+<div id="startScreen">
+    <button class="start-btn" onclick="openDashboard()">START</button>
+</div>
+
+<!-- DASHBOARD -->
+<div id="dashboard">
+
 <div class="header">
     <h2>Main Dashboard</h2>
 
@@ -100,8 +138,16 @@ body {
     <div>More</div>
 </div>
 
+</div>
+
 <script>
-// ---------- Speed Formatter (SRS Update) ----------
+// ---------- START ----------
+function openDashboard() {
+    document.getElementById("startScreen").style.display = "none";
+    document.getElementById("dashboard").style.display = "block";
+}
+
+// ---------- Speed Formatter ----------
 function formatSpeed(kbps) {
     if (kbps < 1000) {
         return kbps.toFixed(1) + " Kbps";
@@ -133,7 +179,7 @@ if (navigator.onLine) {
 // ---------- Real Download Test ----------
 async function testDownload() {
     try {
-        const size = 2000000; // bytes
+        const size = 2000000;
         const start = performance.now();
         const res = await fetch("https://speed.cloudflare.com/__down?bytes=" + size);
         await res.blob();
