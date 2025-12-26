@@ -115,18 +115,18 @@ body {
 
     <div class="stats">
         <div>
-            <div id="down">0 Kbps</div>
+            <div id="down">--</div>
             <small>Download</small>
         </div>
         <div>
-            <div id="up">0 Kbps</div>
+            <div id="up">--</div>
             <small>Upload</small>
         </div>
     </div>
 </div>
 
 <div class="card" id="wifiName">
-    Connected: Detecting...
+    --
 </div>
 
 <div class="box">
@@ -158,22 +158,35 @@ function formatSpeed(kbps) {
     }
 }
 
-// ---------- Online / Offline ----------
-function updateStatus() {
-    document.getElementById("status").innerText =
-        navigator.onLine ? "Active" : "Offline";
-}
-window.addEventListener("online", updateStatus);
-window.addEventListener("offline", updateStatus);
-updateStatus();
+// ---------- REAL INTERNET CHECK ----------
+async function hasInternet() {
+    try {
+        const controller = new AbortController();
+        setTimeout(() => controller.abort(), 3000);
 
-// ---------- Network Info ----------
-if (navigator.onLine) {
-    document.getElementById("wifiName").innerText =
-        "Connected: Network Active";
-} else {
-    document.getElementById("wifiName").innerText =
-        "Not Connected";
+        await fetch("https://1.1.1.1/cdn-cgi/trace", {
+            signal: controller.signal,
+            cache: "no-store"
+        });
+        return true;
+    } catch {
+        return false;
+    }
+}
+
+// ---------- STATUS UPDATE ----------
+async function updateStatus() {
+    const online = await hasInternet();
+
+    if (!online) {
+        document.getElementById("status").innerText = "No Internet";
+        document.getElementById("down").innerText = "--";
+        document.getElementById("up").innerText = "--";
+        document.getElementById("wifiName").innerText = "Not Connected";
+    } else {
+        document.getElementById("status").innerText = "Active";
+        document.getElementById("wifiName").innerText = "Connected";
+    }
 }
 
 // ---------- Real Download Test ----------
@@ -186,8 +199,8 @@ async function testDownload() {
         const end = performance.now();
         const kbps = (size * 8) / ((end - start) / 1000) / 1000;
         document.getElementById("down").innerText = formatSpeed(kbps);
-    } catch (e) {
-        document.getElementById("down").innerText = "Error";
+    } catch {
+        document.getElementById("down").innerText = "--";
     }
 }
 
@@ -204,18 +217,25 @@ async function testUpload() {
         const end = performance.now();
         const kbps = (size * 8) / ((end - start) / 1000) / 1000;
         document.getElementById("up").innerText = formatSpeed(kbps);
-    } catch (e) {
-        document.getElementById("up").innerText = "Error";
+    } catch {
+        document.getElementById("up").innerText = "--";
     }
 }
 
-// ---------- Auto Refresh ----------
-setInterval(() => {
-    if (navigator.onLine) {
+// ---------- AUTO REFRESH ----------
+setInterval(async () => {
+    const online = await hasInternet();
+    if (online) {
+        updateStatus();
         testDownload();
         testUpload();
+    } else {
+        updateStatus();
     }
 }, 5000);
+
+// initial check
+updateStatus();
 </script>
 
 </body>
