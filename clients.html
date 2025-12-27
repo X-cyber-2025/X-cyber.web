@@ -4,7 +4,6 @@
 <meta charset="UTF-8">
 <title>Router Login Guide</title>
 
-<!-- ZOOM COMPLETELY DISABLED -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <style>
@@ -13,7 +12,6 @@ html, body{
     overscroll-behavior: none;
     -webkit-text-size-adjust: 100%;
 }
-
 body{
     font-family: Arial, sans-serif;
     background:#f8fafc;
@@ -35,9 +33,7 @@ body{
     color:#2563eb;
     cursor:pointer;
 }
-.brand:hover{
-    background:#eff6ff;
-}
+.brand:hover{ background:#eff6ff; }
 .details{
     display:none;
     background:#ffffff;
@@ -48,20 +44,13 @@ body{
     font-size:14px;
 }
 .ip-list{
-    margin:4px 0;
-}
-.ip-list a{
+    margin:6px 0;
     color:#2563eb;
-    text-decoration:none;
+    cursor:pointer;
 }
-.ip-list a:hover{
-    text-decoration:underline;
-}
-.pass{
-    margin-top:8px;
-    color:#374151;
-}
+.ip-list:hover{ text-decoration:underline; }
 .note{
+    margin-top:8px;
     font-size:12px;
     color:#6b7280;
 }
@@ -76,136 +65,172 @@ function toggle(id){
     var el = document.getElementById(id);
     el.style.display = (el.style.display === "block") ? "none" : "block";
 }
+function openRouter(url){
+    var iframe = document.createElement("iframe");
+    iframe.style.display = "none";
+    iframe.src = url;
+    var loaded = false;
+    iframe.onload = function(){
+        loaded = true;
+        window.open(url, "_blank");
+        document.body.removeChild(iframe);
+    };
+    document.body.appendChild(iframe);
+    setTimeout(function(){
+        if(!loaded){
+            alert("এই IP-তে কোনো রাউটার রেসপন্স করছে না");
+            document.body.removeChild(iframe);
+        }
+    }, 2500);
+}
 </script>
 
+<!-- TP-Link -->
 <button class="brand" onclick="toggle('tplink')">TP-Link</button>
 <div class="details" id="tplink">
-<div class="ip-list">1. <a href="http://192.168.0.1" target="_blank">192.168.0.1</a></div>
-<div class="ip-list">2. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
-<div class="ip-list">3. <a href="http://tplinkwifi.net" target="_blank">tplinkwifi.net</a></div>
-<div class="pass">Default: admin / admin</div>
+<div class="ip-list" onclick="openRouter('http://192.168.0.1')">192.168.0.1</div>
+<div class="ip-list" onclick="openRouter('http://192.168.1.1')">192.168.1.1</div>
+<div class="ip-list" onclick="openRouter('http://tplinkwifi.net')">tplinkwifi.net</div>
+<div class="note">Login details depend on router configuration</div>
 </div>
 
+<!-- Tenda -->
 <button class="brand" onclick="toggle('tenda')">Tenda</button>
 <div class="details" id="tenda">
-<div class="ip-list">1. <a href="http://192.168.0.1" target="_blank">192.168.0.1</a></div>
-<div class="ip-list">2. <a href="http://tendawifi.com" target="_blank">tendawifi.com</a></div>
-<div class="pass">Default: admin / admin</div>
+<div class="ip-list" onclick="openRouter('http://192.168.0.1')">192.168.0.1</div>
+<div class="ip-list" onclick="openRouter('http://tendawifi.com')">tendawifi.com</div>
+<div class="note">Login details depend on router configuration</div>
 </div>
 
+<!-- Netis -->
 <button class="brand" onclick="toggle('netis')">Netis</button>
 <div class="details" id="netis">
-<div class="ip-list">1. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
-<div class="ip-list">2. <a href="http://netis.cc" target="_blank">netis.cc</a></div>
-<div class="pass">Username: admin | Password: (blank)</div>
-<div class="note">Some ISP uses guest / guest</div>
+<div class="ip-list" onclick="openRouter('http://192.168.1.1')">192.168.1.1</div>
+<div class="ip-list" onclick="openRouter('http://netis.cc')">netis.cc</div>
+<div class="note">Login details depend on router configuration</div>
 </div>
 
+<!-- D-Link -->
 <button class="brand" onclick="toggle('dlink')">D-Link</button>
 <div class="details" id="dlink">
-<div class="ip-list">1. <a href="http://192.168.0.1" target="_blank">192.168.0.1</a></div>
-<div class="pass">Username: admin | Password: (blank)</div>
+<div class="ip-list" onclick="openRouter('http://192.168.0.1')">192.168.0.1</div>
+<div class="note">Login details depend on router configuration</div>
 </div>
 
+<!-- Huawei -->
 <button class="brand" onclick="toggle('huawei')">Huawei</button>
 <div class="details" id="huawei">
-<div class="ip-list">1. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
-<div class="ip-list">2. <a href="http://192.168.8.1" target="_blank">192.168.8.1</a></div>
-<div class="pass">Default: admin / admin</div>
+<div class="ip-list" onclick="openRouter('http://192.168.1.1')">192.168.1.1</div>
+<div class="ip-list" onclick="openRouter('http://192.168.8.1')">192.168.8.1</div>
+<div class="note">Login details depend on router configuration</div>
 </div>
 
+<!-- ZTE -->
 <button class="brand" onclick="toggle('zte')">ZTE</button>
 <div class="details" id="zte">
-<div class="ip-list">1. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
-<div class="pass">Default: admin / admin</div>
+<div class="ip-list" onclick="openRouter('http://192.168.1.1')">192.168.1.1</div>
+<div class="note">Login details depend on router configuration</div>
 </div>
 
-<button class="brand" onclick="toggle('ruijie')">Ruijie / Reyee</button>
-<div class="details" id="ruijie">
-<div class="ip-list">1. <a href="http://192.168.110.1" target="_blank">192.168.110.1</a></div>
-<div class="ip-list">2. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
-<div class="pass">Default: admin / admin</div>
-</div>
-
+<!-- Xiaomi -->
 <button class="brand" onclick="toggle('xiaomi')">Xiaomi</button>
 <div class="details" id="xiaomi">
-<div class="ip-list">1. <a href="http://192.168.31.1" target="_blank">192.168.31.1</a></div>
-<div class="ip-list">2. <a href="http://miwifi.com" target="_blank">miwifi.com</a></div>
-<div class="pass">Password set on first setup</div>
+<div class="ip-list" onclick="openRouter('http://192.168.31.1')">192.168.31.1</div>
+<div class="ip-list" onclick="openRouter('http://miwifi.com')">miwifi.com</div>
+<div class="note">Login details depend on router configuration</div>
 </div>
 
-<button class="brand" onclick="toggle('asus')">ASUS</button>
-<div class="details" id="asus">
-<div class="ip-list">1. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
-<div class="ip-list">2. <a href="http://router.asus.com" target="_blank">router.asus.com</a></div>
-<div class="pass">Default: admin / admin</div>
-</div>
-
-<button class="brand" onclick="toggle('netgear')">Netgear</button>
-<div class="details" id="netgear">
-<div class="ip-list">1. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
-<div class="ip-list">2. <a href="http://routerlogin.net" target="_blank">routerlogin.net</a></div>
-<div class="pass">Default: admin / password</div>
-</div>
-
+<!-- MikroTik -->
 <button class="brand" onclick="toggle('mikrotik')">MikroTik</button>
 <div class="details" id="mikrotik">
-<div class="ip-list">1. <a href="http://192.168.88.1" target="_blank">192.168.88.1</a></div>
-<div class="pass">Username: admin | Password: (blank)</div>
+<div class="ip-list" onclick="openRouter('http://192.168.88.1')">192.168.88.1</div>
+<div class="note">Login details depend on router configuration</div>
 </div>
 
-<button class="brand" onclick="toggle('ubiquiti')">Ubiquiti</button>
-<div class="details" id="ubiquiti">
-<div class="ip-list">1. <a href="http://192.168.1.20" target="_blank">192.168.1.20</a></div>
-<div class="pass">Default: ubnt / ubnt</div>
+<!-- ASUS -->
+<button class="brand" onclick="toggle('asus')">ASUS</button>
+<div class="details" id="asus">
+<div class="ip-list" onclick="openRouter('http://192.168.1.1')">192.168.1.1</div>
+<div class="ip-list" onclick="openRouter('http://router.asus.com')">router.asus.com</div>
+<div class="note">Login details depend on router configuration</div>
 </div>
 
-<button class="brand" onclick="toggle('totolink')">TOTOLINK</button>
-<div class="details" id="totolink">
-<div class="ip-list">1. <a href="http://192.168.0.1" target="_blank">192.168.0.1</a></div>
-<div class="pass">Default: admin / admin</div>
+<!-- Netgear -->
+<button class="brand" onclick="toggle('netgear')">Netgear</button>
+<div class="details" id="netgear">
+<div class="ip-list" onclick="openRouter('http://192.168.1.1')">192.168.1.1</div>
+<div class="ip-list" onclick="openRouter('http://routerlogin.net')">routerlogin.net</div>
+<div class="note">Login details depend on router configuration</div>
 </div>
 
+<!-- Mercusys -->
 <button class="brand" onclick="toggle('mercusys')">Mercusys</button>
 <div class="details" id="mercusys">
-<div class="ip-list">1. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
-<div class="pass">Default: admin / admin</div>
+<div class="ip-list" onclick="openRouter('http://192.168.1.1')">192.168.1.1</div>
+<div class="note">Login details depend on router configuration</div>
 </div>
 
+<!-- TOTOLINK -->
+<button class="brand" onclick="toggle('totolink')">TOTOLINK</button>
+<div class="details" id="totolink">
+<div class="ip-list" onclick="openRouter('http://192.168.0.1')">192.168.0.1</div>
+<div class="note">Login details depend on router configuration</div>
+</div>
+
+<!-- Cudy -->
 <button class="brand" onclick="toggle('cudy')">Cudy</button>
 <div class="details" id="cudy">
-<div class="ip-list">1. <a href="http://192.168.10.1" target="_blank">192.168.10.1</a></div>
-<div class="pass">Default: admin / admin</div>
+<div class="ip-list" onclick="openRouter('http://192.168.10.1')">192.168.10.1</div>
+<div class="note">Login details depend on router configuration</div>
 </div>
 
+<!-- Linksys -->
 <button class="brand" onclick="toggle('linksys')">Linksys</button>
 <div class="details" id="linksys">
-<div class="ip-list">1. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
-<div class="pass">Default: admin / admin</div>
+<div class="ip-list" onclick="openRouter('http://192.168.1.1')">192.168.1.1</div>
+<div class="note">Login details depend on router configuration</div>
 </div>
 
+<!-- Zyxel -->
 <button class="brand" onclick="toggle('zyxel')">Zyxel</button>
 <div class="details" id="zyxel">
-<div class="ip-list">1. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
-<div class="pass">Default: admin / 1234</div>
+<div class="ip-list" onclick="openRouter('http://192.168.1.1')">192.168.1.1</div>
+<div class="note">Login details depend on router configuration</div>
 </div>
 
+<!-- Ruijie -->
+<button class="brand" onclick="toggle('ruijie')">Ruijie / Reyee</button>
+<div class="details" id="ruijie">
+<div class="ip-list" onclick="openRouter('http://192.168.110.1')">192.168.110.1</div>
+<div class="note">Login details depend on router configuration</div>
+</div>
+
+<!-- Ubiquiti -->
+<button class="brand" onclick="toggle('ubiquiti')">Ubiquiti</button>
+<div class="details" id="ubiquiti">
+<div class="ip-list" onclick="openRouter('http://192.168.1.20')">192.168.1.20</div>
+<div class="note">Login details depend on router configuration</div>
+</div>
+
+<!-- Cisco -->
 <button class="brand" onclick="toggle('cisco')">Cisco</button>
 <div class="details" id="cisco">
-<div class="ip-list">1. <a href="http://192.168.1.1" target="_blank">192.168.1.1</a></div>
-<div class="pass">Default: admin / admin</div>
+<div class="ip-list" onclick="openRouter('http://192.168.1.1')">192.168.1.1</div>
+<div class="note">Login details depend on router configuration</div>
 </div>
 
+<!-- Arris -->
 <button class="brand" onclick="toggle('arris')">Arris</button>
 <div class="details" id="arris">
-<div class="ip-list">1. <a href="http://192.168.0.1" target="_blank">192.168.0.1</a></div>
-<div class="pass">Default: admin / password</div>
+<div class="ip-list" onclick="openRouter('http://192.168.0.1')">192.168.0.1</div>
+<div class="note">Login details depend on router configuration</div>
 </div>
 
+<!-- Xfinity -->
 <button class="brand" onclick="toggle('xfinity')">Xfinity</button>
 <div class="details" id="xfinity">
-<div class="ip-list">1. <a href="http://10.0.0.1" target="_blank">10.0.0.1</a></div>
-<div class="pass">Default: admin / password</div>
+<div class="ip-list" onclick="openRouter('http://10.0.0.1')">10.0.0.1</div>
+<div class="note">Login details depend on router configuration</div>
 </div>
 
 </div>
