@@ -1,274 +1,525 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="bn">
 <head>
 <meta charset="UTF-8">
-<title>SRS WiFi Dashboard</title>
+<title>Cyber Digital Store</title>
 
-<!-- ZOOM COMPLETELY DISABLED -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 <style>
-/* ---- ZOOM LOCK ---- */
-html, body {
-    touch-action: manipulation;
-    overscroll-behavior: none;
-    -webkit-text-size-adjust: 100%;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
 }
 
-/* ---------- BASE ---------- */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #f5f5f5;
+html,body{
+  touch-action:manipulation;
+  overscroll-behavior:none;
+  -webkit-text-size-adjust:100%;
 }
 
-/* ---------- START SCREEN ---------- */
-#startScreen {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: linear-gradient(180deg, #ff9800, #ff6f00);
+/* ================= DARK + LIGHT RGB BACKGROUND ================= */
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(56,189,248,.22), transparent 40%),
+    radial-gradient(circle at 85% 30%, rgba(168,85,247,.22), transparent 42%),
+    radial-gradient(circle at 40% 85%, rgba(34,197,94,.18), transparent 45%),
+    linear-gradient(135deg,#020617,#020617,#020617);
+  animation:bgRGB 18s linear infinite;
+  background-size:200% 200%;
+  color:#e5e7eb;
+  display:flex;
+  justify-content:center;
+  padding:20px 10px;
 }
 
-.start-btn {
-    padding: 22px 70px;
-    font-size: 28px;
-    font-weight: bold;
-    background: white;
-    color: #ff6f00;
-    border: none;
-    border-radius: 40px;
-    cursor: pointer;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+@keyframes bgRGB{
+  0%{background-position:0% 0%}
+  50%{background-position:100% 100%}
+  100%{background-position:0% 0%}
 }
 
-.start-btn:hover {
-    transform: scale(1.05);
+.wrapper{max-width:960px;width:100%}
+
+/* ================= MAIN GLASS ================= */
+.glass-card{
+  position:relative;
+  border-radius:22px;
+  padding:26px;
+  overflow:hidden;
 }
 
-/* ---------- DASHBOARD ---------- */
-#dashboard {
-    display: none;
+.glass-card::before{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border-radius:26px;
+  background:linear-gradient(
+    270deg,
+    #ff004c,
+    #ff7a00,
+    #ffe600,
+    #00ff9d,
+    #00e0ff,
+    #a855f7,
+    #ff004c
+  );
+  background-size:800% 800%;
+  animation:rgbMove 8s linear infinite;
+  filter:saturate(170%) brightness(1.25);
 }
 
-.header {
-    background: linear-gradient(180deg, #ff9800, #ff6f00);
-    color: white;
-    padding: 40px 20px;
-    text-align: center;
+.glass-card::after{
+  content:"";
+  position:absolute;
+  inset:3px;
+  border-radius:20px;
+  background:rgba(2,6,23,.97);
+  z-index:1;
 }
 
-.circle {
-    width: 140px;
-    height: 140px;
-    background: white;
-    border-radius: 50%;
-    margin: 20px auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    color: black;
-    font-weight: bold;
+.glass-card > *{
+  position:relative;
+  z-index:2;
 }
 
-.stats {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-    color: white;
+.glass-card{
+  box-shadow:
+    0 0 18px rgba(56,189,248,.25),
+    0 0 45px rgba(168,85,247,.35),
+    0 0 80px rgba(255,0,76,.15);
 }
 
-.card {
-    background: #e8f5e9;
-    margin: 20px;
-    padding: 15px;
-    border-radius: 12px;
-    font-weight: bold;
+/* ================= HEADER ================= */
+header{
+  display:flex;
+  gap:16px;
+  align-items:center;
+  margin-bottom:18px;
 }
 
-.box {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 15px;
-    padding: 20px;
+.logo-circle{
+  width:62px;
+  height:62px;
+  border-radius:50%;
+  padding:3px;
+  background:linear-gradient(135deg,#22d3ee,#a855f7);
 }
 
-.box div {
-    background: white;
-    padding: 20px;
-    text-align: center;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    cursor: pointer;
+.logo-inner{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  background:#020617;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  letter-spacing:.12em;
+  color:#22d3ee;
+}
+
+h1{
+  font-size:1.6rem;
+  letter-spacing:.14em;
+}
+
+header p{
+  font-size:.9rem;
+  color:#9ca3af;
+}
+
+/* ================= LED ================= */
+.led-sign{
+  margin:10px 0 24px;
+  padding:10px 16px;
+  border-radius:16px;
+  background:#020617;
+  border:1px solid rgba(148,163,184,.6);
+  text-align:center;
+}
+
+.led-text{
+  font-size:1.05rem;
+  letter-spacing:.22em;
+  font-weight:800;
+  color:#22d3ee;
+}
+
+/* ================= BADGES ================= */
+.badge-row{
+  display:flex;
+  gap:10px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+
+.badge{
+  font-size:.78rem;
+  padding:6px 12px;
+  border-radius:999px;
+  border:1px solid rgba(148,163,184,.45);
+  background:rgba(15,23,42,.9);
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.badge-dot{
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  background:#22c55e;
+}
+
+/* ================= HERO ================= */
+.hero{
+  border-radius:20px;
+  padding:24px;
+  margin-bottom:22px;
+  border:1px dashed rgba(148,163,184,.45);
+  background:rgba(15,23,42,.85);
+}
+
+.hero-title{
+  font-size:1.28rem;
+  margin-bottom:10px;
+}
+
+.hero-sub{
+  color:#c7d2fe;
+  line-height:1.55;
+}
+
+.hero-highlight{
+  margin-top:8px;
+  font-size:.9rem;
+}
+
+.text-en{color:#22d3ee;font-weight:600}
+.text-bn{color:#facc15;font-weight:600}
+
+/* ================= PRODUCTS ================= */
+.section-title{
+  font-size:.95rem;
+  letter-spacing:.16em;
+  color:#94a3b8;
+  margin:14px 4px;
+}
+
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:18px;
+}
+
+.product-card{
+  position:relative;
+  border-radius:18px;
+  padding:18px;
+  overflow:hidden;
+}
+
+.product-card::before{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border-radius:22px;
+  background:linear-gradient(
+    270deg,
+    #22d3ee,
+    #a855f7,
+    #ff4ecd,
+    #facc15,
+    #22c55e,
+    #22d3ee
+  );
+  background-size:700% 700%;
+  animation:rgbMove 6s linear infinite;
+  filter:saturate(180%) brightness(1.35);
+}
+
+.product-card::after{
+  content:"";
+  position:absolute;
+  inset:3px;
+  border-radius:16px;
+  background:#020617;
+  z-index:1;
+}
+
+.product-card > *{
+  position:relative;
+  z-index:2;
+}
+
+.product-top{
+  display:flex;
+  gap:12px;
+  align-items:center;
+  margin-bottom:8px;
+}
+
+.product-index{
+  width:32px;
+  height:32px;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  border:1px solid #94a3b8;
+}
+
+.app-icon{
+  width:40px;
+  height:40px;
+  border-radius:14px;
+  background:#020617;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.product-desc{
+  font-size:.9rem;
+  color:#cbd5f5;
+}
+
+.price-box{
+  margin-top:8px;
+  padding:10px;
+  border-radius:12px;
+  border:1px solid rgba(148,163,184,.4);
+  background:rgba(15,23,42,.9);
+  font-size:.85rem;
+}
+
+.benefits{
+  font-size:.8rem;
+  color:#9ca3af;
+  margin-top:6px;
+  line-height:1.45;
+}
+
+/* ================= CONTACT ================= */
+.footer-contact{
+  margin-top:26px;
+  border-radius:18px;
+  padding:22px;
+  border:1px solid rgba(148,163,184,.4);
+  background:rgba(2,6,23,.95);
+}
+
+.contact-btns{
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.contact-btn{
+  padding:10px 16px;
+  border-radius:999px;
+  text-decoration:none;
+  color:#e5e7eb;
+  border:1px solid rgba(148,163,184,.6);
+}
+
+/* ================= RGB ANIMATION ================= */
+@keyframes rgbMove{
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
 }
 </style>
 </head>
 
 <body>
+<div class="wrapper">
+<div class="glass-card">
 
-<!-- START SCREEN -->
-<div id="startScreen">
-    <button class="start-btn" onclick="openDashboard()">START</button>
+<header>
+  <div class="logo-circle"><div class="logo-inner">CDS</div></div>
+  <div>
+    <h1>CYBER DIGITAL STORE</h1>
+    <p>Trusted Digital Service • প্রিমিয়াম সব এক জায়গায়</p>
+  </div>
+</header>
+
+<div class="led-sign">
+  <div class="led-text">CYBER DIGITAL STORE</div>
 </div>
 
-<!-- DASHBOARD -->
-<div id="dashboard">
+<div class="badge-row">
+  <div class="badge"><span class="badge-dot"></span>অনলাইন সাপোর্ট</div>
+  <div class="badge">✔ ডিজিটাল ডেলিভারি</div>
+  <div class="badge">✔ ট্রাস্টেড সার্ভিস</div>
+</div>
 
-<div class="header">
-    <h2>Main Dashboard</h2>
+<section class="hero">
+  <div class="hero-title">
+    YouTube Premium, VPN, Gemini, Chatgpt go এবং plus এবং আরো অনেক কিছু 🌐
+  </div>
+  <div class="hero-sub">
+    সাশ্রয়ী দামে প্রিমিয়াম ডিজিটাল সার্ভিস • দ্রুত ও নিরাপদ ডেলিভারি।
+  </div>
+  <div class="hero-highlight">
+    <span class="text-bn">লগ-ইন তথ্য</span> ইনবক্সে পাঠানো হবে •
+    <span class="text-en">Discount offer</span> জানতে যোগাযোগ করুন 📞
+  </div>
+</section>
 
-    <div class="circle">
-        <div id="networkType">--</div>
-        <div id="status">Checking</div>
+<h2 class="section-title">সার্ভিস লিস্ট</h2>
+
+<section class="products">
+
+<!-- ১ -->
+<div class="product-card">
+  <div class="product-top">
+    <div class="product-index">১</div>
+    <div class="app-icon">▶️</div>
+    <strong>YouTube Premium</strong>
+  </div>
+  <p class="product-desc">
+    Ad-free, Background play, YouTube Music Premium – সব একসাথে।
+  </p>
+  <div class="price-box">
+    Single • 30 day – <span class="text-bn">30 Tk</span><br>
+    Family • 30 day – <span class="text-bn">50 Tk</span>
+    <div class="benefits">
+      • ভিডিওতে আর কোন বিজ্ঞাপন নেই<br>
+      • স্ক্রিন বন্ধ করেও গান/ভিডিও চলবে<br>
+      • অফলাইন সেভ করে পরে দেখতে পারবেন<br>
+      • YouTube Music Premium ফুল অ্যাক্সেস
     </div>
+  </div>
+</div>
 
-    <div class="stats">
-        <div>
-            <div id="down">--</div>
-            <small>Download</small>
-        </div>
-        <div>
-            <div id="up">--</div>
-            <small>Upload</small>
-        </div>
+<!-- ২ -->
+<div class="product-card">
+  <div class="product-top">
+    <div class="product-index">২</div>
+    <div class="app-icon">🛡️</div>
+    <strong>Premium VPN</strong>
+  </div>
+  <p class="product-desc">
+    All VPN • Streaming • Privacy • Gaming – সব প্ল্যাটফর্মে প্রিমিয়াম এক্সেস।
+  </p>
+  <div class="price-box">
+    All VPN • 3–7 day – <span class="text-bn">20 Tk</span><br>
+    HMA • 30 day – <span class="text-bn">50 Tk</span>
+    <div class="benefits">
+      • অনলাইনে গোপনীয়তা ও সিকিউরিটি বাড়ায়<br>
+      • স্ট্রিমিং প্ল্যাটফর্মে ব্লক কন্টেন্ট আনলক<br>
+      • গেমিংয়ের জন্য কম লেটেন্সি সার্ভার<br>
+      • একাধিক লোকেশন/কান্ট্রি সিলেকশন
     </div>
+  </div>
 </div>
 
-<div class="card" id="wifiName">--</div>
-
-<div class="box">
-    <!-- ADMIN ACCESS (WIFI ONLY) -->
-    <div onclick="openAdmin()">Admin Access</div>
-    <div>Parental</div>
-    <div>Guest WiFi</div>
-    <div>Security</div>
-    <div>Devices</div>
-    <div>More</div>
+<!-- ৩ -->
+<div class="product-card">
+  <div class="product-top">
+    <div class="product-index">৩</div>
+    <div class="app-icon">✨</div>
+    <strong>Gemini Premium</strong>
+  </div>
+  <p class="product-desc">
+    Google Gemini AI – স্টাডি, কোডিং, কনটেন্ট ক্রিয়েশন সব কিছুর স্মার্ট সহকারী।
+  </p>
+  <div class="price-box">
+    Gemini • 30 day – <span class="text-bn">40 Tk</span>
+    <div class="benefits">
+      • Gemini Advanced দিয়ে স্মার্ট রিপ্লাই<br>
+      • বড় লেখা/ডকুমেন্ট বুঝে কাজ করে<br>
+      • কোড লেখা ও ডিবাগ হেল্প<br>
+      • ইমেজ ও স্ক্রিনশট অ্যানালাইসিস<br>
+      • কনটেন্ট রাইটিং ও স্ক্রিপ্ট হেল্প
+    </div>
+  </div>
 </div>
 
+<!-- ৪ -->
+<div class="product-card">
+  <div class="product-top">
+    <div class="product-index">৪</div>
+    <div class="app-icon">🎛️</div>
+    <strong>Other Premium Apps</strong>
+  </div>
+  <p class="product-desc">
+    Spotify, Netflix, Canva, ChatGPT ইত্যাদি – কাস্টম প্রিমিয়াম প্যাক।
+  </p>
+  <div class="price-box">
+    Custom order – ইনবক্সে জানুন
+    <div class="benefits">
+      • Spotify আনলিমিটেড গান<br>
+      • Netflix প্রিমিয়াম মুভি/সিরিজ<br>
+      • Canva প্রো ডিজাইন টুল<br>
+      • ChatGPT প্রোডাক্টিভিটি হেল্প
+    </div>
+  </div>
 </div>
 
-<script>
-// ---------- START ----------
-function openDashboard() {
-    document.getElementById("startScreen").style.display = "none";
-    document.getElementById("dashboard").style.display = "block";
-}
+<!-- ৫ -->
+<div class="product-card">
+  <div class="product-top">
+    <div class="product-index">৫</div>
+    <div class="app-icon">📱</div>
+    <strong>Android Remote Panel</strong>
+  </div>
+  <p class="product-desc">
+    যেকোন Android ডিভাইসের জন্য Remote Access Setup
+  </p>
+  <div class="price-box">
+    Remote setup (ডিটেইলস ইনবক্সে)
+    <div class="benefits">
+      • যেকোন ফোন রিমোটলি কন্ট্রোল<br>
+      • ফোনের গ্যালারি, কন্টাক্ট লিস্ট<br>
+      • কল লগ চেক, লাইভ স্ক্রিন মনিটর<br>
+      • নোটিফিকেশন, স্ক্রিনশট, স্ক্রিনরেকর্ড<br>
+      • ভয়েস রেকর্ড, বেসিক অটোমেশন<br>
+      • স্টেপ-বাই-স্টেপ গাইডলাইন
+    </div>
+  </div>
+</div>
 
-// ---------- Speed Formatter ----------
-function formatSpeed(kbps) {
-    if (kbps < 1000) return kbps.toFixed(1) + " Kbps";
-    if (kbps < 1000000) return (kbps / 1000).toFixed(2) + " Mbps";
-    return (kbps / 1000000).toFixed(2) + " Gbps";
-}
+<!-- ৬ -->
+<div class="product-card">
+  <div class="product-top">
+    <div class="product-index">৬</div>
+    <div class="app-icon">💻</div>
+    <strong>Termux Service (FREE)</strong>
+  </div>
+  <p class="product-desc">
+    ফ্রি ফ্রি ফ্রি – Termux সেটাপ ও অন্যান্য অনেক কিছু (লার্নিং পারপাসে)।
+  </p>
+  <div class="price-box">
+    সার্ভিস ফি – <span class="text-bn">0 টাকা</span>
+    <div class="benefits">
+      • Termux ইনস্টল ও বেসিক সেটআপ<br>
+      • দরকারি প্যাকেজ/টুল ইউজ গাইড<br>
+      • নিজের ডিভাইসে সেফ প্র্যাকটিস<br>
+      • কাস্টম হেল্প নেওয়ার সুযোগ
+    </div>
+  </div>
+</div>
 
-// ---------- INTERNET CHECK ----------
-async function hasInternet() {
-    try {
-        const controller = new AbortController();
-        setTimeout(() => controller.abort(), 3000);
-        await fetch("https://1.1.1.1/cdn-cgi/trace", {
-            signal: controller.signal,
-            cache: "no-store"
-        });
-        return true;
-    } catch {
-        return false;
-    }
-}
+</section>
 
-// ---------- NETWORK TYPE ----------
-function detectNetwork() {
-    const net = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-    if (!net) return "Unknown";
-    if (net.type === "wifi") return "Wi-Fi";
-    if (net.type === "cellular") return "Mobile Data";
-    return "Unknown";
-}
+<section class="footer-contact">
+  <h3>যোগাযোগ</h3>
+  <div class="contact-btns">
+    <a class="contact-btn" href="https://wa.me/8801925681872">WhatsApp</a>
+    <a class="contact-btn" href="https://t.me/Teach_with_bd">Telegram</a>
+    <a class="contact-btn" href="https://www.facebook.com/profile.php?id=100083526175690">Messenger</a>
+  </div>
+</section>
 
-// ---------- STATUS ----------
-async function updateStatus() {
-    const online = await hasInternet();
-    document.getElementById("networkType").innerText = detectNetwork();
-
-    if (!online) {
-        document.getElementById("status").innerText = "No Internet";
-        document.getElementById("down").innerText = "--";
-        document.getElementById("up").innerText = "--";
-        document.getElementById("wifiName").innerText = "Not Connected";
-        return;
-    }
-
-    document.getElementById("status").innerText = "Active";
-    document.getElementById("wifiName").innerText = "Connected";
-}
-
-// ---------- ADMIN ACCESS CONTROL (WIFI ONLY) ----------
-function openAdmin() {
-    const net = navigator.connection || navigator.mozConnection || navigator.webkitConnection;
-
-    if (!net) {
-        alert("Network type not detected");
-        return;
-    }
-
-    if (net.type !== "wifi") {
-        alert("Admin Access only works on Wi-Fi");
-        return;
-    }
-
-    window.location.href = "admin.html";
-}
-
-// ---------- Download Test ----------
-async function testDownload() {
-    try {
-        const size = 3000000;
-        const start = performance.now();
-        const res = await fetch("https://speed.cloudflare.com/__down?bytes=" + size, { cache: "no-store" });
-        await res.blob();
-        const end = performance.now();
-        const kbps = (size * 8) / ((end - start) / 1000) / 1000;
-        document.getElementById("down").innerText = formatSpeed(kbps);
-    } catch {
-        document.getElementById("down").innerText = "--";
-    }
-}
-
-// ---------- Upload Test ----------
-async function testUpload() {
-    try {
-        const size = 3000000;
-        const data = new Blob([new Uint8Array(size)]);
-        const start = performance.now();
-        await fetch("https://speed.cloudflare.com/__up", {
-            method: "POST",
-            body: data,
-            cache: "no-store"
-        });
-        const end = performance.now();
-        const kbps = (size * 8) / ((end - start) / 1000) / 1000;
-        document.getElementById("up").innerText = formatSpeed(kbps);
-    } catch {
-        document.getElementById("up").innerText = "--";
-    }
-}
-
-// ---------- AUTO REFRESH ----------
-setInterval(async () => {
-    const online = await hasInternet();
-    updateStatus();
-    if (online) {
-        testDownload();
-        testUpload();
-    }
-}, 5000);
-
-// initial
-updateStatus();
-</script>
-
+</div>
+</div>
 </body>
 </html>
