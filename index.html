@@ -1,525 +1,1813 @@
 <!DOCTYPE html>
 <html lang="bn">
+
 <head>
+
 <meta charset="UTF-8">
-<title>Cyber Digital Store</title>
 
 <meta name="viewport"
-content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<title>Piyas Digital | Digital Services Provider</title>
+
+<meta name="description"
+      content="Piyas Digital - TikTok Coin, Video Boost, VPN, Google Play Points and Google Play Quest services.">
+
 
 <style>
+
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:system-ui,-apple-system,"Segoe UI",sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-html,body{
-  touch-action:manipulation;
-  overscroll-behavior:none;
-  -webkit-text-size-adjust:100%;
+html{
+    scroll-behavior:smooth;
 }
 
-/* ================= DARK + LIGHT RGB BACKGROUND ================= */
 body{
-  min-height:100vh;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(56,189,248,.22), transparent 40%),
-    radial-gradient(circle at 85% 30%, rgba(168,85,247,.22), transparent 42%),
-    radial-gradient(circle at 40% 85%, rgba(34,197,94,.18), transparent 45%),
-    linear-gradient(135deg,#020617,#020617,#020617);
-  animation:bgRGB 18s linear infinite;
-  background-size:200% 200%;
-  color:#e5e7eb;
-  display:flex;
-  justify-content:center;
-  padding:20px 10px;
+    font-family:
+    "Segoe UI",
+    "Noto Sans Bengali",
+    Arial,
+    sans-serif;
+
+    background:#070914;
+    color:#ffffff;
+
+    overflow-x:hidden;
+
+    -webkit-text-size-adjust:100%;
 }
 
-@keyframes bgRGB{
-  0%{background-position:0% 0%}
-  50%{background-position:100% 100%}
-  100%{background-position:0% 0%}
+a{
+    color:inherit;
+    text-decoration:none;
 }
 
-.wrapper{max-width:960px;width:100%}
-
-/* ================= MAIN GLASS ================= */
-.glass-card{
-  position:relative;
-  border-radius:22px;
-  padding:26px;
-  overflow:hidden;
+button,
+a{
+    -webkit-tap-highlight-color:transparent;
 }
 
-.glass-card::before{
-  content:"";
-  position:absolute;
-  inset:-3px;
-  border-radius:26px;
-  background:linear-gradient(
-    270deg,
-    #ff004c,
-    #ff7a00,
-    #ffe600,
-    #00ff9d,
-    #00e0ff,
-    #a855f7,
-    #ff004c
-  );
-  background-size:800% 800%;
-  animation:rgbMove 8s linear infinite;
-  filter:saturate(170%) brightness(1.25);
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root{
+
+    --bg:#070914;
+    --bg-dark:#04060e;
+
+    --card:#0d1424;
+    --card-2:#11192b;
+
+    --purple:#8b5cf6;
+    --purple-dark:#6d28d9;
+
+    --text:#f3f4f8;
+    --muted:#929caf;
+
+    --border:#222b41;
+
 }
 
-.glass-card::after{
-  content:"";
-  position:absolute;
-  inset:3px;
-  border-radius:20px;
-  background:rgba(2,6,23,.97);
-  z-index:1;
+
+/* =========================================================
+   COMMON
+========================================================= */
+
+.container{
+    width:92%;
+    max-width:1180px;
+    margin:0 auto;
 }
 
-.glass-card > *{
-  position:relative;
-  z-index:2;
+.section{
+    padding:90px 0;
 }
 
-.glass-card{
-  box-shadow:
-    0 0 18px rgba(56,189,248,.25),
-    0 0 45px rgba(168,85,247,.35),
-    0 0 80px rgba(255,0,76,.15);
+.section-heading{
+    text-align:center;
+    margin-bottom:45px;
 }
 
-/* ================= HEADER ================= */
-header{
-  display:flex;
-  gap:16px;
-  align-items:center;
-  margin-bottom:18px;
+.section-heading .small{
+    color:#a78bfa;
+    font-size:14px;
+    font-weight:700;
+    margin-bottom:8px;
 }
 
-.logo-circle{
-  width:62px;
-  height:62px;
-  border-radius:50%;
-  padding:3px;
-  background:linear-gradient(135deg,#22d3ee,#a855f7);
+.section-heading h2{
+    font-size:clamp(30px,4vw,43px);
+    line-height:1.2;
 }
 
-.logo-inner{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  background:#020617;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:700;
-  letter-spacing:.12em;
-  color:#22d3ee;
+.section-heading p{
+    margin-top:10px;
+    color:var(--muted);
+    font-size:14px;
 }
 
-h1{
-  font-size:1.6rem;
-  letter-spacing:.14em;
+
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar{
+
+    position:fixed;
+
+    top:0;
+    left:0;
+
+    width:100%;
+
+    z-index:1000;
+
+    background:rgba(7,9,20,.95);
+
+    border-bottom:1px solid rgba(255,255,255,.07);
+
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
 }
 
-header p{
-  font-size:.9rem;
-  color:#9ca3af;
+.nav-inner{
+
+    height:72px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
 }
 
-/* ================= LED ================= */
-.led-sign{
-  margin:10px 0 24px;
-  padding:10px 16px;
-  border-radius:16px;
-  background:#020617;
-  border:1px solid rgba(148,163,184,.6);
-  text-align:center;
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
 }
 
-.led-text{
-  font-size:1.05rem;
-  letter-spacing:.22em;
-  font-weight:800;
-  color:#22d3ee;
+.logo-icon{
+
+    width:42px;
+    height:42px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:12px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #a78bfa,
+        #6d28d9
+    );
+
+    font-size:22px;
+
+    font-weight:900;
+
+    box-shadow:
+    0 6px 20px rgba(109,40,217,.25);
+
 }
 
-/* ================= BADGES ================= */
-.badge-row{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-bottom:20px;
+.logo-text{
+
+    font-size:21px;
+
+    font-weight:800;
+
 }
 
-.badge{
-  font-size:.78rem;
-  padding:6px 12px;
-  border-radius:999px;
-  border:1px solid rgba(148,163,184,.45);
-  background:rgba(15,23,42,.9);
-  display:flex;
-  align-items:center;
-  gap:8px;
+.logo-text span{
+    color:#a78bfa;
 }
 
-.badge-dot{
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  background:#22c55e;
+.menu{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:30px;
+
+    color:#aeb6c9;
+
+    font-size:14px;
+
+    font-weight:600;
+
 }
 
-/* ================= HERO ================= */
+.menu a{
+    transition:color .2s ease;
+}
+
+.menu a:hover{
+    color:#ffffff;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
 .hero{
-  border-radius:20px;
-  padding:24px;
-  margin-bottom:22px;
-  border:1px dashed rgba(148,163,184,.45);
-  background:rgba(15,23,42,.85);
+
+    min-height:100vh;
+
+    padding-top:145px;
+
+    padding-bottom:85px;
+
+    background:
+
+    radial-gradient(
+        circle at 80% 25%,
+        rgba(124,58,237,.16),
+        transparent 30%
+    ),
+
+    radial-gradient(
+        circle at 10% 80%,
+        rgba(37,99,235,.08),
+        transparent 28%
+    );
+
+}
+
+.hero-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    1.05fr .95fr;
+
+    gap:60px;
+
+    align-items:center;
+
+}
+
+.hero-content{
+    max-width:650px;
+}
+
+.hero-small{
+
+    color:#a78bfa;
+
+    font-size:16px;
+
+    font-weight:700;
+
+    margin-bottom:12px;
+
+}
+
+.hero h1{
+
+    font-size:
+    clamp(48px,6vw,74px);
+
+    line-height:1.04;
+
+    letter-spacing:-2px;
+
+    margin-bottom:18px;
+
+}
+
+.hero h1 span{
+
+    background:
+    linear-gradient(
+        90deg,
+        #ffffff,
+        #a78bfa,
+        #818cf8
+    );
+
+    -webkit-background-clip:text;
+
+    -webkit-text-fill-color:transparent;
+
 }
 
 .hero-title{
-  font-size:1.28rem;
-  margin-bottom:10px;
+
+    font-size:25px;
+
+    font-weight:700;
+
+    margin-bottom:16px;
+
 }
 
-.hero-sub{
-  color:#c7d2fe;
-  line-height:1.55;
+.hero-description{
+
+    color:#9da7bb;
+
+    font-size:16px;
+
+    line-height:1.85;
+
+    margin-bottom:28px;
+
 }
 
-.hero-highlight{
-  margin-top:8px;
-  font-size:.9rem;
+.trust{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    gap:18px;
+
+    color:#adb6c9;
+
+    font-size:13px;
+
 }
 
-.text-en{color:#22d3ee;font-weight:600}
-.text-bn{color:#facc15;font-weight:600}
+.trust span{
 
-/* ================= PRODUCTS ================= */
-.section-title{
-  font-size:.95rem;
-  letter-spacing:.16em;
-  color:#94a3b8;
-  margin:14px 4px;
+    display:flex;
+
+    align-items:center;
+
+    gap:7px;
+
 }
 
-.products{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-  gap:18px;
+
+/* =========================================================
+   HERO PHONE
+========================================================= */
+
+.hero-visual{
+
+    min-height:460px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    position:relative;
+
 }
 
-.product-card{
-  position:relative;
-  border-radius:18px;
-  padding:18px;
-  overflow:hidden;
+.phone{
+
+    width:245px;
+    height:450px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border:6px solid #252d43;
+
+    border-radius:36px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #17152b,
+        #080a14
+    );
+
+    box-shadow:
+    0 0 50px rgba(124,58,237,.22),
+    0 25px 70px rgba(0,0,0,.55);
+
 }
 
-.product-card::before{
-  content:"";
-  position:absolute;
-  inset:-3px;
-  border-radius:22px;
-  background:linear-gradient(
-    270deg,
-    #22d3ee,
-    #a855f7,
-    #ff4ecd,
-    #facc15,
-    #22c55e,
-    #22d3ee
-  );
-  background-size:700% 700%;
-  animation:rgbMove 6s linear infinite;
-  filter:saturate(180%) brightness(1.35);
+.phone::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:9px;
+
+    width:78px;
+    height:20px;
+
+    border-radius:20px;
+
+    background:#020308;
+
 }
 
-.product-card::after{
-  content:"";
-  position:absolute;
-  inset:3px;
-  border-radius:16px;
-  background:#020617;
-  z-index:1;
+.phone-content{
+    text-align:center;
 }
 
-.product-card > *{
-  position:relative;
-  z-index:2;
+.phone-logo{
+
+    width:88px;
+    height:88px;
+
+    margin:auto;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:24px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #a78bfa,
+        #6d28d9
+    );
+
+    font-size:50px;
+
+    font-weight:900;
+
+    box-shadow:
+    0 0 30px rgba(124,58,237,.30);
+
 }
 
-.product-top{
-  display:flex;
-  gap:12px;
-  align-items:center;
-  margin-bottom:8px;
+.phone-content h3{
+
+    margin-top:20px;
+
+    font-size:21px;
+
 }
 
-.product-index{
-  width:32px;
-  height:32px;
-  border-radius:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:700;
-  border:1px solid #94a3b8;
+.phone-content h3 span{
+    color:#a78bfa;
 }
 
-.app-icon{
-  width:40px;
-  height:40px;
-  border-radius:14px;
-  background:#020617;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+
+/* =========================================================
+   SERVICE BADGES
+========================================================= */
+
+.float-card{
+
+    position:absolute;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    padding:12px 15px;
+
+    min-width:140px;
+
+    border-radius:12px;
+
+    background:#0d1322;
+
+    border:1px solid #29334c;
+
+    box-shadow:
+    0 12px 30px rgba(0,0,0,.35);
+
+    font-size:13px;
+
+    font-weight:700;
+
 }
 
-.product-desc{
-  font-size:.9rem;
-  color:#cbd5f5;
+.float-icon{
+    font-size:22px;
 }
 
-.price-box{
-  margin-top:8px;
-  padding:10px;
-  border-radius:12px;
-  border:1px solid rgba(148,163,184,.4);
-  background:rgba(15,23,42,.9);
-  font-size:.85rem;
+.float-card.one{
+    top:45px;
+    right:0;
 }
 
-.benefits{
-  font-size:.8rem;
-  color:#9ca3af;
-  margin-top:6px;
-  line-height:1.45;
+.float-card.two{
+    bottom:65px;
+    left:0;
 }
 
-/* ================= CONTACT ================= */
-.footer-contact{
-  margin-top:26px;
-  border-radius:18px;
-  padding:22px;
-  border:1px solid rgba(148,163,184,.4);
-  background:rgba(2,6,23,.95);
+.float-card.three{
+    bottom:15px;
+    right:20px;
 }
 
-.contact-btns{
-  display:flex;
-  gap:12px;
-  flex-wrap:wrap;
+
+/* =========================================================
+   SERVICES
+========================================================= */
+
+.services-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(5,1fr);
+
+    gap:16px;
+
 }
 
-.contact-btn{
-  padding:10px 16px;
-  border-radius:999px;
-  text-decoration:none;
-  color:#e5e7eb;
-  border:1px solid rgba(148,163,184,.6);
+.service-card{
+
+    padding:24px 18px;
+
+    background:
+    linear-gradient(
+        160deg,
+        #101728,
+        #0b101d
+    );
+
+    border:1px solid var(--border);
+
+    border-radius:17px;
+
+    text-align:center;
+
+    transition:
+    border-color .2s ease,
+    background .2s ease;
+
 }
 
-/* ================= RGB ANIMATION ================= */
-@keyframes rgbMove{
-  0%{background-position:0% 50%}
-  50%{background-position:100% 50%}
-  100%{background-position:0% 50%}
+.service-card:hover{
+
+    border-color:#6246a5;
+
+    background:
+    linear-gradient(
+        160deg,
+        #121a2d,
+        #0d1321
+    );
+
 }
+
+.service-icon{
+
+    width:66px;
+    height:66px;
+
+    margin:0 auto 17px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:18px;
+
+    background:#151c30;
+
+    border:1px solid #303a54;
+
+    font-size:34px;
+
+}
+
+
+/* Google Play Points icon */
+
+.play-icon{
+
+    width:40px;
+    height:40px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:38px;
+
+}
+
+
+.service-card h3{
+
+    font-size:17px;
+
+    margin-bottom:8px;
+
+}
+
+.service-card p{
+
+    min-height:48px;
+
+    margin-bottom:18px;
+
+    color:#8993a8;
+
+    font-size:12.5px;
+
+    line-height:1.65;
+
+}
+
+
+/* =========================================================
+   ORDER BUTTON
+========================================================= */
+
+.order-btn{
+
+    width:100%;
+
+    min-height:44px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:7px;
+
+    padding:10px 14px;
+
+    border-radius:9px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #8b5cf6,
+        #6d28d9
+    );
+
+    color:#ffffff;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:
+    0 7px 20px rgba(109,40,217,.18);
+
+    transition:
+    background .2s ease,
+    box-shadow .2s ease;
+
+}
+
+.order-btn:hover{
+
+    background:
+    linear-gradient(
+        135deg,
+        #9b6cff,
+        #7c35e5
+    );
+
+    box-shadow:
+    0 9px 24px rgba(109,40,217,.28);
+
+}
+
+.order-btn:active{
+    opacity:.85;
+}
+
+
+/* =========================================================
+   WHY US
+========================================================= */
+
+.why-box{
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    gap:17px;
+
+}
+
+.why-card{
+
+    padding:28px 20px;
+
+    text-align:center;
+
+    background:#0c1221;
+
+    border:1px solid var(--border);
+
+    border-radius:16px;
+
+}
+
+.why-icon{
+
+    font-size:32px;
+
+    margin-bottom:12px;
+
+}
+
+.why-card h3{
+
+    font-size:16px;
+
+    margin-bottom:8px;
+
+}
+
+.why-card p{
+
+    color:#818ca2;
+
+    font-size:12.5px;
+
+    line-height:1.65;
+
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.contact-section{
+
+    padding:90px 0;
+
+}
+
+.contact-box{
+
+    padding:55px 30px;
+
+    text-align:center;
+
+    border-radius:23px;
+
+    border:1px solid #302d4d;
+
+    background:
+    radial-gradient(
+        circle at center,
+        rgba(124,58,237,.15),
+        transparent 65%
+    );
+
+}
+
+.contact-box h2{
+
+    font-size:
+    clamp(28px,4vw,38px);
+
+    margin-bottom:12px;
+
+}
+
+.contact-box p{
+
+    max-width:620px;
+
+    margin:0 auto;
+
+    color:#8d97ab;
+
+    font-size:14px;
+
+    line-height:1.8;
+
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+footer{
+
+    padding:55px 0 25px;
+
+    background:#04060e;
+
+    border-top:1px solid #20283c;
+
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:
+    1.5fr 1fr 1fr 1.2fr;
+
+    gap:35px;
+
+    margin-bottom:40px;
+
+}
+
+.footer-logo{
+
+    font-size:22px;
+
+    font-weight:800;
+
+    margin-bottom:11px;
+
+}
+
+.footer-logo span{
+    color:#a78bfa;
+}
+
+.footer-about{
+
+    max-width:320px;
+
+    color:#778197;
+
+    font-size:12.5px;
+
+    line-height:1.75;
+
+}
+
+.footer-title{
+
+    margin-bottom:14px;
+
+    font-size:14px;
+
+    font-weight:700;
+
+}
+
+.footer-links{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:9px;
+
+    color:#7d879d;
+
+    font-size:12.5px;
+
+}
+
+.footer-links a:hover{
+    color:#ffffff;
+}
+
+.footer-bottom{
+
+    padding-top:21px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    border-top:1px solid #1b2234;
+
+    color:#626d82;
+
+    font-size:11px;
+
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1050px){
+
+    .hero-grid{
+        grid-template-columns:1fr;
+    }
+
+    .hero-content{
+        text-align:center;
+        margin:0 auto;
+    }
+
+    .hero-description{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .trust{
+        justify-content:center;
+    }
+
+    .services-grid{
+        grid-template-columns:
+        repeat(3,1fr);
+    }
+
+    .why-box{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+    .footer-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:700px){
+
+    .container{
+        width:90%;
+    }
+
+    .nav-inner{
+        height:68px;
+    }
+
+    .logo-icon{
+        width:39px;
+        height:39px;
+    }
+
+    .logo-text{
+        font-size:19px;
+    }
+
+    .menu{
+        display:none;
+    }
+
+    .hero{
+        padding-top:120px;
+        padding-bottom:60px;
+    }
+
+    .hero h1{
+        font-size:45px;
+        letter-spacing:-1.5px;
+    }
+
+    .hero-title{
+        font-size:20px;
+    }
+
+    .hero-description{
+        font-size:14px;
+    }
+
+    .hero-visual{
+        min-height:420px;
+    }
+
+    .phone{
+        width:220px;
+        height:400px;
+    }
+
+    .float-card{
+        min-width:120px;
+        padding:10px 12px;
+        font-size:11px;
+    }
+
+    .float-icon{
+        font-size:19px;
+    }
+
+    .float-card.one{
+        top:35px;
+        right:-5px;
+    }
+
+    .float-card.two{
+        bottom:55px;
+        left:-5px;
+    }
+
+    .float-card.three{
+        bottom:8px;
+        right:5px;
+    }
+
+    .section{
+        padding:70px 0;
+    }
+
+    .services-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+
+        gap:12px;
+    }
+
+    .service-card{
+        padding:20px 13px;
+    }
+
+    .service-icon{
+        width:58px;
+        height:58px;
+        font-size:29px;
+    }
+
+    .play-icon{
+        font-size:32px;
+    }
+
+    .service-card h3{
+        font-size:15px;
+    }
+
+    .service-card p{
+        font-size:11px;
+    }
+
+    .order-btn{
+        min-height:42px;
+        font-size:12px;
+    }
+
+    .why-box{
+        grid-template-columns:
+        repeat(2,1fr);
+
+        gap:12px;
+    }
+
+    .why-card{
+        padding:23px 12px;
+    }
+
+    .footer-grid{
+        grid-template-columns:
+        repeat(2,1fr);
+
+        gap:30px;
+    }
+
+    .footer-bottom{
+        flex-direction:column;
+        gap:8px;
+        text-align:center;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media(max-width:480px){
+
+    .hero h1{
+        font-size:40px;
+    }
+
+    .hero-title{
+        font-size:18px;
+    }
+
+    .hero-description{
+        font-size:13.5px;
+    }
+
+    .hero-visual{
+        min-height:390px;
+    }
+
+    .phone{
+        width:205px;
+        height:370px;
+    }
+
+    .phone-logo{
+        width:78px;
+        height:78px;
+        font-size:44px;
+    }
+
+    .services-grid{
+        grid-template-columns:1fr;
+    }
+
+    .why-box{
+        grid-template-columns:1fr;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .contact-box{
+        padding:40px 18px;
+    }
+
+}
+
 </style>
+
 </head>
 
-<body>
-<div class="wrapper">
-<div class="glass-card">
 
-<header>
-  <div class="logo-circle"><div class="logo-inner">CDS</div></div>
-  <div>
-    <h1>CYBER DIGITAL STORE</h1>
-    <p>Trusted Digital Service • প্রিমিয়াম সব এক জায়গায়</p>
-  </div>
+<body>
+
+
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+
+<header class="navbar">
+
+<div class="container nav-inner">
+
+<a href="#home" class="logo">
+
+<div class="logo-icon">
+P
+</div>
+
+<div class="logo-text">
+Piyas <span>Digital</span>
+</div>
+
+</a>
+
+
+<nav class="menu">
+
+<a href="#home">
+Home
+</a>
+
+<a href="#services">
+Services
+</a>
+
+<a href="#why">
+Why Us
+</a>
+
+<a href="#contact">
+Contact
+</a>
+
+</nav>
+
+</div>
+
 </header>
 
-<div class="led-sign">
-  <div class="led-text">CYBER DIGITAL STORE</div>
+
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero" id="home">
+
+<div class="container hero-grid">
+
+
+<div class="hero-content">
+
+<div class="hero-small">
+Welcome to Piyas Digital
 </div>
 
-<div class="badge-row">
-  <div class="badge"><span class="badge-dot"></span>অনলাইন সাপোর্ট</div>
-  <div class="badge">✔ ডিজিটাল ডেলিভারি</div>
-  <div class="badge">✔ ট্রাস্টেড সার্ভিস</div>
+
+<h1>
+Piyas <span>Digital</span>
+</h1>
+
+
+<div class="hero-title">
+All Digital Services in One Place
 </div>
 
-<section class="hero">
-  <div class="hero-title">
-    YouTube Premium, VPN, Gemini, Chatgpt go এবং plus এবং আরো অনেক কিছু 🌐
-  </div>
-  <div class="hero-sub">
-    সাশ্রয়ী দামে প্রিমিয়াম ডিজিটাল সার্ভিস • দ্রুত ও নিরাপদ ডেলিভারি।
-  </div>
-  <div class="hero-highlight">
-    <span class="text-bn">লগ-ইন তথ্য</span> ইনবক্সে পাঠানো হবে •
-    <span class="text-en">Discount offer</span> জানতে যোগাযোগ করুন 📞
-  </div>
-</section>
 
-<h2 class="section-title">সার্ভিস লিস্ট</h2>
+<p class="hero-description">
 
-<section class="products">
+TikTok Coin, Video Boost, VPN,
+Google Play Points, Google Play Quest
+Complete এবং আরও বিভিন্ন ডিজিটাল সার্ভিস
+সহজে ও দ্রুত পেতে আমাদের সাথে যোগাযোগ করুন।
 
-<!-- ১ -->
-<div class="product-card">
-  <div class="product-top">
-    <div class="product-index">১</div>
-    <div class="app-icon">▶️</div>
-    <strong>YouTube Premium</strong>
-  </div>
-  <p class="product-desc">
-    Ad-free, Background play, YouTube Music Premium – সব একসাথে।
-  </p>
-  <div class="price-box">
-    Single • 30 day – <span class="text-bn">30 Tk</span><br>
-    Family • 30 day – <span class="text-bn">50 Tk</span>
-    <div class="benefits">
-      • ভিডিওতে আর কোন বিজ্ঞাপন নেই<br>
-      • স্ক্রিন বন্ধ করেও গান/ভিডিও চলবে<br>
-      • অফলাইন সেভ করে পরে দেখতে পারবেন<br>
-      • YouTube Music Premium ফুল অ্যাক্সেস
-    </div>
-  </div>
+</p>
+
+
+<div class="trust">
+
+<span>
+⚡ Fast Delivery
+</span>
+
+<span>
+🛡️ Secure Service
+</span>
+
+<span>
+✅ Trusted Service
+</span>
+
 </div>
 
-<!-- ২ -->
-<div class="product-card">
-  <div class="product-top">
-    <div class="product-index">২</div>
-    <div class="app-icon">🛡️</div>
-    <strong>Premium VPN</strong>
-  </div>
-  <p class="product-desc">
-    All VPN • Streaming • Privacy • Gaming – সব প্ল্যাটফর্মে প্রিমিয়াম এক্সেস।
-  </p>
-  <div class="price-box">
-    All VPN • 3–7 day – <span class="text-bn">20 Tk</span><br>
-    HMA • 30 day – <span class="text-bn">50 Tk</span>
-    <div class="benefits">
-      • অনলাইনে গোপনীয়তা ও সিকিউরিটি বাড়ায়<br>
-      • স্ট্রিমিং প্ল্যাটফর্মে ব্লক কন্টেন্ট আনলক<br>
-      • গেমিংয়ের জন্য কম লেটেন্সি সার্ভার<br>
-      • একাধিক লোকেশন/কান্ট্রি সিলেকশন
-    </div>
-  </div>
 </div>
 
-<!-- ৩ -->
-<div class="product-card">
-  <div class="product-top">
-    <div class="product-index">৩</div>
-    <div class="app-icon">✨</div>
-    <strong>Gemini Premium</strong>
-  </div>
-  <p class="product-desc">
-    Google Gemini AI – স্টাডি, কোডিং, কনটেন্ট ক্রিয়েশন সব কিছুর স্মার্ট সহকারী।
-  </p>
-  <div class="price-box">
-    Gemini • 30 day – <span class="text-bn">40 Tk</span>
-    <div class="benefits">
-      • Gemini Advanced দিয়ে স্মার্ট রিপ্লাই<br>
-      • বড় লেখা/ডকুমেন্ট বুঝে কাজ করে<br>
-      • কোড লেখা ও ডিবাগ হেল্প<br>
-      • ইমেজ ও স্ক্রিনশট অ্যানালাইসিস<br>
-      • কনটেন্ট রাইটিং ও স্ক্রিপ্ট হেল্প
-    </div>
-  </div>
+
+
+<!-- HERO VISUAL -->
+
+<div class="hero-visual">
+
+
+<div class="float-card one">
+
+<div class="float-icon">
+🪙
 </div>
 
-<!-- ৪ -->
-<div class="product-card">
-  <div class="product-top">
-    <div class="product-index">৪</div>
-    <div class="app-icon">🎛️</div>
-    <strong>Other Premium Apps</strong>
-  </div>
-  <p class="product-desc">
-    Spotify, Netflix, Canva, ChatGPT ইত্যাদি – কাস্টম প্রিমিয়াম প্যাক।
-  </p>
-  <div class="price-box">
-    Custom order – ইনবক্সে জানুন
-    <div class="benefits">
-      • Spotify আনলিমিটেড গান<br>
-      • Netflix প্রিমিয়াম মুভি/সিরিজ<br>
-      • Canva প্রো ডিজাইন টুল<br>
-      • ChatGPT প্রোডাক্টিভিটি হেল্প
-    </div>
-  </div>
+TikTok Coin
+
 </div>
 
-<!-- ৫ -->
-<div class="product-card">
-  <div class="product-top">
-    <div class="product-index">৫</div>
-    <div class="app-icon">📱</div>
-    <strong>Android Remote Panel</strong>
-  </div>
-  <p class="product-desc">
-    যেকোন Android ডিভাইসের জন্য Remote Access Setup
-  </p>
-  <div class="price-box">
-    Remote setup (ডিটেইলস ইনবক্সে)
-    <div class="benefits">
-      • যেকোন ফোন রিমোটলি কন্ট্রোল<br>
-      • ফোনের গ্যালারি, কন্টাক্ট লিস্ট<br>
-      • কল লগ চেক, লাইভ স্ক্রিন মনিটর<br>
-      • নোটিফিকেশন, স্ক্রিনশট, স্ক্রিনরেকর্ড<br>
-      • ভয়েস রেকর্ড, বেসিক অটোমেশন<br>
-      • স্টেপ-বাই-স্টেপ গাইডলাইন
-    </div>
-  </div>
+
+<div class="float-card two">
+
+<div class="float-icon">
+🎮
 </div>
 
-<!-- ৬ -->
-<div class="product-card">
-  <div class="product-top">
-    <div class="product-index">৬</div>
-    <div class="app-icon">💻</div>
-    <strong>Termux Service (FREE)</strong>
-  </div>
-  <p class="product-desc">
-    ফ্রি ফ্রি ফ্রি – Termux সেটাপ ও অন্যান্য অনেক কিছু (লার্নিং পারপাসে)।
-  </p>
-  <div class="price-box">
-    সার্ভিস ফি – <span class="text-bn">0 টাকা</span>
-    <div class="benefits">
-      • Termux ইনস্টল ও বেসিক সেটআপ<br>
-      • দরকারি প্যাকেজ/টুল ইউজ গাইড<br>
-      • নিজের ডিভাইসে সেফ প্র্যাকটিস<br>
-      • কাস্টম হেল্প নেওয়ার সুযোগ
-    </div>
-  </div>
+Google Play
+
+</div>
+
+
+<div class="float-card three">
+
+<div class="float-icon">
+🛡️
+</div>
+
+VPN Service
+
+</div>
+
+
+<div class="phone">
+
+<div class="phone-content">
+
+<div class="phone-logo">
+P
+</div>
+
+<h3>
+Piyas <span>Digital</span>
+</h3>
+
+</div>
+
+</div>
+
+
+</div>
+
 </div>
 
 </section>
 
-<section class="footer-contact">
-  <h3>যোগাযোগ</h3>
-  <div class="contact-btns">
-    <a class="contact-btn" href="https://wa.me/8801925681872">WhatsApp</a>
-    <a class="contact-btn" href="https://t.me/Teach_with_bd">Telegram</a>
-    <a class="contact-btn" href="https://www.facebook.com/profile.php?id=100083526175690">Messenger</a>
-  </div>
-</section>
+
+
+<!-- =========================================================
+     SERVICES
+========================================================= -->
+
+<section class="section" id="services">
+
+<div class="container">
+
+
+<div class="section-heading">
+
+<div class="small">
+আমাদের সার্ভিসসমূহ
+</div>
+
+<h2>
+Our Popular Services
+</h2>
+
+<p>
+আপনার প্রয়োজনীয় ডিজিটাল সার্ভিস এক জায়গায়।
+</p>
 
 </div>
+
+
+
+<div class="services-grid">
+
+
+<!-- TikTok Coin -->
+
+<div class="service-card">
+
+<div class="service-icon">
+🪙
 </div>
+
+<h3>
+TikTok Coin
+</h3>
+
+<p>
+সব ধরনের TikTok Coin
+সার্ভিসের জন্য যোগাযোগ করুন।
+</p>
+
+<a
+href="https://api.whatsapp.com/send?phone=8801925681872&text=আসসালামু%20আলাইকুম%2C%20আমি%20TikTok%20Coin%20service%20নিতে%20চাই।"
+class="order-btn"
+target="_blank"
+rel="noopener noreferrer">
+
+🛒 Order Now
+
+</a>
+
+</div>
+
+
+
+<!-- TikTok Video Boost -->
+
+<div class="service-card">
+
+<div class="service-icon">
+🚀
+</div>
+
+<h3>
+TikTok Video Boost
+</h3>
+
+<p>
+আপনার ভিডিওর ভিউ ও
+রিচ বাড়াতে যোগাযোগ করুন।
+</p>
+
+<a
+href="https://api.whatsapp.com/send?phone=8801925681872&text=আসসালামু%20আলাইকুম%2C%20আমি%20TikTok%20Video%20Boost%20service%20নিতে%20চাই।"
+class="order-btn"
+target="_blank"
+rel="noopener noreferrer">
+
+🛒 Order Now
+
+</a>
+
+</div>
+
+
+
+<!-- VPN -->
+
+<div class="service-card">
+
+<div class="service-icon">
+🛡️
+</div>
+
+<h3>
+VPN Service
+</h3>
+
+<p>
+Fast & Secure VPN
+সার্ভিস সম্পর্কে জানুন।
+</p>
+
+<a
+href="https://api.whatsapp.com/send?phone=8801925681872&text=আসসালামু%20আলাইকুম%2C%20আমি%20VPN%20service%20নিতে%20চাই।"
+class="order-btn"
+target="_blank"
+rel="noopener noreferrer">
+
+🛒 Order Now
+
+</a>
+
+</div>
+
+
+
+<!-- Google Play Points -->
+
+<div class="service-card">
+
+<div class="service-icon">
+
+<div class="play-icon">
+▶️
+</div>
+
+</div>
+
+<h3>
+Google Play Points
+</h3>
+
+<p>
+Google Play Points
+Top-Up Service।
+</p>
+
+<a
+href="https://api.whatsapp.com/send?phone=8801925681872&text=আসসালামু%20আলাইকুম%2C%20আমি%20Google%20Play%20Points%20service%20নিতে%20চাই।"
+class="order-btn"
+target="_blank"
+rel="noopener noreferrer">
+
+🛒 Order Now
+
+</a>
+
+</div>
+
+
+
+<!-- Google Play Quest -->
+
+<div class="service-card">
+
+<div class="service-icon">
+🏆
+</div>
+
+<h3>
+Google Play Quest
+</h3>
+
+<p>
+Google Play Quest
+Complete করে নিন।
+</p>
+
+<a
+href="https://api.whatsapp.com/send?phone=8801925681872&text=আসসালামু%20আলাইকুম%2C%20আমি%20Google%20Play%20Quest%20Complete%20service%20নিতে%20চাই।"
+class="order-btn"
+target="_blank"
+rel="noopener noreferrer">
+
+🛒 Order Now
+
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     WHY US
+========================================================= -->
+
+<section class="section" id="why">
+
+<div class="container">
+
+
+<div class="section-heading">
+
+<div class="small">
+কেন আমাদের বেছে নিবেন?
+</div>
+
+<h2>
+Why Choose Us?
+</h2>
+
+</div>
+
+
+
+<div class="why-box">
+
+
+<div class="why-card">
+
+<div class="why-icon">
+⚡
+</div>
+
+<h3>
+Fast Delivery
+</h3>
+
+<p>
+দ্রুত সময়ের মধ্যে
+সার্ভিস প্রদান করি।
+</p>
+
+</div>
+
+
+
+<div class="why-card">
+
+<div class="why-icon">
+🛡️
+</div>
+
+<h3>
+Secure Service
+</h3>
+
+<p>
+আপনার তথ্য ও সার্ভিসের
+নিরাপত্তাকে গুরুত্ব দিই।
+</p>
+
+</div>
+
+
+
+<div class="why-card">
+
+<div class="why-icon">
+🎧
+</div>
+
+<h3>
+Customer Support
+</h3>
+
+<p>
+সার্ভিস সংক্রান্ত প্রয়োজনে
+সহযোগিতা প্রদান করি।
+</p>
+
+</div>
+
+
+
+<div class="why-card">
+
+<div class="why-icon">
+🏅
+</div>
+
+<h3>
+Professional Service
+</h3>
+
+<p>
+সুশৃঙ্খল ও দায়িত্বশীলভাবে
+সার্ভিস প্রদান করার চেষ্টা করি।
+</p>
+
+</div>
+
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section class="contact-section" id="contact">
+
+<div class="container">
+
+
+<div class="contact-box">
+
+<h2>
+✨ আপনার প্রয়োজনীয় সার্ভিসটি বেছে নিন
+</h2>
+
+<p>
+
+আপনার প্রয়োজনীয় সার্ভিসের
+<strong>🛒 Order Now</strong> বাটনে ক্লিক করে
+অর্ডার করতে পারবেন।
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+
+<footer>
+
+<div class="container">
+
+
+<div class="footer-grid">
+
+
+<div>
+
+<div class="footer-logo">
+Piyas <span>Digital</span>
+</div>
+
+<p class="footer-about">
+
+আপনার জন্য দ্রুত, নির্ভরযোগ্য এবং
+প্রফেশনাল ডিজিটাল সার্ভিস প্রদান করতে
+আমরা প্রতিশ্রুতিবদ্ধ।
+
+</p>
+
+</div>
+
+
+
+<div>
+
+<div class="footer-title">
+Quick Links
+</div>
+
+<div class="footer-links">
+
+<a href="#home">
+Home
+</a>
+
+<a href="#services">
+Services
+</a>
+
+<a href="#why">
+Why Us
+</a>
+
+<a href="#contact">
+Contact
+</a>
+
+</div>
+
+</div>
+
+
+
+<div>
+
+<div class="footer-title">
+Our Services
+</div>
+
+<div class="footer-links">
+
+<a href="#services">
+🪙 TikTok Coin
+</a>
+
+<a href="#services">
+🚀 TikTok Video Boost
+</a>
+
+<a href="#services">
+🛡️ VPN Service
+</a>
+
+<a href="#services">
+▶️ Google Play Points
+</a>
+
+<a href="#services">
+🏆 Google Play Quest
+</a>
+
+</div>
+
+</div>
+
+
+
+<div>
+
+<div class="footer-title">
+Connect With Us
+</div>
+
+<div class="footer-links">
+
+<a
+href="https://www.facebook.com/profile.php?id=100083526175690"
+target="_blank"
+rel="noopener noreferrer">
+
+🔵 Facebook Profile
+
+</a>
+
+
+<a
+href="https://www.tiktok.com/@Teach_with_bd"
+target="_blank"
+rel="noopener noreferrer">
+
+🎵 @Teach_with_bd
+
+</a>
+
+</div>
+
+</div>
+
+
+</div>
+
+
+
+<div class="footer-bottom">
+
+<div>
+© 2026 Piyas Digital. All Rights Reserved.
+</div>
+
+<div>
+Digital Services Provider
+</div>
+
+</div>
+
+
+</div>
+
+</footer>
+
+
 </body>
+
 </html>
