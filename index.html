@@ -6,7 +6,6 @@
 
   <title>Piyas Chat</title>
 
-  <!-- Supabase -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
   <style>
@@ -33,27 +32,23 @@
       cursor: pointer;
     }
 
-    input {
-      font-family: Arial, sans-serif;
-    }
-
-    /* ================================
+    /* =========================
        APP
-    ================================= */
+    ========================= */
 
     .app {
       width: 100%;
       max-width: 1100px;
       height: 100vh;
       margin: auto;
-      background: #fff;
+      background: #ffffff;
       display: flex;
       overflow: hidden;
     }
 
-    /* ================================
-       AUTH
-    ================================= */
+    /* =========================
+       LOGIN
+    ========================= */
 
     .auth {
       width: 100%;
@@ -69,7 +64,7 @@
       max-width: 400px;
       padding: 30px;
       border-radius: 20px;
-      background: #fff;
+      background: #ffffff;
       box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
     }
 
@@ -105,7 +100,7 @@
       padding: 14px;
       border-radius: 10px;
       background: #16a34a;
-      color: white;
+      color: #ffffff;
       font-size: 16px;
       font-weight: bold;
     }
@@ -116,7 +111,7 @@
       margin-top: 10px;
       border-radius: 10px;
       background: #f1f5f9;
-      color: #111;
+      color: #111111;
       font-size: 15px;
     }
 
@@ -127,14 +122,14 @@
       min-height: 18px;
     }
 
-    /* ================================
+    /* =========================
        SIDEBAR
-    ================================= */
+    ========================= */
 
     .sidebar {
       width: 320px;
       height: 100%;
-      border-right: 1px solid #eee;
+      border-right: 1px solid #eeeeee;
       display: flex;
       flex-direction: column;
       flex-shrink: 0;
@@ -142,7 +137,7 @@
 
     .sidebar-header {
       padding: 18px;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #eeeeee;
     }
 
     .brand {
@@ -151,7 +146,7 @@
     }
 
     .my-email {
-      color: #777;
+      color: #777777;
       font-size: 12px;
       margin-top: 5px;
       overflow: hidden;
@@ -180,7 +175,6 @@
       gap: 12px;
       cursor: pointer;
       border-bottom: 1px solid #f1f1f1;
-      transition: background 0.15s;
     }
 
     .user:hover {
@@ -193,7 +187,7 @@
       min-width: 45px;
       border-radius: 50%;
       background: #16a34a;
-      color: white;
+      color: #ffffff;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -203,18 +197,18 @@
 
     .user-name {
       font-weight: bold;
-      color: #111;
+      color: #111111;
     }
 
     .user-status {
       font-size: 12px;
-      color: #777;
+      color: #777777;
       margin-top: 3px;
     }
 
-    /* ================================
+    /* =========================
        CHAT
-    ================================= */
+    ========================= */
 
     .chat {
       flex: 1;
@@ -222,13 +216,13 @@
       height: 100%;
       display: flex;
       flex-direction: column;
-      background: white;
+      background: #ffffff;
     }
 
     .chat-header {
       height: 70px;
       min-height: 70px;
-      border-bottom: 1px solid #eee;
+      border-bottom: 1px solid #eeeeee;
       display: flex;
       align-items: center;
       padding: 12px 18px;
@@ -259,7 +253,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      color: #999;
+      color: #999999;
       text-align: center;
       padding: 20px;
     }
@@ -278,15 +272,15 @@
     .sent {
       margin-left: auto;
       background: #16a34a;
-      color: white;
+      color: #ffffff;
       border-bottom-right-radius: 4px;
     }
 
     .received {
       margin-right: auto;
-      background: white;
-      color: #111;
-      border: 1px solid #eee;
+      background: #ffffff;
+      color: #111111;
+      border: 1px solid #eeeeee;
       border-bottom-left-radius: 4px;
     }
 
@@ -297,19 +291,23 @@
       opacity: 0.7;
     }
 
+    /* =========================
+       SEND AREA
+    ========================= */
+
     .send-area {
       padding: 12px;
-      border-top: 1px solid #eee;
+      border-top: 1px solid #eeeeee;
       display: flex;
       gap: 8px;
-      background: white;
+      background: #ffffff;
     }
 
     .message-input {
       width: auto;
       flex: 1;
       padding: 14px;
-      border: 1px solid #ddd;
+      border: 1px solid #dddddd;
       border-radius: 10px;
       outline: none;
       font-size: 15px;
@@ -325,7 +323,7 @@
       min-width: 55px;
       border-radius: 10px;
       background: #16a34a;
-      color: white;
+      color: #ffffff;
       font-size: 20px;
     }
 
@@ -336,46 +334,46 @@
       cursor: not-allowed;
     }
 
-    /* ================================
+    /* =========================
        MOBILE BACK
-    ================================= */
+    ========================= */
 
     .mobile-back {
       display: none;
       background: transparent;
+      color: #111111;
       font-size: 25px;
-      padding: 4px;
-      color: #111;
+      padding: 5px 10px;
     }
 
-    /* ================================
+    /* =========================
        MOBILE
-    ================================= */
+    ========================= */
 
     @media (max-width: 700px) {
 
       .app {
         width: 100%;
         height: 100vh;
+        max-width: none;
       }
 
       .sidebar {
         width: 100%;
+        height: 100%;
+        display: flex;
       }
 
       .chat {
         width: 100%;
-        min-width: 100%;
+        height: 100%;
+        display: none;
       }
 
       /*
-        মোবাইলে default অবস্থায় sidebar দেখাবে।
-        chat-open হলে sidebar লুকিয়ে Chat দেখাবে।
+        Chat open হলে sidebar hide
+        এবং chat show হবে।
       */
-
-      .app:not(.chat-open) .chat {
-        display: none;
-      }
 
       .app.chat-open .sidebar {
         display: none;
@@ -393,20 +391,24 @@
         max-width: 85%;
       }
 
+      .messages {
+        padding: 15px;
+      }
+
+      .send-area {
+        padding: 10px;
+      }
+
       .auth-box {
         padding: 25px 20px;
       }
     }
 
-    /* ================================
+    /* =========================
        DESKTOP
-    ================================= */
+    ========================= */
 
     @media (min-width: 701px) {
-
-      .mobile-back {
-        display: none;
-      }
 
       .sidebar {
         display: flex !important;
@@ -414,6 +416,10 @@
 
       .chat {
         display: flex !important;
+      }
+
+      .mobile-back {
+        display: none !important;
       }
     }
   </style>
@@ -423,9 +429,9 @@
 
   <div class="app" id="app">
 
-    <!-- ============================
+    <!-- =====================
          LOGIN / REGISTER
-    ============================= -->
+    ====================== -->
 
     <section class="auth" id="auth">
 
@@ -481,14 +487,13 @@
     </section>
 
 
-    <!-- ============================
+    <!-- =====================
          SIDEBAR
-    ============================= -->
+    ====================== -->
 
     <aside
       class="sidebar"
       id="sidebar"
-      style="display:none"
     >
 
       <div class="sidebar-header">
@@ -525,9 +530,9 @@
     </aside>
 
 
-    <!-- ============================
+    <!-- =====================
          CHAT
-    ============================= -->
+    ====================== -->
 
     <main
       class="chat"
@@ -539,7 +544,6 @@
         <button
           class="mobile-back"
           onclick="closeChat()"
-          aria-label="Back"
         >
           ←
         </button>
@@ -613,16 +617,15 @@
 
   <script>
 
-    /* =========================================
-       SUPABASE CONFIG
-    ========================================= */
+    /* =====================================
+       SUPABASE
+    ===================================== */
 
     const SUPABASE_URL =
       "https://uthadawkcwfpwcfijooz.supabase.co";
 
     const SUPABASE_KEY =
       "sb_publishable_twbqcof2uApf1-VrkMnOLA_p2mArS6f";
-
 
     const supabaseClient =
       window.supabase.createClient(
@@ -631,9 +634,9 @@
       );
 
 
-    /* =========================================
-       GLOBAL VARIABLES
-    ========================================= */
+    /* =====================================
+       VARIABLES
+    ===================================== */
 
     let currentUser = null;
     let selectedUser = null;
@@ -642,32 +645,33 @@
     let openingChat = false;
 
 
-    /* =========================================
-       ENABLE / DISABLE CHAT INPUT
-    ========================================= */
+    /* =====================================
+       INPUT ENABLE
+    ===================================== */
 
     function setChatInputEnabled(enabled) {
 
-      const input =
-        document.getElementById("messageInput");
+      document.getElementById(
+        "messageInput"
+      ).disabled = !enabled;
 
-      const button =
-        document.getElementById("sendBtn");
+      document.getElementById(
+        "sendBtn"
+      ).disabled = !enabled;
 
-      input.disabled = !enabled;
-      button.disabled = !enabled;
     }
 
 
-    /* =========================================
-       SHOW ERROR
-    ========================================= */
+    /* =====================================
+       ERROR
+    ===================================== */
 
     function showError(message) {
 
       document.getElementById(
         "authError"
       ).textContent = message;
+
     }
 
 
@@ -676,12 +680,13 @@
       document.getElementById(
         "authError"
       ).textContent = "";
+
     }
 
 
-    /* =========================================
-       SHOW LOGIN
-    ========================================= */
+    /* =====================================
+       LOGIN SCREEN
+    ===================================== */
 
     function showLogin() {
 
@@ -702,12 +707,13 @@
       ).classList.remove("chat-open");
 
       setChatInputEnabled(false);
+
     }
 
 
-    /* =========================================
-       SHOW CHAT APP
-    ========================================= */
+    /* =====================================
+       CHAT APP
+    ===================================== */
 
     async function showChatApp() {
 
@@ -719,15 +725,17 @@
         "auth"
       ).style.display = "none";
 
+      /*
+        Desktop:
+        Sidebar + Chat
+
+        Mobile:
+        Sidebar first.
+      */
+
       document.getElementById(
         "sidebar"
       ).style.display = "flex";
-
-      /*
-        গুরুত্বপূর্ণ:
-        এখানে chat display:none করা হচ্ছে না।
-        CSS mobile-এ chat-open অনুযায়ী দেখাবে।
-      */
 
       document.getElementById(
         "chat"
@@ -741,12 +749,13 @@
       await ensureOwnProfile();
 
       await loadUsers();
+
     }
 
 
-    /* =========================================
-       CHECK CURRENT USER
-    ========================================= */
+    /* =====================================
+       CHECK USER
+    ===================================== */
 
     async function checkUser() {
 
@@ -754,7 +763,9 @@
         data,
         error
       } =
-        await supabaseClient.auth.getUser();
+        await supabaseClient
+          .auth
+          .getUser();
 
       if (error) {
 
@@ -768,22 +779,28 @@
         return;
       }
 
-      if (data && data.user) {
+      if (
+        data &&
+        data.user
+      ) {
 
-        currentUser = data.user;
+        currentUser =
+          data.user;
 
         await showChatApp();
 
       } else {
 
         showLogin();
+
       }
+
     }
 
 
-    /* =========================================
+    /* =====================================
        LOGIN
-    ========================================= */
+    ===================================== */
 
     async function login() {
 
@@ -799,7 +816,10 @@
 
       clearError();
 
-      if (!email || !password) {
+      if (
+        !email ||
+        !password
+      ) {
 
         showError(
           "Email এবং password দাও"
@@ -808,19 +828,21 @@
         return;
       }
 
-      const btn =
+      const button =
         document.getElementById(
           "loginBtn"
         );
 
-      btn.disabled = true;
-      btn.textContent = "Logging in...";
+      button.disabled = true;
+      button.textContent =
+        "Logging in...";
 
       const {
         data,
         error
       } =
-        await supabaseClient.auth
+        await supabaseClient
+          .auth
           .signInWithPassword({
 
             email: email,
@@ -828,8 +850,9 @@
 
           });
 
-      btn.disabled = false;
-      btn.textContent = "Login";
+      button.disabled = false;
+      button.textContent =
+        "Login";
 
       if (error) {
 
@@ -844,12 +867,13 @@
         data.user;
 
       await showChatApp();
+
     }
 
 
-    /* =========================================
+    /* =====================================
        REGISTER
-    ========================================= */
+    ===================================== */
 
     async function register() {
 
@@ -865,7 +889,10 @@
 
       clearError();
 
-      if (!email || !password) {
+      if (
+        !email ||
+        !password
+      ) {
 
         showError(
           "Email এবং password দাও"
@@ -874,7 +901,9 @@
         return;
       }
 
-      if (password.length < 6) {
+      if (
+        password.length < 6
+      ) {
 
         showError(
           "Password কমপক্ষে ৬ অক্ষরের হতে হবে"
@@ -883,19 +912,21 @@
         return;
       }
 
-      const btn =
+      const button =
         document.getElementById(
           "registerBtn"
         );
 
-      btn.disabled = true;
-      btn.textContent = "Creating...";
+      button.disabled = true;
+      button.textContent =
+        "Creating...";
 
       const {
         data,
         error
       } =
-        await supabaseClient.auth
+        await supabaseClient
+          .auth
           .signUp({
 
             email: email,
@@ -903,8 +934,8 @@
 
           });
 
-      btn.disabled = false;
-      btn.textContent =
+      button.disabled = false;
+      button.textContent =
         "Create New Account";
 
       if (error) {
@@ -937,13 +968,15 @@
         showError(
           "Account তৈরি হয়েছে। Email verification শেষ করে Login করো।"
         );
+
       }
+
     }
 
 
-    /* =========================================
+    /* =====================================
        LOGOUT
-    ========================================= */
+    ===================================== */
 
     async function logout() {
 
@@ -955,6 +988,7 @@
           );
 
         realtimeChannel = null;
+
       }
 
       await supabaseClient
@@ -967,12 +1001,13 @@
       openingChat = false;
 
       showLogin();
+
     }
 
 
-    /* =========================================
-       ENSURE OWN PROFILE
-    ========================================= */
+    /* =====================================
+       PROFILE
+    ===================================== */
 
     async function ensureOwnProfile() {
 
@@ -1003,11 +1038,6 @@
         return;
       }
 
-      /*
-        Trigger যদি profile তৈরি করে থাকে,
-        তাহলে এখানেই পাওয়া যাবে।
-      */
-
       if (data) {
         return;
       }
@@ -1028,7 +1058,10 @@
       const username =
         base +
         "_" +
-        currentUser.id.slice(0, 6);
+        currentUser.id.slice(
+          0,
+          6
+        );
 
       const {
         error: insertError
@@ -1057,13 +1090,15 @@
           "Profile create:",
           insertError
         );
+
       }
+
     }
 
 
-    /* =========================================
+    /* =====================================
        LOAD USERS
-    ========================================= */
+    ===================================== */
 
     async function loadUsers() {
 
@@ -1073,7 +1108,11 @@
         );
 
       usersBox.innerHTML =
-        '<div class="empty">Loading users...</div>';
+        `
+        <div class="empty">
+          Loading users...
+        </div>
+        `;
 
       if (!currentUser) {
         return;
@@ -1102,15 +1141,17 @@
       if (error) {
 
         console.error(
-          "Users load:",
+          "Users:",
           error
         );
 
         usersBox.innerHTML =
           `
           <div class="empty">
-            Users load করা যায়নি।<br>
-            ${escapeHtml(error.message)}
+            Users load করা যায়নি।<br><br>
+            ${escapeHtml(
+              error.message
+            )}
           </div>
           `;
 
@@ -1152,7 +1193,8 @@
               "div"
             );
 
-          div.className = "user";
+          div.className =
+            "user";
 
           div.innerHTML =
             `
@@ -1161,32 +1203,46 @@
             </div>
 
             <div>
+
               <div class="user-name">
                 ${escapeHtml(name)}
               </div>
 
               <div class="user-status">
                 @${escapeHtml(
-                  user.username || "user"
+                  user.username ||
+                  "user"
                 )}
               </div>
+
             </div>
             `;
 
-          div.onclick =
+          /*
+            পুরো user row-তেই click
+            কাজ করবে।
+          */
+
+          div.addEventListener(
+            "click",
             function () {
               openChat(user);
-            };
+            }
+          );
 
-          usersBox.appendChild(div);
+          usersBox.appendChild(
+            div
+          );
+
         }
       );
+
     }
 
 
-    /* =========================================
+    /* =====================================
        OPEN CHAT
-    ========================================= */
+    ===================================== */
 
     async function openChat(user) {
 
@@ -1196,15 +1252,18 @@
 
       openingChat = true;
 
-      selectedUser = user;
+      selectedUser =
+        user;
 
       /*
-        মোবাইলে Chat screen খুলবে।
+        MOBILE CHAT OPEN
       */
 
       document.getElementById(
         "app"
-      ).classList.add("chat-open");
+      ).classList.add(
+        "chat-open"
+      );
 
       const name =
         user.display_name ||
@@ -1213,7 +1272,8 @@
 
       document.getElementById(
         "chatName"
-      ).textContent = name;
+      ).textContent =
+        name;
 
       document.getElementById(
         "chatAvatar"
@@ -1255,18 +1315,22 @@
 
       } finally {
 
-        openingChat = false;
+        openingChat =
+          false;
+
       }
+
     }
 
 
-    /* =========================================
+    /* =====================================
        FIND / CREATE CONVERSATION
-    ========================================= */
+    ===================================== */
 
     async function findConversation() {
 
-      selectedConversation = null;
+      selectedConversation =
+        null;
 
       if (
         !currentUser ||
@@ -1276,7 +1340,7 @@
       }
 
       /*
-        Existing conversation খুঁজবে।
+        আগে existing conversation খুঁজবে।
       */
 
       const {
@@ -1319,8 +1383,7 @@
       } else {
 
         /*
-          Conversation নেই,
-          তাই নতুন conversation তৈরি করবে।
+          নতুন conversation
         */
 
         const {
@@ -1351,12 +1414,12 @@
           );
 
           /*
-            দুইজন একই সময়ে chat খুললে
-            duplicate হতে পারে।
+            Duplicate হলে আবার খুঁজবে।
           */
 
           if (
-            createError.code === "23505"
+            createError.code ===
+            "23505"
           ) {
 
             const retry =
@@ -1401,7 +1464,9 @@
 
           selectedConversation =
             newConversation;
+
         }
+
       }
 
       if (!selectedConversation) {
@@ -1418,12 +1483,13 @@
       await loadMessages();
 
       subscribeRealtime();
+
     }
 
 
-    /* =========================================
+    /* =====================================
        LOAD MESSAGES
-    ========================================= */
+    ===================================== */
 
     async function loadMessages() {
 
@@ -1471,7 +1537,7 @@
       if (error) {
 
         console.error(
-          "Messages load:",
+          "Messages:",
           error
         );
 
@@ -1503,17 +1569,22 @@
 
       data.forEach(
         message => {
-          renderMessage(message);
+
+          renderMessage(
+            message
+          );
+
         }
       );
 
       scrollMessages();
+
     }
 
 
-    /* =========================================
+    /* =====================================
        RENDER MESSAGE
-    ========================================= */
+    ===================================== */
 
     function renderMessage(message) {
 
@@ -1521,10 +1592,6 @@
         document.getElementById(
           "messages"
         );
-
-      /*
-        Empty message থাকলে remove করবে।
-      */
 
       const empty =
         box.querySelector(
@@ -1536,7 +1603,7 @@
       }
 
       /*
-        একই message দুইবার দেখাবে না।
+        Duplicate আটকানো।
       */
 
       if (
@@ -1545,6 +1612,7 @@
           `[data-message-id="${message.id}"]`
         )
       ) {
+
         return;
       }
 
@@ -1557,6 +1625,7 @@
 
         div.dataset.messageId =
           message.id;
+
       }
 
       div.className =
@@ -1590,15 +1659,18 @@
         </span>
         `;
 
-      box.appendChild(div);
+      box.appendChild(
+        div
+      );
 
       scrollMessages();
+
     }
 
 
-    /* =========================================
+    /* =====================================
        SEND MESSAGE
-    ========================================= */
+    ===================================== */
 
     async function sendMessage() {
 
@@ -1620,6 +1692,7 @@
         !selectedConversation ||
         !currentUser
       ) {
+
         return;
       }
 
@@ -1676,23 +1749,22 @@
         নিজের message সঙ্গে সঙ্গে দেখাবে।
       */
 
-      renderMessage(data);
+      renderMessage(
+        data
+      );
+
     }
 
 
-    /* =========================================
+    /* =====================================
        REALTIME
-    ========================================= */
+    ===================================== */
 
     function subscribeRealtime() {
 
       if (!selectedConversation) {
         return;
       }
-
-      /*
-        পুরোনো channel বন্ধ করবে।
-      */
 
       if (realtimeChannel) {
 
@@ -1701,7 +1773,8 @@
             realtimeChannel
           );
 
-        realtimeChannel = null;
+        realtimeChannel =
+          null;
       }
 
       const conversationId =
@@ -1732,6 +1805,7 @@
                 !currentUser ||
                 !selectedConversation
               ) {
+
                 return;
               }
 
@@ -1753,25 +1827,30 @@
                   renderMessage(
                     payload.new
                   );
+
                 }
+
               }
+
             }
           )
           .subscribe(
             status => {
 
               console.log(
-                "Realtime status:",
+                "Realtime:",
                 status
               );
+
             }
           );
+
     }
 
 
-    /* =========================================
+    /* =====================================
        ENTER TO SEND
-    ========================================= */
+    ===================================== */
 
     function handleEnter(event) {
 
@@ -1783,13 +1862,15 @@
         event.preventDefault();
 
         sendMessage();
+
       }
+
     }
 
 
-    /* =========================================
+    /* =====================================
        CLOSE CHAT
-    ========================================= */
+    ===================================== */
 
     function closeChat() {
 
@@ -1806,11 +1887,15 @@
             realtimeChannel
           );
 
-        realtimeChannel = null;
+        realtimeChannel =
+          null;
+
       }
 
       selectedUser = null;
-      selectedConversation = null;
+
+      selectedConversation =
+        null;
 
       setChatInputEnabled(false);
 
@@ -1832,12 +1917,13 @@
           একজন user নির্বাচন করে chat শুরু করো 💬
         </div>
         `;
+
     }
 
 
-    /* =========================================
-       SHOW MESSAGE AREA
-    ========================================= */
+    /* =====================================
+       MESSAGE AREA
+    ===================================== */
 
     function showMessageArea(text) {
 
@@ -1849,12 +1935,13 @@
           ${escapeHtml(text)}
         </div>
         `;
+
     }
 
 
-    /* =========================================
+    /* =====================================
        SCROLL
-    ========================================= */
+    ===================================== */
 
     function scrollMessages() {
 
@@ -1865,12 +1952,13 @@
 
       box.scrollTop =
         box.scrollHeight;
+
     }
 
 
-    /* =========================================
+    /* =====================================
        ESCAPE HTML
-    ========================================= */
+    ===================================== */
 
     function escapeHtml(text) {
 
@@ -1900,21 +1988,16 @@
           /'/g,
           "&#039;"
         );
+
     }
 
 
-    /* =========================================
-       AUTH STATE LISTENER
-    ========================================= */
+    /* =====================================
+       AUTH STATE
+    ===================================== */
 
     supabaseClient.auth.onAuthStateChange(
       (event, session) => {
-
-        /*
-          setTimeout ব্যবহার করা হয়েছে যাতে
-          Supabase auth callback-এর ভিতরে
-          অন্য auth call-এর conflict না হয়।
-        */
 
         setTimeout(
           async () => {
@@ -1931,18 +2014,20 @@
               currentUser = null;
 
               showLogin();
+
             }
 
           },
           0
         );
+
       }
     );
 
 
-    /* =========================================
-       START APP
-    ========================================= */
+    /* =====================================
+       START
+    ===================================== */
 
     checkUser();
 
