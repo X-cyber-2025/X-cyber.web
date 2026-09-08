@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
+
 <meta charset="UTF-8">
 
 <meta name="viewport"
@@ -11,13 +12,19 @@ user-scalable=no">
 
 <title>PIYAS - Digital Services</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Roboto+Slab:wght@500;600;700&display=swap"
 rel="stylesheet">
 
 <style>
+
+/* ================= RESET ================= */
 
 *{
     margin:0;
@@ -27,7 +34,6 @@ rel="stylesheet">
 }
 
 html{
-    -webkit-text-size-adjust:100%;
     touch-action:manipulation;
 }
 
@@ -36,17 +42,19 @@ body{
     background:#f0f2f8;
     color:#25344a;
     padding-bottom:85px;
+    overscroll-behavior:none;
 }
 
-/* HEADER */
+
+/* ================= HEADER ================= */
 
 .header{
-    height:65px;
+    height:78px;
     background:#ffffff;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 15px;
+    padding:0 18px;
     box-shadow:0 3px 15px rgba(0,0,0,.08);
     border-top:3px solid #ff3d56;
     position:sticky;
@@ -57,16 +65,17 @@ body{
 .logo{
     display:flex;
     align-items:center;
-    gap:5px;
-    font-size:20px;
+    gap:7px;
+    font-size:25px;
     font-weight:700;
-    letter-spacing:.5px;
+    letter-spacing:1px;
     color:#1f2d49;
 }
 
 .logo-icon{
     color:#ef2f61;
-    font-size:26px;
+    font-size:30px;
+    font-weight:bold;
 }
 
 .logo span{
@@ -74,23 +83,24 @@ body{
 }
 
 .menu-btn{
-    width:40px;
-    height:40px;
+    width:43px;
+    height:43px;
     border:none;
     background:#fff0f3;
     color:#ef2f61;
-    border-radius:12px;
-    font-size:22px;
+    border-radius:14px;
+    font-size:24px;
     cursor:pointer;
 }
 
-/* TOP BUTTONS */
+
+/* ================= TOP BUTTONS ================= */
 
 .top-links{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:7px;
-    padding:10px;
+    gap:8px;
+    padding:12px;
     background:#ffffff;
 }
 
@@ -99,7 +109,7 @@ body{
     background:#ff3d56;
     color:white;
     padding:9px 3px;
-    border-radius:8px;
+    border-radius:7px;
     text-align:center;
     font-size:11px;
     font-weight:700;
@@ -110,42 +120,47 @@ body{
     transform:scale(.96);
 }
 
-/* HERO */
+
+/* ================= HERO ================= */
 
 .hero{
-    padding:25px 15px 15px;
+    padding:28px 15px 20px;
     text-align:center;
 }
 
 .hero h1{
     font-family:"Roboto Slab",serif;
-    font-size:23px;
+    font-size:27px;
+    letter-spacing:1px;
     color:#30435c;
 }
 
 .hero p{
     color:#738096;
-    font-size:13px;
+    font-size:14px;
     margin-top:4px;
 }
 
-/* SECTION */
+
+/* ================= SECTION TITLE ================= */
 
 .section-title{
     font-family:"Roboto Slab",serif;
     text-align:center;
-    font-size:20px;
+    font-size:25px;
+    letter-spacing:1px;
     color:#30435c;
-    margin:18px 0;
+    margin:20px 0 20px;
 }
 
-/* SERVICES */
+
+/* ================= SERVICE GRID ================= */
 
 .services{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:22px 10px;
-    padding:0 14px;
+    gap:25px 12px;
+    padding:0 15px;
 }
 
 .service{
@@ -164,9 +179,10 @@ body{
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:37px;
-    margin-bottom:6px;
-    background:linear-gradient(145deg,#3a174b,#ff2d74);
+    font-size:38px;
+    margin-bottom:8px;
+    background:
+    linear-gradient(145deg,#3a174b,#ff2d74);
     box-shadow:0 7px 15px rgba(0,0,0,.13);
     border:1px solid rgba(255,255,255,.35);
 }
@@ -174,32 +190,36 @@ body{
 .service:nth-child(2) .service-image,
 .service:nth-child(5) .service-image,
 .service:nth-child(8) .service-image{
-    background:linear-gradient(145deg,#0c5e98,#39b9ed);
+    background:
+    linear-gradient(145deg,#0c5e98,#39b9ed);
 }
 
 .service:nth-child(3) .service-image,
 .service:nth-child(6) .service-image{
-    background:linear-gradient(145deg,#703510,#e8a12d);
+    background:
+    linear-gradient(145deg,#703510,#e8a12d);
 }
 
 .service:nth-child(4) .service-image,
 .service:nth-child(7) .service-image{
-    background:linear-gradient(145deg,#56348c,#a76dff);
+    background:
+    linear-gradient(145deg,#56348c,#a76dff);
 }
 
 .service-title{
     font-family:"Roboto Slab",serif;
-    font-size:11px;
+    font-size:13px;
     font-weight:600;
-    line-height:1.3;
-    min-height:32px;
+    line-height:1.35;
+    min-height:38px;
 }
 
 .service:active{
     transform:scale(.96);
 }
 
-/* SIDE MENU */
+
+/* ================= SIDE MENU ================= */
 
 .overlay{
     position:fixed;
@@ -272,7 +292,8 @@ body{
     cursor:pointer;
 }
 
-/* BOTTOM NAV */
+
+/* ================= BOTTOM NAV ================= */
 
 .bottom-nav{
     position:fixed;
@@ -293,7 +314,7 @@ body{
     background:transparent;
     color:#657084;
     font-family:inherit;
-    font-size:10px;
+    font-size:11px;
     font-weight:600;
     display:flex;
     flex-direction:column;
@@ -303,24 +324,25 @@ body{
 }
 
 .nav-icon{
-    font-size:22px;
+    font-size:23px;
 }
 
 .nav-item.active{
     color:#ef2f61;
 }
 
-/* DETAIL PAGE */
+
+/* ================= DETAIL PAGE ================= */
 
 #detailPage{
     display:none;
     min-height:100vh;
     background:#f0f2f8;
-    padding-bottom:20px;
+    padding-bottom:90px;
 }
 
 .detail-header{
-    height:65px;
+    height:70px;
     background:#ffffff;
     display:flex;
     align-items:center;
@@ -332,47 +354,47 @@ body{
 
 .back-btn{
     border:none;
-    width:40px;
-    height:40px;
-    border-radius:12px;
+    width:42px;
+    height:42px;
+    border-radius:14px;
     background:#fff0f3;
     color:#ef2f61;
-    font-size:23px;
+    font-size:25px;
 }
 
 .detail-title-small{
-    font-size:16px;
+    font-size:18px;
     font-weight:700;
     color:#2c3d55;
 }
 
 .detail-hero{
     text-align:center;
-    padding:25px 15px 15px;
+    padding:30px 15px 20px;
 }
 
 .detail-icon{
-    width:65px;
-    height:65px;
+    width:75px;
+    height:75px;
     margin:auto;
-    border-radius:20px;
+    border-radius:22px;
     background:linear-gradient(145deg,#ff2f6d,#9e2b84);
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:34px;
+    font-size:38px;
     box-shadow:0 10px 25px rgba(255,61,86,.25);
 }
 
 .detail-hero h1{
-    margin-top:10px;
-    font-size:22px;
+    margin-top:13px;
+    font-size:25px;
     color:#2e4058;
 }
 
 .detail-hero p{
     color:#718096;
-    font-size:13px;
+    font-size:14px;
     margin-top:4px;
 }
 
@@ -385,13 +407,13 @@ body{
 .detail-box{
     background:#ffffff;
     border-radius:18px;
-    padding:17px;
+    padding:18px;
     margin-bottom:14px;
     box-shadow:0 5px 18px rgba(0,0,0,.06);
 }
 
 .detail-box h2{
-    font-size:18px;
+    font-size:20px;
     color:#30435c;
     margin-bottom:10px;
 }
@@ -413,10 +435,11 @@ body{
     border-radius:10px;
     background:#f5f7fb;
     color:#4b5b70;
-    font-size:13px;
+    font-size:14px;
 }
 
-/* COUNTRIES */
+
+/* ================= COUNTRIES ================= */
 
 .countries{
     display:grid;
@@ -429,10 +452,11 @@ body{
     text-align:center;
     border-radius:10px;
     background:#f5f7fb;
-    font-size:12px;
+    font-size:13px;
 }
 
-/* OFFER */
+
+/* ================= OFFER ================= */
 
 .offer-grid{
     display:grid;
@@ -450,7 +474,8 @@ body{
     font-weight:700;
 }
 
-/* ADMIN */
+
+/* ================= ADMIN ================= */
 
 .admin{
     text-align:center;
@@ -476,7 +501,8 @@ body{
     font-weight:700;
 }
 
-/* WARNING */
+
+/* ================= WARNING ================= */
 
 .warning{
     background:#fff4f4;
@@ -487,27 +513,119 @@ body{
     color:#e63950;
 }
 
-/* MOBILE */
+
+/* ================= TELEGRAM STARS ================= */
+
+.stars-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:10px;
+    margin-top:15px;
+}
+
+.stars-grid button{
+    border:none;
+    padding:14px 7px;
+    border-radius:14px;
+    background:#f5f7fb;
+    color:#34445a;
+    font-family:"Hind Siliguri",sans-serif;
+    font-size:14px;
+    font-weight:700;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+    cursor:pointer;
+}
+
+.stars-grid button:active{
+    transform:scale(.96);
+}
+
+
+/* ================= ADMIN SELECT ================= */
+
+.admin-select{
+    margin-top:18px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.admin-card{
+    display:flex;
+    align-items:center;
+    gap:13px;
+    padding:14px;
+    border-radius:17px;
+    background:#f5f7fb;
+    text-decoration:none;
+    color:#33445b;
+}
+
+.admin-card:active{
+    transform:scale(.97);
+}
+
+.admin-avatar{
+    width:52px;
+    height:52px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#ffffff;
+    border-radius:16px;
+    font-size:28px;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+.admin-info{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+}
+
+.admin-info b{
+    font-size:18px;
+}
+
+.admin-info span{
+    font-size:13px;
+    color:#159d58;
+    margin-top:2px;
+}
+
+.admin-arrow{
+    font-size:30px;
+    color:#ef2f61;
+}
+
+
+/* ================= MOBILE ================= */
 
 @media(max-width:350px){
 
     .services{
-        gap:18px 7px;
+        gap:20px 8px;
         padding:0 10px;
     }
 
     .service-title{
-        font-size:10px;
+        font-size:11px;
     }
 
     .service-image{
         font-size:32px;
     }
 
+    .stars-grid button{
+        font-size:12px;
+    }
+
 }
 
 </style>
+
 </head>
+
 
 <body>
 
@@ -525,7 +643,9 @@ id="sideMenu">
 
 <div class="menu-header">
 
-<h2>PIYAS</h2>
+<h2>
+PIYAS
+</h2>
 
 <button class="close-menu"
 onclick="closeMenu()">
@@ -534,14 +654,20 @@ onclick="closeMenu()">
 
 </div>
 
+
 <button class="menu-item"
 onclick="openPage('admin')">
+
 👨‍💼 এডমিনদের যোগাযোগ
+
 </button>
+
 
 <button class="menu-item"
 onclick="openPage('warning')">
+
 ⚠️ গুরুত্বপূর্ণ সতর্কবার্তা
+
 </button>
 
 </div>
@@ -551,21 +677,29 @@ onclick="openPage('warning')">
 
 <div id="homePage">
 
+
 <header class="header">
 
 <div class="logo">
 
-<span class="logo-icon">⚡</span>
+<span class="logo-icon">
+⚡
+</span>
 
 PIYAS
 
-<span>SERVICES</span>
+<span>
+SERVICES
+</span>
 
 </div>
 
+
 <button class="menu-btn"
 onclick="openMenu()">
+
 ☰
+
 </button>
 
 </header>
@@ -575,25 +709,33 @@ onclick="openMenu()">
 
 <div class="top-links">
 
+
 <a href="https://t.me/Teach_with_bd"
 target="_blank"
 class="top-btn">
+
 ✈️ Telegram
+
 </a>
 
 
 <a href="https://chat.whatsapp.com/DzeUDoeYVhV7OShIndRKQt?s=cl&p=a&mlu=4&ilr=4"
 target="_blank"
 class="top-btn">
+
 👥 Join Group
+
 </a>
 
 
 <a href="https://wa.me/8801925681872"
 target="_blank"
 class="top-btn">
+
 💬 WhatsApp
+
 </a>
+
 
 </div>
 
@@ -626,7 +768,9 @@ SPECIAL OFFER
 <button class="service"
 onclick="openPage('playpoints')">
 
-<div class="service-image">🎮</div>
+<div class="service-image">
+🎮
+</div>
 
 <div class="service-title">
 Google Play Points
@@ -638,7 +782,9 @@ Google Play Points
 <button class="service"
 onclick="openPage('parkon')">
 
-<div class="service-image">🅿️</div>
+<div class="service-image">
+🅿️
+</div>
 
 <div class="service-title">
 Play Points Park ON
@@ -650,13 +796,16 @@ Play Points Park ON
 <button class="service"
 onclick="openPage('offer')">
 
-<div class="service-image">🎁</div>
+<div class="service-image">
+🎁
+</div>
 
 <div class="service-title">
 Google Play Offer
 </div>
 
 </button>
+
 
 </div>
 
@@ -674,7 +823,9 @@ POPULAR SERVICES
 <button class="service"
 onclick="openPage('quest')">
 
-<div class="service-image">🎯</div>
+<div class="service-image">
+🎯
+</div>
 
 <div class="service-title">
 Quest Complete
@@ -683,10 +834,28 @@ Quest Complete
 </button>
 
 
+<!-- TELEGRAM STARS -->
+
+<button class="service"
+onclick="openPage('telegramstars')">
+
+<div class="service-image">
+⭐
+</div>
+
+<div class="service-title">
+Telegram Stars
+</div>
+
+</button>
+
+
 <button class="service"
 onclick="openPage('tiktok')">
 
-<div class="service-image">🪙</div>
+<div class="service-image">
+🪙
+</div>
 
 <div class="service-title">
 TikTok Coin ও Boost
@@ -698,7 +867,9 @@ TikTok Coin ও Boost
 <button class="service"
 onclick="openPage('youtube')">
 
-<div class="service-image">▶️</div>
+<div class="service-image">
+▶️
+</div>
 
 <div class="service-title">
 YouTube Premium
@@ -710,7 +881,9 @@ YouTube Premium
 <button class="service"
 onclick="openPage('vpn')">
 
-<div class="service-image">🌐</div>
+<div class="service-image">
+🌐
+</div>
 
 <div class="service-title">
 VPN সার্ভিস
@@ -722,7 +895,9 @@ VPN সার্ভিস
 <button class="service"
 onclick="openPage('whyus')">
 
-<div class="service-image">👑</div>
+<div class="service-image">
+👑
+</div>
 
 <div class="service-title">
 কেন আমাদের বেছে নেবেন?
@@ -734,7 +909,9 @@ onclick="openPage('whyus')">
 <button class="service"
 onclick="openPage('admin')">
 
-<div class="service-image">👨‍💼</div>
+<div class="service-image">
+👨‍💼
+</div>
 
 <div class="service-title">
 Admin Contact
@@ -742,7 +919,9 @@ Admin Contact
 
 </button>
 
+
 </div>
+
 
 </div>
 
@@ -751,10 +930,13 @@ Admin Contact
 
 <nav class="bottom-nav">
 
+
 <button class="nav-item active"
 onclick="goHome()">
 
-<div class="nav-icon">⌂</div>
+<div class="nav-icon">
+⌂
+</div>
 
 Home
 
@@ -764,7 +946,9 @@ Home
 <button class="nav-item"
 onclick="openPage('tutorial')">
 
-<div class="nav-icon">📖</div>
+<div class="nav-icon">
+▣
+</div>
 
 Tutorial
 
@@ -774,7 +958,9 @@ Tutorial
 <button class="nav-item"
 onclick="scrollToServices()">
 
-<div class="nav-icon">▦</div>
+<div class="nav-icon">
+▦
+</div>
 
 Services
 
@@ -784,11 +970,14 @@ Services
 <button class="nav-item"
 onclick="openPage('admin')">
 
-<div class="nav-icon">🎧</div>
+<div class="nav-icon">
+🎧
+</div>
 
 Contact Us
 
 </button>
+
 
 </nav>
 
@@ -797,35 +986,49 @@ Contact Us
 
 <div id="detailPage">
 
+
 <header class="detail-header">
+
 
 <button class="back-btn"
 onclick="goHome()">
+
 ←
+
 </button>
+
 
 <div class="detail-title-small"
 id="headerTitle">
+
 বিস্তারিত
+
 </div>
+
 
 </header>
 
 
 <section class="detail-hero">
 
+
 <div class="detail-icon"
 id="detailIcon">
+
 🌟
+
 </div>
+
 
 <h1 id="detailTitle">
 বিস্তারিত
 </h1>
 
+
 <p id="detailSubtitle">
 সার্ভিস সম্পর্কে বিস্তারিত তথ্য
 </p>
+
 
 </section>
 
@@ -834,39 +1037,51 @@ id="detailIcon">
 id="detailContent">
 </div>
 
+
 </div>
 
 
 <script>
 
-/* MENU */
+
+/* ================= MENU ================= */
 
 function openMenu(){
 
-document.getElementById("sideMenu")
-.classList.add("active");
+document
+.getElementById("sideMenu")
+.classList
+.add("active");
 
-document.getElementById("overlay")
-.classList.add("active");
+document
+.getElementById("overlay")
+.classList
+.add("active");
 
 }
 
 
 function closeMenu(){
 
-document.getElementById("sideMenu")
-.classList.remove("active");
+document
+.getElementById("sideMenu")
+.classList
+.remove("active");
 
-document.getElementById("overlay")
-.classList.remove("active");
+document
+.getElementById("overlay")
+.classList
+.remove("active");
 
 }
 
 
-/* PAGE DATA */
+/* ================= PAGE DATA ================= */
 
 const pages={
 
+
+/* GOOGLE PLAY POINTS */
 
 playpoints:{
 
@@ -880,25 +1095,39 @@ content:`
 
 <div class="detail-box">
 
-<h2>🎮 Google Play Points</h2>
+<h2>
+🎮 Google Play Points
+</h2>
 
 <p>
 আমাদের মাধ্যমে Google Play Points সংক্রান্ত বিভিন্ন সার্ভিস পাওয়া যায়।
 </p>
 
-<h2>🌍 যেসব দেশের Play Points</h2>
+<h2>
+🌍 যেসব দেশের Play Points
+</h2>
 
 <div class="countries">
 
-<div class="country">🇯🇵 Japan</div>
+<div class="country">
+🇯🇵 Japan
+</div>
 
-<div class="country">🇭🇰 Hong Kong</div>
+<div class="country">
+🇭🇰 Hong Kong
+</div>
 
-<div class="country">🇸🇦 Saudi Arabia</div>
+<div class="country">
+🇸🇦 Saudi Arabia
+</div>
 
-<div class="country">🇺🇸 USA</div>
+<div class="country">
+🇺🇸 USA
+</div>
 
-<div class="country">🇬🇧 UK</div>
+<div class="country">
+🇬🇧 UK
+</div>
 
 </div>
 
@@ -908,6 +1137,8 @@ content:`
 
 },
 
+
+/* PARK ON */
 
 parkon:{
 
@@ -921,7 +1152,9 @@ content:`
 
 <div class="detail-box">
 
-<h2>🅿️ Play Points Park ON</h2>
+<h2>
+🅿️ Play Points Park ON
+</h2>
 
 <p>
 Google Play Points Park ON সংক্রান্ত সার্ভিসের জন্য যোগাযোগ করুন।
@@ -929,13 +1162,21 @@ Google Play Points Park ON সংক্রান্ত সার্ভিসে�
 
 <ul>
 
-<li>🎁 বিভিন্ন Play Points সুবিধা</li>
+<li>
+🎁 বিভিন্ন Play Points সুবিধা
+</li>
 
-<li>📅 সাপ্তাহিক সুযোগ</li>
+<li>
+📅 সাপ্তাহিক সুযোগ
+</li>
 
-<li>🏆 Points পরিবর্তিত হতে পারে</li>
+<li>
+🏆 Points পরিবর্তিত হতে পারে
+</li>
 
-<li>🫶 বিস্তারিত জানতে যোগাযোগ করুন</li>
+<li>
+🫶 বিস্তারিত জানতে যোগাযোগ করুন
+</li>
 
 </ul>
 
@@ -945,6 +1186,8 @@ Google Play Points Park ON সংক্রান্ত সার্ভিসে�
 
 },
 
+
+/* QUEST */
 
 quest:{
 
@@ -958,7 +1201,9 @@ content:`
 
 <div class="detail-box">
 
-<h2>🎯 Quest Complete</h2>
+<h2>
+🎯 Quest Complete
+</h2>
 
 <p>
 বিভিন্ন Google Play Points Quest সংক্রান্ত সার্ভিস পাওয়া যায়।
@@ -966,11 +1211,17 @@ content:`
 
 <ul>
 
-<li>🎯 বিভিন্ন Quest</li>
+<li>
+🎯 বিভিন্ন Quest
+</li>
 
-<li>📋 প্রয়োজন অনুযায়ী সার্ভিস</li>
+<li>
+📋 প্রয়োজন অনুযায়ী সার্ভিস
+</li>
 
-<li>💬 বিস্তারিত জানতে যোগাযোগ করুন</li>
+<li>
+💬 বিস্তারিত জানতে যোগাযোগ করুন
+</li>
 
 </ul>
 
@@ -980,6 +1231,8 @@ content:`
 
 },
 
+
+/* GOOGLE PLAY OFFER */
 
 offer:{
 
@@ -993,7 +1246,9 @@ content:`
 
 <div class="detail-box">
 
-<h2>🎁 Google Play Offer</h2>
+<h2>
+🎁 Google Play Offer
+</h2>
 
 <p>
 বিভিন্ন ধরনের বিশেষ Google Play Offer পাওয়া যায়।
@@ -1001,13 +1256,21 @@ content:`
 
 <div class="offer-grid">
 
-<div class="offer">💵 $1 OFF</div>
+<div class="offer">
+💵 $1 OFF
+</div>
 
-<div class="offer">💵 $2 OFF</div>
+<div class="offer">
+💵 $2 OFF
+</div>
 
-<div class="offer">💵 $4 OFF</div>
+<div class="offer">
+💵 $4 OFF
+</div>
 
-<div class="offer">🔥 95% OFF</div>
+<div class="offer">
+🔥 95% OFF
+</div>
 
 </div>
 
@@ -1017,6 +1280,207 @@ content:`
 
 },
 
+
+/* ================= TELEGRAM STARS ================= */
+
+telegramstars:{
+
+icon:"⭐",
+
+title:"Telegram Stars",
+
+subtitle:"আপনার পছন্দের Stars প্যাকেজ নির্বাচন করুন",
+
+content:`
+
+<div class="detail-box">
+
+<h2>
+⭐ Telegram Stars Packages
+</h2>
+
+<p>
+আপনার প্রয়োজনীয় Stars প্যাকেজ নির্বাচন করুন।
+</p>
+
+
+<div class="stars-grid">
+
+
+<button onclick="selectStars('⭐ 100 Stars')">
+⭐ 100 Stars
+</button>
+
+
+<button onclick="selectStars('⭐ 150 Stars')">
+⭐ 150 Stars
+</button>
+
+
+<button onclick="selectStars('⭐ 250 Stars')">
+⭐ 250 Stars
+</button>
+
+
+<button onclick="selectStars('⭐ 350 Stars')">
+⭐ 350 Stars
+</button>
+
+
+<button onclick="selectStars('⭐ 500 Stars')">
+⭐ 500 Stars
+</button>
+
+
+<button onclick="selectStars('⭐ 750 Stars')">
+⭐ 750 Stars
+</button>
+
+
+<button onclick="selectStars('⭐ 1,000 Stars')">
+⭐ 1,000 Stars
+</button>
+
+
+<button onclick="selectStars('⭐ 1,500 Stars')">
+⭐ 1,500 Stars
+</button>
+
+
+<button onclick="selectStars('⭐ 2,500 Stars')">
+⭐ 2,500 Stars
+</button>
+
+
+<button onclick="selectStars('⭐ 5,000 Stars')">
+⭐ 5,000 Stars
+</button>
+
+
+<button onclick="selectStars('⭐ 10,000 Stars')">
+⭐ 10,000 Stars
+</button>
+
+
+</div>
+
+</div>
+
+`
+
+},
+
+
+/* ================= STARS ADMIN ================= */
+
+starsadmin:{
+
+icon:"👨‍💼",
+
+title:"Admin নির্বাচন করুন",
+
+subtitle:"Stars অর্ডারের জন্য একজন এডমিন নির্বাচন করুন",
+
+content:`
+
+<div class="detail-box">
+
+
+<h2 style="text-align:center;">
+
+⭐
+<span id="selectedStars">
+Telegram Stars
+</span>
+
+</h2>
+
+
+<p style="text-align:center;">
+
+অর্ডার করার জন্য একজন এডমিন নির্বাচন করুন
+
+</p>
+
+
+<div class="admin-select">
+
+
+<a
+href="https://wa.me/8801925681872"
+target="_blank"
+class="admin-card">
+
+
+<div class="admin-avatar">
+👨‍💼
+</div>
+
+
+<div class="admin-info">
+
+<b>
+Piyas
+</b>
+
+<span>
+🟢 Admin 1
+</span>
+
+</div>
+
+
+<div class="admin-arrow">
+›
+</div>
+
+
+</a>
+
+
+<a
+href="https://wa.me/8801761504673"
+target="_blank"
+class="admin-card">
+
+
+<div class="admin-avatar">
+👨‍💼
+</div>
+
+
+<div class="admin-info">
+
+<b>
+Sojib
+</b>
+
+<span>
+🟢 Admin 2
+</span>
+
+</div>
+
+
+<div class="admin-arrow">
+›
+</div>
+
+
+</a>
+
+
+</div>
+
+
+</div>
+
+`
+
+},
+
+
+/* TIKTOK */
 
 tiktok:{
 
@@ -1030,7 +1494,9 @@ content:`
 
 <div class="detail-box">
 
-<h2>🪙 TikTok Coin</h2>
+<h2>
+🪙 TikTok Coin
+</h2>
 
 <p>
 আপনার প্রয়োজন অনুযায়ী TikTok Coin সংক্রান্ত সার্ভিস পাওয়া যায়।
@@ -1038,19 +1504,30 @@ content:`
 
 </div>
 
+
 <div class="detail-box">
 
-<h2>📈 Video Boost</h2>
+<h2>
+📈 Video Boost
+</h2>
 
 <ul>
 
-<li>📢 ভিডিও প্রচারের সুযোগ</li>
+<li>
+📢 ভিডিও প্রচারের সুযোগ
+</li>
 
-<li>📈 বেশি দর্শকের কাছে পৌঁছানোর সম্ভাবনা</li>
+<li>
+📈 বেশি দর্শকের কাছে পৌঁছানোর সম্ভাবনা
+</li>
 
-<li>👥 নতুন দর্শক পাওয়ার সুযোগ</li>
+<li>
+👥 নতুন দর্শক পাওয়ার সুযোগ
+</li>
 
-<li>🚀 ভিডিও প্রচারে সহায়ক</li>
+<li>
+🚀 ভিডিও প্রচারে সহায়ক
+</li>
 
 </ul>
 
@@ -1060,6 +1537,8 @@ content:`
 
 },
 
+
+/* YOUTUBE */
 
 youtube:{
 
@@ -1073,7 +1552,9 @@ content:`
 
 <div class="detail-box">
 
-<h2>▶️ YouTube Premium</h2>
+<h2>
+▶️ YouTube Premium
+</h2>
 
 <p>
 বিভিন্ন মেয়াদের YouTube Premium সংক্রান্ত সার্ভিস পাওয়া যায়।
@@ -1081,13 +1562,21 @@ content:`
 
 <ul>
 
-<li>🚫 বিজ্ঞাপন ছাড়া ভিডিও দেখা</li>
+<li>
+🚫 বিজ্ঞাপন ছাড়া ভিডিও দেখা
+</li>
 
-<li>▶️ Background Playback</li>
+<li>
+▶️ Background Playback
+</li>
 
-<li>📥 Offline Download</li>
+<li>
+📥 Offline Download
+</li>
 
-<li>🎵 YouTube Music Premium</li>
+<li>
+🎵 YouTube Music Premium
+</li>
 
 </ul>
 
@@ -1097,6 +1586,8 @@ content:`
 
 },
 
+
+/* VPN */
 
 vpn:{
 
@@ -1110,7 +1601,9 @@ content:`
 
 <div class="detail-box">
 
-<h2>🌐 Premium VPN</h2>
+<h2>
+🌐 Premium VPN
+</h2>
 
 <p>
 আপনার প্রয়োজন অনুযায়ী বিভিন্ন Premium VPN সার্ভিস পাওয়া যায়।
@@ -1118,13 +1611,21 @@ content:`
 
 <ul>
 
-<li>🌍 বিভিন্ন দেশের সার্ভার</li>
+<li>
+🌍 বিভিন্ন দেশের সার্ভার
+</li>
 
-<li>🔒 নিরাপদ সংযোগে সহায়ক</li>
+<li>
+🔒 নিরাপদ সংযোগে সহায়ক
+</li>
 
-<li>📶 স্থিতিশীল সংযোগ</li>
+<li>
+📶 স্থিতিশীল সংযোগ
+</li>
 
-<li>📱 বিভিন্ন ডিভাইসে ব্যবহার</li>
+<li>
+📱 বিভিন্ন ডিভাইসে ব্যবহার
+</li>
 
 </ul>
 
@@ -1134,6 +1635,8 @@ content:`
 
 },
 
+
+/* WHY US */
 
 whyus:{
 
@@ -1147,17 +1650,27 @@ content:`
 
 <div class="detail-box">
 
-<h2>👑 আমাদের সুবিধা</h2>
+<h2>
+👑 আমাদের সুবিধা
+</h2>
 
 <ul>
 
-<li>🤝 এডমিনের মাধ্যমে নিরাপদ ডিল</li>
+<li>
+🤝 এডমিনের মাধ্যমে নিরাপদ ডিল
+</li>
 
-<li>⚡ দ্রুত সেবা দেওয়ার চেষ্টা</li>
+<li>
+⚡ দ্রুত সেবা দেওয়ার চেষ্টা
+</li>
 
-<li>🛡️ নিরাপদ লেনদেন</li>
+<li>
+🛡️ নিরাপদ লেনদেন
+</li>
 
-<li>💬 প্রয়োজনীয় সাপোর্ট</li>
+<li>
+💬 প্রয়োজনীয় সাপোর্ট
+</li>
 
 </ul>
 
@@ -1167,6 +1680,8 @@ content:`
 
 },
 
+
+/* ADMIN CONTACT */
 
 admin:{
 
@@ -1180,17 +1695,24 @@ content:`
 
 <div class="admin">
 
+
 <div style="font-size:40px;">
 👨‍💼
 </div>
 
-<h3>Admin 1</h3>
+
+<h3>
+Piyas
+</h3>
+
 
 <p>
-🟢 সরাসরি WhatsApp-এ যোগাযোগ করুন
+🟢 Admin 1
 </p>
 
-<a href="https://wa.me/8801925681872"
+
+<a
+href="https://wa.me/8801925681872"
 target="_blank"
 class="whatsapp">
 
@@ -1198,28 +1720,38 @@ class="whatsapp">
 
 </a>
 
+
 </div>
+
 
 
 <div class="admin">
 
+
 <div style="font-size:40px;">
 👨‍💼
 </div>
 
-<h3>Admin 2</h3>
+
+<h3>
+Sojib
+</h3>
+
 
 <p>
-🟢 সরাসরি WhatsApp-এ যোগাযোগ করুন
+🟢 Admin 2
 </p>
 
-<a href="https://wa.me/8801761504673"
+
+<a
+href="https://wa.me/8801761504673"
 target="_blank"
 class="whatsapp">
 
 💬 WhatsApp যোগাযোগ
 
 </a>
+
 
 </div>
 
@@ -1227,6 +1759,8 @@ class="whatsapp">
 
 },
 
+
+/* WARNING */
 
 warning:{
 
@@ -1240,20 +1774,35 @@ content:`
 
 <div class="detail-box warning">
 
-<h2>⚠️ প্রিয় সদস্যবৃন্দ</h2>
+
+<h2>
+⚠️ প্রিয় সদস্যবৃন্দ
+</h2>
+
 
 <p>
+
 যেকোনো ধরনের কেনা-বেচা বা ডিল করার আগে অবশ্যই
-<strong>এডমিনের মাধ্যমে লেনদেন করবেন।</strong>
+<strong>
+এডমিনের মাধ্যমে লেনদেন করবেন।
+</strong>
+
 </p>
 
+
 <p>
+
 এডমিনকে বাদ দিয়ে কারও সঙ্গে সরাসরি লেনদেন করলে এবং কোনো ধরনের প্রতারণার শিকার হলে এর দায়ভার এডমিন কর্তৃপক্ষ গ্রহণ করবে না।
+
 </p>
 
+
 <p>
+
 ✅ সতর্ক থাকুন এবং নিরাপদে ডিল করুন।
+
 </p>
+
 
 </div>
 
@@ -1261,6 +1810,8 @@ content:`
 
 },
 
+
+/* TUTORIAL */
 
 tutorial:{
 
@@ -1274,21 +1825,37 @@ content:`
 
 <div class="detail-box">
 
-<h2>📖 Tutorial</h2>
+
+<h2>
+📖 Tutorial
+</h2>
+
 
 <p>
 আপনার প্রয়োজনীয় সার্ভিস নির্বাচন করে বিস্তারিত তথ্য দেখুন।
 </p>
 
+
 <ul>
 
-<li>1️⃣ পছন্দের সার্ভিস নির্বাচন করুন</li>
 
-<li>2️⃣ সার্ভিসের বিস্তারিত দেখুন</li>
+<li>
+1️⃣ পছন্দের সার্ভিস নির্বাচন করুন
+</li>
 
-<li>3️⃣ প্রয়োজন হলে এডমিনের সঙ্গে যোগাযোগ করুন</li>
+
+<li>
+2️⃣ সার্ভিসের বিস্তারিত দেখুন
+</li>
+
+
+<li>
+3️⃣ প্রয়োজন হলে এডমিনের সঙ্গে যোগাযোগ করুন
+</li>
+
 
 </ul>
+
 
 </div>
 
@@ -1299,7 +1866,7 @@ content:`
 };
 
 
-/* OPEN DETAIL PAGE */
+/* ================= OPEN PAGE ================= */
 
 function openPage(name){
 
@@ -1307,50 +1874,99 @@ closeMenu();
 
 let page=pages[name];
 
-if(!page)return;
+if(!page){
 
-document.getElementById("homePage")
-.style.display="none";
+return;
 
-document.getElementById("detailPage")
-.style.display="block";
+}
 
-document.getElementById("detailIcon")
+
+document
+.getElementById("homePage")
+.style
+.display="none";
+
+
+document
+.getElementById("detailPage")
+.style
+.display="block";
+
+
+document
+.getElementById("detailIcon")
 .innerHTML=page.icon;
 
-document.getElementById("detailTitle")
+
+document
+.getElementById("detailTitle")
 .innerHTML=page.title;
 
-document.getElementById("headerTitle")
+
+document
+.getElementById("headerTitle")
 .innerHTML=page.title;
 
-document.getElementById("detailSubtitle")
+
+document
+.getElementById("detailSubtitle")
 .innerHTML=page.subtitle;
 
-document.getElementById("detailContent")
+
+document
+.getElementById("detailContent")
 .innerHTML=page.content;
+
 
 window.scrollTo(0,0);
 
 }
 
 
-/* HOME */
+/* ================= SELECT STARS ================= */
+
+function selectStars(stars){
+
+openPage("starsadmin");
+
+setTimeout(function(){
+
+let selected=document
+.getElementById("selectedStars");
+
+if(selected){
+
+selected.innerHTML=stars;
+
+}
+
+},100);
+
+}
+
+
+/* ================= HOME ================= */
 
 function goHome(){
 
-document.getElementById("detailPage")
-.style.display="none";
+document
+.getElementById("detailPage")
+.style
+.display="none";
 
-document.getElementById("homePage")
-.style.display="block";
+
+document
+.getElementById("homePage")
+.style
+.display="block";
+
 
 window.scrollTo(0,0);
 
 }
 
 
-/* SERVICES */
+/* ================= SERVICES ================= */
 
 function scrollToServices(){
 
@@ -1358,9 +1974,12 @@ goHome();
 
 setTimeout(function(){
 
-document.querySelector(".services")
+document
+.querySelector(".services")
 .scrollIntoView({
+
 behavior:"smooth"
+
 });
 
 },100);
@@ -1368,7 +1987,7 @@ behavior:"smooth"
 }
 
 
-/* BACK BUTTON */
+/* ================= BACK BUTTON ================= */
 
 window.onpopstate=function(){
 
@@ -1377,7 +1996,7 @@ goHome();
 };
 
 
-/* DOUBLE TAP ZOOM BLOCK */
+/* ================= DOUBLE TAP ZOOM BLOCK ================= */
 
 let lastTouchEnd=0;
 
@@ -1399,11 +2018,13 @@ lastTouchEnd=now;
 
 },
 
-false
+{passive:false}
 
 );
 
 </script>
 
+
 </body>
+
 </html>
