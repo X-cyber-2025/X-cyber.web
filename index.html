@@ -1,19 +1,14 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-
 <meta charset="UTF-8">
 
 <meta name="viewport"
-content="width=device-width,
-initial-scale=1,
-maximum-scale=1,
-user-scalable=no">
+content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
 <title>PIYAS - Digital Services</title>
 
-<link rel="preconnect"
-href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
 
 <link rel="preconnect"
 href="https://fonts.gstatic.com"
@@ -34,7 +29,7 @@ rel="stylesheet">
 }
 
 html{
-    touch-action:manipulation;
+    scroll-behavior:smooth;
 }
 
 body{
@@ -42,19 +37,18 @@ body{
     background:#f0f2f8;
     color:#25344a;
     padding-bottom:85px;
-    overscroll-behavior:none;
+    overflow-x:hidden;
 }
-
 
 /* ================= HEADER ================= */
 
 .header{
-    height:78px;
+    height:70px;
     background:#ffffff;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    padding:0 18px;
+    padding:0 16px;
     box-shadow:0 3px 15px rgba(0,0,0,.08);
     border-top:3px solid #ff3d56;
     position:sticky;
@@ -65,17 +59,16 @@ body{
 .logo{
     display:flex;
     align-items:center;
-    gap:7px;
-    font-size:25px;
+    gap:5px;
+    font-size:21px;
     font-weight:700;
-    letter-spacing:1px;
+    letter-spacing:.5px;
     color:#1f2d49;
 }
 
 .logo-icon{
     color:#ef2f61;
-    font-size:30px;
-    font-weight:bold;
+    font-size:28px;
 }
 
 .logo span{
@@ -83,24 +76,23 @@ body{
 }
 
 .menu-btn{
-    width:43px;
-    height:43px;
+    width:42px;
+    height:42px;
     border:none;
     background:#fff0f3;
     color:#ef2f61;
-    border-radius:14px;
-    font-size:24px;
+    border-radius:13px;
+    font-size:22px;
     cursor:pointer;
 }
-
 
 /* ================= TOP BUTTONS ================= */
 
 .top-links{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:8px;
-    padding:12px;
+    gap:7px;
+    padding:10px 12px;
     background:#ffffff;
 }
 
@@ -109,7 +101,7 @@ body{
     background:#ff3d56;
     color:white;
     padding:9px 3px;
-    border-radius:7px;
+    border-radius:8px;
     text-align:center;
     font-size:11px;
     font-weight:700;
@@ -120,46 +112,43 @@ body{
     transform:scale(.96);
 }
 
-
 /* ================= HERO ================= */
 
 .hero{
-    padding:28px 15px 20px;
+    padding:25px 15px 18px;
     text-align:center;
 }
 
 .hero h1{
     font-family:"Roboto Slab",serif;
-    font-size:27px;
-    letter-spacing:1px;
+    font-size:24px;
+    letter-spacing:.5px;
     color:#30435c;
 }
 
 .hero p{
     color:#738096;
-    font-size:14px;
+    font-size:13px;
     margin-top:4px;
 }
-
 
 /* ================= SECTION TITLE ================= */
 
 .section-title{
     font-family:"Roboto Slab",serif;
     text-align:center;
-    font-size:25px;
-    letter-spacing:1px;
+    font-size:24px;
+    letter-spacing:.5px;
     color:#30435c;
-    margin:20px 0 20px;
+    margin:18px 0;
 }
-
 
 /* ================= SERVICE GRID ================= */
 
 .services{
     display:grid;
     grid-template-columns:repeat(3,1fr);
-    gap:25px 12px;
+    gap:22px 11px;
     padding:0 15px;
 }
 
@@ -175,14 +164,13 @@ body{
 .service-image{
     width:100%;
     aspect-ratio:1/1;
-    border-radius:11px;
+    border-radius:12px;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:38px;
-    margin-bottom:8px;
-    background:
-    linear-gradient(145deg,#3a174b,#ff2d74);
+    font-size:36px;
+    margin-bottom:7px;
+    background:linear-gradient(145deg,#3a174b,#ff2d74);
     box-shadow:0 7px 15px rgba(0,0,0,.13);
     border:1px solid rgba(255,255,255,.35);
 }
@@ -190,34 +178,30 @@ body{
 .service:nth-child(2) .service-image,
 .service:nth-child(5) .service-image,
 .service:nth-child(8) .service-image{
-    background:
-    linear-gradient(145deg,#0c5e98,#39b9ed);
+    background:linear-gradient(145deg,#0c5e98,#39b9ed);
 }
 
 .service:nth-child(3) .service-image,
 .service:nth-child(6) .service-image{
-    background:
-    linear-gradient(145deg,#703510,#e8a12d);
+    background:linear-gradient(145deg,#703510,#e8a12d);
 }
 
 .service:nth-child(4) .service-image,
 .service:nth-child(7) .service-image{
-    background:
-    linear-gradient(145deg,#56348c,#a76dff);
+    background:linear-gradient(145deg,#56348c,#a76dff);
 }
 
 .service-title{
     font-family:"Roboto Slab",serif;
-    font-size:13px;
+    font-size:12px;
     font-weight:600;
     line-height:1.35;
-    min-height:38px;
+    min-height:36px;
 }
 
 .service:active{
     transform:scale(.96);
 }
-
 
 /* ================= SIDE MENU ================= */
 
@@ -239,19 +223,19 @@ body{
 .side-menu{
     position:fixed;
     top:0;
-    right:-300px;
-    width:280px;
+    left:-300px;
+    width:275px;
     max-width:82%;
     height:100vh;
     background:#ffffff;
     z-index:999;
     padding:20px 15px;
     transition:.35s;
-    box-shadow:-10px 0 30px rgba(0,0,0,.15);
+    box-shadow:10px 0 30px rgba(0,0,0,.15);
 }
 
 .side-menu.active{
-    right:0;
+    left:0;
 }
 
 .menu-header{
@@ -292,7 +276,6 @@ body{
     cursor:pointer;
 }
 
-
 /* ================= BOTTOM NAV ================= */
 
 .bottom-nav{
@@ -321,16 +304,16 @@ body{
     align-items:center;
     justify-content:center;
     gap:2px;
+    cursor:pointer;
 }
 
 .nav-icon{
-    font-size:23px;
+    font-size:22px;
 }
 
 .nav-item.active{
     color:#ef2f61;
 }
-
 
 /* ================= DETAIL PAGE ================= */
 
@@ -338,82 +321,88 @@ body{
     display:none;
     min-height:100vh;
     background:#f0f2f8;
-    padding-bottom:90px;
+    padding-bottom:20px;
 }
 
 .detail-header{
-    height:70px;
+    height:65px;
     background:#ffffff;
     display:flex;
     align-items:center;
-    gap:13px;
-    padding:0 15px;
+    gap:12px;
+    padding:0 14px;
     box-shadow:0 3px 12px rgba(0,0,0,.08);
     border-top:3px solid #ff3d56;
+    position:sticky;
+    top:0;
+    z-index:200;
 }
 
 .back-btn{
     border:none;
-    width:42px;
-    height:42px;
-    border-radius:14px;
+    width:40px;
+    height:40px;
+    border-radius:13px;
     background:#fff0f3;
     color:#ef2f61;
-    font-size:25px;
+    font-size:24px;
+    cursor:pointer;
 }
 
 .detail-title-small{
-    font-size:18px;
+    font-size:17px;
     font-weight:700;
     color:#2c3d55;
 }
 
 .detail-hero{
     text-align:center;
-    padding:30px 15px 20px;
+    padding:25px 15px 18px;
 }
 
 .detail-icon{
-    width:75px;
-    height:75px;
+    width:70px;
+    height:70px;
     margin:auto;
-    border-radius:22px;
+    border-radius:21px;
     background:linear-gradient(145deg,#ff2f6d,#9e2b84);
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:38px;
+    font-size:35px;
     box-shadow:0 10px 25px rgba(255,61,86,.25);
 }
 
 .detail-hero h1{
-    margin-top:13px;
-    font-size:25px;
+    margin-top:12px;
+    font-size:23px;
     color:#2e4058;
 }
 
 .detail-hero p{
     color:#718096;
-    font-size:14px;
+    font-size:13px;
     margin-top:4px;
 }
 
 .detail-content{
-    padding:0 15px;
+    padding:0 14px;
     max-width:700px;
     margin:auto;
 }
 
+/* ================= DETAIL BOX ================= */
+
 .detail-box{
     background:#ffffff;
     border-radius:18px;
-    padding:18px;
+    padding:17px;
     margin-bottom:14px;
     box-shadow:0 5px 18px rgba(0,0,0,.06);
 }
 
 .detail-box h2{
-    font-size:20px;
+    font-size:19px;
     color:#30435c;
     margin-bottom:10px;
 }
@@ -438,23 +427,103 @@ body{
     font-size:14px;
 }
 
+/* ================= STAR LIST ================= */
 
-/* ================= COUNTRIES ================= */
-
-.countries{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:8px;
+.star-list{
+    background:#ffffff;
+    border-radius:18px;
+    overflow:hidden;
+    box-shadow:0 5px 18px rgba(0,0,0,.06);
+    margin-bottom:15px;
 }
 
-.country{
-    padding:10px 5px;
+.star-list-title{
+    padding:17px;
+    color:#3c6c91;
+    font-size:18px;
+    font-weight:700;
+}
+
+.star-item{
+    width:100%;
+    border:none;
+    border-top:1px solid #edf0f5;
+    background:#ffffff;
+    padding:15px 14px;
+    display:flex;
+    align-items:center;
+    gap:12px;
+    cursor:pointer;
+    font-family:inherit;
+    text-align:left;
+}
+
+.star-item:active{
+    background:#f7f8fb;
+}
+
+.star-emoji{
+    font-size:27px;
+    min-width:35px;
+}
+
+.star-name{
+    flex:1;
+    color:#2e3948;
+    font-size:17px;
+    font-weight:600;
+}
+
+.star-arrow{
+    color:#9aa4b1;
+    font-size:22px;
+}
+
+/* ================= ADMIN ================= */
+
+.admin{
     text-align:center;
-    border-radius:10px;
-    background:#f5f7fb;
-    font-size:13px;
+    padding:20px;
+    background:#ffffff;
+    border-radius:18px;
+    margin-bottom:14px;
+    box-shadow:0 5px 18px rgba(0,0,0,.06);
 }
 
+.admin-icon{
+    width:65px;
+    height:65px;
+    margin:auto;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#fff0f4;
+    font-size:34px;
+}
+
+.admin h3{
+    font-size:20px;
+    color:#33445b;
+    margin-top:10px;
+}
+
+.admin p{
+    color:#738096;
+    font-size:13px;
+    margin-top:4px;
+}
+
+.whatsapp{
+    display:block;
+    background:#20b866;
+    color:white;
+    padding:12px;
+    margin-top:14px;
+    border-radius:11px;
+    text-decoration:none;
+    font-weight:700;
+}
 
 /* ================= OFFER ================= */
 
@@ -474,33 +543,21 @@ body{
     font-weight:700;
 }
 
+/* ================= COUNTRIES ================= */
 
-/* ================= ADMIN ================= */
+.countries{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+}
 
-.admin{
+.country{
+    padding:10px 5px;
     text-align:center;
-    padding:18px;
-    background:#f6f7fb;
-    border-radius:15px;
-    margin-top:10px;
-}
-
-.admin h3{
-    font-size:18px;
-    color:#33445b;
-}
-
-.whatsapp{
-    display:block;
-    background:#20b866;
-    color:white;
-    padding:12px;
-    margin-top:12px;
     border-radius:10px;
-    text-decoration:none;
-    font-weight:700;
+    background:#f5f7fb;
+    font-size:13px;
 }
-
 
 /* ================= WARNING ================= */
 
@@ -513,124 +570,36 @@ body{
     color:#e63950;
 }
 
-
-/* ================= TELEGRAM STARS ================= */
-
-.stars-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:10px;
-    margin-top:15px;
-}
-
-.stars-grid button{
-    border:none;
-    padding:14px 7px;
-    border-radius:14px;
-    background:#f5f7fb;
-    color:#34445a;
-    font-family:"Hind Siliguri",sans-serif;
-    font-size:14px;
-    font-weight:700;
-    box-shadow:0 4px 12px rgba(0,0,0,.06);
-    cursor:pointer;
-}
-
-.stars-grid button:active{
-    transform:scale(.96);
-}
-
-
-/* ================= ADMIN SELECT ================= */
-
-.admin-select{
-    margin-top:18px;
-    display:flex;
-    flex-direction:column;
-    gap:12px;
-}
-
-.admin-card{
-    display:flex;
-    align-items:center;
-    gap:13px;
-    padding:14px;
-    border-radius:17px;
-    background:#f5f7fb;
-    text-decoration:none;
-    color:#33445b;
-}
-
-.admin-card:active{
-    transform:scale(.97);
-}
-
-.admin-avatar{
-    width:52px;
-    height:52px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:#ffffff;
-    border-radius:16px;
-    font-size:28px;
-    box-shadow:0 3px 10px rgba(0,0,0,.08);
-}
-
-.admin-info{
-    flex:1;
-    display:flex;
-    flex-direction:column;
-}
-
-.admin-info b{
-    font-size:18px;
-}
-
-.admin-info span{
-    font-size:13px;
-    color:#159d58;
-    margin-top:2px;
-}
-
-.admin-arrow{
-    font-size:30px;
-    color:#ef2f61;
-}
-
-
 /* ================= MOBILE ================= */
 
 @media(max-width:350px){
 
     .services{
-        gap:20px 8px;
+        gap:18px 8px;
         padding:0 10px;
     }
 
     .service-title{
-        font-size:11px;
+        font-size:10px;
     }
 
     .service-image{
-        font-size:32px;
+        font-size:31px;
     }
 
-    .stars-grid button{
-        font-size:12px;
+    .star-name{
+        font-size:15px;
     }
 
 }
 
 </style>
-
 </head>
-
 
 <body>
 
 
-<!-- SIDE MENU -->
+<!-- ================= SIDE MENU ================= -->
 
 <div class="overlay"
 id="overlay"
@@ -643,9 +612,7 @@ id="sideMenu">
 
 <div class="menu-header">
 
-<h2>
-PIYAS
-</h2>
+<h2>PIYAS</h2>
 
 <button class="close-menu"
 onclick="closeMenu()">
@@ -657,23 +624,19 @@ onclick="closeMenu()">
 
 <button class="menu-item"
 onclick="openPage('admin')">
-
 👨‍💼 এডমিনদের যোগাযোগ
-
 </button>
 
 
 <button class="menu-item"
 onclick="openPage('warning')">
-
 ⚠️ গুরুত্বপূর্ণ সতর্কবার্তা
-
 </button>
 
 </div>
 
 
-<!-- HOME PAGE -->
+<!-- ================= HOME PAGE ================= -->
 
 <div id="homePage">
 
@@ -687,7 +650,6 @@ onclick="openPage('warning')">
 </span>
 
 PIYAS
-
 <span>
 SERVICES
 </span>
@@ -697,50 +659,40 @@ SERVICES
 
 <button class="menu-btn"
 onclick="openMenu()">
-
 ☰
-
 </button>
 
 </header>
 
 
-<!-- TOP LINKS -->
+<!-- ================= TOP LINKS ================= -->
 
 <div class="top-links">
-
 
 <a href="https://t.me/Teach_with_bd"
 target="_blank"
 class="top-btn">
-
 ✈️ Telegram
-
 </a>
 
 
 <a href="https://chat.whatsapp.com/DzeUDoeYVhV7OShIndRKQt?s=cl&p=a&mlu=4&ilr=4"
 target="_blank"
 class="top-btn">
-
 👥 Join Group
-
 </a>
 
 
 <a href="https://wa.me/8801925681872"
 target="_blank"
 class="top-btn">
-
 💬 WhatsApp
-
 </a>
-
 
 </div>
 
 
-<!-- HERO -->
+<!-- ================= HERO ================= -->
 
 <section class="hero">
 
@@ -755,7 +707,7 @@ class="top-btn">
 </section>
 
 
-<!-- SPECIAL OFFER -->
+<!-- ================= SPECIAL OFFER ================= -->
 
 <h2 class="section-title">
 SPECIAL OFFER
@@ -806,13 +758,13 @@ Google Play Offer
 
 </button>
 
-
 </div>
 
 
-<!-- POPULAR SERVICES -->
+<!-- ================= POPULAR SERVICES ================= -->
 
-<h2 class="section-title">
+<h2 class="section-title"
+id="servicesSection">
 POPULAR SERVICES
 </h2>
 
@@ -834,8 +786,6 @@ Quest Complete
 </button>
 
 
-<!-- TELEGRAM STARS -->
-
 <button class="service"
 onclick="openPage('telegramstars')">
 
@@ -851,20 +801,6 @@ Telegram Stars
 
 
 <button class="service"
-onclick="openPage('tiktok')">
-
-<div class="service-image">
-🪙
-</div>
-
-<div class="service-title">
-TikTok Coin ও Boost
-</div>
-
-</button>
-
-
-<button class="service"
 onclick="openPage('youtube')">
 
 <div class="service-image">
@@ -873,6 +809,20 @@ onclick="openPage('youtube')">
 
 <div class="service-title">
 YouTube Premium
+</div>
+
+</button>
+
+
+<button class="service"
+onclick="openPage('tiktok')">
+
+<div class="service-image">
+🪙
+</div>
+
+<div class="service-title">
+TikTok Coin ও Boost
 </div>
 
 </button>
@@ -905,31 +855,15 @@ onclick="openPage('whyus')">
 
 </button>
 
-
-<button class="service"
-onclick="openPage('admin')">
-
-<div class="service-image">
-👨‍💼
-</div>
-
-<div class="service-title">
-Admin Contact
-</div>
-
-</button>
-
-
 </div>
 
 
 </div>
 
 
-<!-- BOTTOM NAV -->
+<!-- ================= BOTTOM NAV ================= -->
 
 <nav class="bottom-nav">
-
 
 <button class="nav-item active"
 onclick="goHome()">
@@ -978,45 +912,35 @@ Contact Us
 
 </button>
 
-
 </nav>
 
 
-<!-- DETAIL PAGE -->
+<!-- ================= DETAIL PAGE ================= -->
 
 <div id="detailPage">
 
 
 <header class="detail-header">
 
-
 <button class="back-btn"
 onclick="goHome()">
-
 ←
-
 </button>
 
 
 <div class="detail-title-small"
 id="headerTitle">
-
 বিস্তারিত
-
 </div>
-
 
 </header>
 
 
 <section class="detail-hero">
 
-
 <div class="detail-icon"
 id="detailIcon">
-
 🌟
-
 </div>
 
 
@@ -1028,7 +952,6 @@ id="detailIcon">
 <p id="detailSubtitle">
 সার্ভিস সম্পর্কে বিস্তারিত তথ্য
 </p>
-
 
 </section>
 
@@ -1042,7 +965,6 @@ id="detailContent">
 
 
 <script>
-
 
 /* ================= MENU ================= */
 
@@ -1076,12 +998,157 @@ document
 }
 
 
+/* ================= STAR PAGE ================= */
+
+function openStarOrder(stars){
+
+const starData={
+
+100:"⭐",
+150:"⭐",
+250:"⭐",
+350:"⭐",
+500:"⭐",
+750:"⭐",
+1000:"⭐",
+1500:"⭐",
+2500:"⭐",
+5000:"⭐",
+10000:"⭐"
+
+};
+
+openCustomPage(
+
+starData[stars] || "⭐",
+
+stars.toLocaleString() + " Telegram Stars",
+
+"আপনার পছন্দের এডমিন নির্বাচন করুন",
+
+`
+
+<div class="detail-box">
+
+<h2>
+⭐ ${stars.toLocaleString()} Stars
+</h2>
+
+<p>
+আপনি ${stars.toLocaleString()} Telegram Stars অর্ডার করতে চান। নিচে যেকোনো একজন এডমিন নির্বাচন করুন।
+</p>
+
+</div>
+
+
+<div class="admin">
+
+<div class="admin-icon">
+👨‍💼
+</div>
+
+<h3>
+Piyas
+</h3>
+
+<p>
+Admin 1
+</p>
+
+<a
+href="https://wa.me/8801925681872?text=আমি%20${stars}%20Telegram%20Stars%20অর্ডার%20করতে%20চাই"
+target="_blank"
+class="whatsapp">
+
+💬 Piyas-কে WhatsApp করুন
+
+</a>
+
+</div>
+
+
+<div class="admin">
+
+<div class="admin-icon">
+👨‍💼
+</div>
+
+<h3>
+Sojib
+</h3>
+
+<p>
+Admin 2
+</p>
+
+<a
+href="https://wa.me/8801761504673?text=আমি%20${stars}%20Telegram%20Stars%20অর্ডার%20করতে%20চাই"
+target="_blank"
+class="whatsapp">
+
+💬 Sojib-কে WhatsApp করুন
+
+</a>
+
+</div>
+
+`
+
+);
+
+}
+
+
+/* ================= CUSTOM PAGE ================= */
+
+function openCustomPage(icon,title,subtitle,content){
+
+document
+.getElementById("homePage")
+.style
+.display="none";
+
+
+document
+.getElementById("detailPage")
+.style
+.display="block";
+
+
+document
+.getElementById("detailIcon")
+.innerHTML=icon;
+
+
+document
+.getElementById("detailTitle")
+.innerHTML=title;
+
+
+document
+.getElementById("headerTitle")
+.innerHTML=title;
+
+
+document
+.getElementById("detailSubtitle")
+.innerHTML=subtitle;
+
+
+document
+.getElementById("detailContent")
+.innerHTML=content;
+
+
+window.scrollTo(0,0);
+
+}
+
+
 /* ================= PAGE DATA ================= */
 
 const pages={
 
-
-/* GOOGLE PLAY POINTS */
 
 playpoints:{
 
@@ -1138,8 +1205,6 @@ content:`
 },
 
 
-/* PARK ON */
-
 parkon:{
 
 icon:"🅿️",
@@ -1187,8 +1252,6 @@ Google Play Points Park ON সংক্রান্ত সার্ভিসে�
 },
 
 
-/* QUEST */
-
 quest:{
 
 icon:"🎯",
@@ -1231,8 +1294,6 @@ content:`
 
 },
 
-
-/* GOOGLE PLAY OFFER */
 
 offer:{
 
@@ -1281,197 +1342,228 @@ content:`
 },
 
 
-/* ================= TELEGRAM STARS ================= */
-
 telegramstars:{
 
 icon:"⭐",
 
 title:"Telegram Stars",
 
-subtitle:"আপনার পছন্দের Stars প্যাকেজ নির্বাচন করুন",
+subtitle:"আপনার প্রয়োজনীয় Stars প্যাকেজ নির্বাচন করুন",
 
 content:`
 
-<div class="detail-box">
+<div class="star-list">
 
-<h2>
-⭐ Telegram Stars Packages
-</h2>
-
-<p>
-আপনার প্রয়োজনীয় Stars প্যাকেজ নির্বাচন করুন।
-</p>
-
-
-<div class="stars-grid">
-
-
-<button onclick="selectStars('⭐ 100 Stars')">
-⭐ 100 Stars
-</button>
-
-
-<button onclick="selectStars('⭐ 150 Stars')">
-⭐ 150 Stars
-</button>
-
-
-<button onclick="selectStars('⭐ 250 Stars')">
-⭐ 250 Stars
-</button>
-
-
-<button onclick="selectStars('⭐ 350 Stars')">
-⭐ 350 Stars
-</button>
-
-
-<button onclick="selectStars('⭐ 500 Stars')">
-⭐ 500 Stars
-</button>
-
-
-<button onclick="selectStars('⭐ 750 Stars')">
-⭐ 750 Stars
-</button>
-
-
-<button onclick="selectStars('⭐ 1,000 Stars')">
-⭐ 1,000 Stars
-</button>
-
-
-<button onclick="selectStars('⭐ 1,500 Stars')">
-⭐ 1,500 Stars
-</button>
-
-
-<button onclick="selectStars('⭐ 2,500 Stars')">
-⭐ 2,500 Stars
-</button>
-
-
-<button onclick="selectStars('⭐ 5,000 Stars')">
-⭐ 5,000 Stars
-</button>
-
-
-<button onclick="selectStars('⭐ 10,000 Stars')">
-⭐ 10,000 Stars
-</button>
-
-
+<div class="star-list-title">
+⭐ Choose Package
 </div>
 
-</div>
 
-`
+<button class="star-item"
+onclick="openStarOrder(100)">
 
-},
-
-
-/* ================= STARS ADMIN ================= */
-
-starsadmin:{
-
-icon:"👨‍💼",
-
-title:"Admin নির্বাচন করুন",
-
-subtitle:"Stars অর্ডারের জন্য একজন এডমিন নির্বাচন করুন",
-
-content:`
-
-<div class="detail-box">
-
-
-<h2 style="text-align:center;">
-
+<div class="star-emoji">
 ⭐
-<span id="selectedStars">
-Telegram Stars
-</span>
+</div>
 
-</h2>
+<div class="star-name">
+100 Stars
+</div>
+
+<div class="star-arrow">
+›
+</div>
+
+</button>
 
 
-<p style="text-align:center;">
+<button class="star-item"
+onclick="openStarOrder(150)">
 
-অর্ডার করার জন্য একজন এডমিন নির্বাচন করুন
+<div class="star-emoji">
+⭐
+</div>
 
+<div class="star-name">
+150 Stars
+</div>
+
+<div class="star-arrow">
+›
+</div>
+
+</button>
+
+
+<button class="star-item"
+onclick="openStarOrder(250)">
+
+<div class="star-emoji">
+⭐
+</div>
+
+<div class="star-name">
+250 Stars
+</div>
+
+<div class="star-arrow">
+›
+</div>
+
+</button>
+
+
+<button class="star-item"
+onclick="openStarOrder(350)">
+
+<div class="star-emoji">
+⭐
+</div>
+
+<div class="star-name">
+350 Stars
+</div>
+
+<div class="star-arrow">
+›
+</div>
+
+</button>
+
+
+<button class="star-item"
+onclick="openStarOrder(500)">
+
+<div class="star-emoji">
+⭐
+</div>
+
+<div class="star-name">
+500 Stars
+</div>
+
+<div class="star-arrow">
+›
+</div>
+
+</button>
+
+
+<button class="star-item"
+onclick="openStarOrder(750)">
+
+<div class="star-emoji">
+⭐
+</div>
+
+<div class="star-name">
+750 Stars
+</div>
+
+<div class="star-arrow">
+›
+</div>
+
+</button>
+
+
+<button class="star-item"
+onclick="openStarOrder(1000)">
+
+<div class="star-emoji">
+⭐
+</div>
+
+<div class="star-name">
+1,000 Stars
+</div>
+
+<div class="star-arrow">
+›
+</div>
+
+</button>
+
+
+<button class="star-item"
+onclick="openStarOrder(1500)">
+
+<div class="star-emoji">
+⭐
+</div>
+
+<div class="star-name">
+1,500 Stars
+</div>
+
+<div class="star-arrow">
+›
+</div>
+
+</button>
+
+
+<button class="star-item"
+onclick="openStarOrder(2500)">
+
+<div class="star-emoji">
+⭐
+</div>
+
+<div class="star-name">
+2,500 Stars
+</div>
+
+<div class="star-arrow">
+›
+</div>
+
+</button>
+
+
+<button class="star-item"
+onclick="openStarOrder(5000)">
+
+<div class="star-emoji">
+⭐
+</div>
+
+<div class="star-name">
+5,000 Stars
+</div>
+
+<div class="star-arrow">
+›
+</div>
+
+</button>
+
+
+<button class="star-item"
+onclick="openStarOrder(10000)">
+
+<div class="star-emoji">
+⭐
+</div>
+
+<div class="star-name">
+10,000 Stars
+</div>
+
+<div class="star-arrow">
+›
+</div>
+
+</button>
+
+</div>
+
+
+<div class="detail-box">
+
+<p style="text-align:center;margin:0;">
+⭐ প্রয়োজনীয় Stars নির্বাচন করে অর্ডারের জন্য এডমিনের সঙ্গে যোগাযোগ করুন।
 </p>
-
-
-<div class="admin-select">
-
-
-<a
-href="https://wa.me/8801925681872"
-target="_blank"
-class="admin-card">
-
-
-<div class="admin-avatar">
-👨‍💼
-</div>
-
-
-<div class="admin-info">
-
-<b>
-Piyas
-</b>
-
-<span>
-🟢 Admin 1
-</span>
-
-</div>
-
-
-<div class="admin-arrow">
-›
-</div>
-
-
-</a>
-
-
-<a
-href="https://wa.me/8801761504673"
-target="_blank"
-class="admin-card">
-
-
-<div class="admin-avatar">
-👨‍💼
-</div>
-
-
-<div class="admin-info">
-
-<b>
-Sojib
-</b>
-
-<span>
-🟢 Admin 2
-</span>
-
-</div>
-
-
-<div class="admin-arrow">
-›
-</div>
-
-
-</a>
-
-
-</div>
-
 
 </div>
 
@@ -1479,8 +1571,6 @@ Sojib
 
 },
 
-
-/* TIKTOK */
 
 tiktok:{
 
@@ -1538,8 +1628,6 @@ content:`
 },
 
 
-/* YOUTUBE */
-
 youtube:{
 
 icon:"▶️",
@@ -1586,8 +1674,6 @@ content:`
 
 },
 
-
-/* VPN */
 
 vpn:{
 
@@ -1636,8 +1722,6 @@ content:`
 },
 
 
-/* WHY US */
-
 whyus:{
 
 icon:"👑",
@@ -1681,8 +1765,6 @@ content:`
 },
 
 
-/* ADMIN CONTACT */
-
 admin:{
 
 icon:"👨‍💼",
@@ -1695,63 +1777,52 @@ content:`
 
 <div class="admin">
 
-
-<div style="font-size:40px;">
+<div class="admin-icon">
 👨‍💼
 </div>
-
 
 <h3>
 Piyas
 </h3>
 
-
 <p>
-🟢 Admin 1
+🟢 Admin 1 — সরাসরি WhatsApp-এ যোগাযোগ করুন
 </p>
-
 
 <a
 href="https://wa.me/8801925681872"
 target="_blank"
 class="whatsapp">
 
-💬 WhatsApp যোগাযোগ
+💬 Piyas-কে WhatsApp করুন
 
 </a>
 
-
 </div>
-
 
 
 <div class="admin">
 
-
-<div style="font-size:40px;">
+<div class="admin-icon">
 👨‍💼
 </div>
-
 
 <h3>
 Sojib
 </h3>
 
-
 <p>
-🟢 Admin 2
+🟢 Admin 2 — সরাসরি WhatsApp-এ যোগাযোগ করুন
 </p>
-
 
 <a
 href="https://wa.me/8801761504673"
 target="_blank"
 class="whatsapp">
 
-💬 WhatsApp যোগাযোগ
+💬 Sojib-কে WhatsApp করুন
 
 </a>
-
 
 </div>
 
@@ -1759,8 +1830,6 @@ class="whatsapp">
 
 },
 
-
-/* WARNING */
 
 warning:{
 
@@ -1774,35 +1843,21 @@ content:`
 
 <div class="detail-box warning">
 
-
 <h2>
 ⚠️ প্রিয় সদস্যবৃন্দ
 </h2>
 
-
 <p>
-
-যেকোনো ধরনের কেনা-বেচা বা ডিল করার আগে অবশ্যই
-<strong>
-এডমিনের মাধ্যমে লেনদেন করবেন।
-</strong>
-
+যেকোনো ধরনের কেনা-বেচা বা ডিল করার আগে অবশ্যই <strong>এডমিনের মাধ্যমে লেনদেন করবেন।</strong>
 </p>
 
-
 <p>
-
 এডমিনকে বাদ দিয়ে কারও সঙ্গে সরাসরি লেনদেন করলে এবং কোনো ধরনের প্রতারণার শিকার হলে এর দায়ভার এডমিন কর্তৃপক্ষ গ্রহণ করবে না।
-
 </p>
-
 
 <p>
-
 ✅ সতর্ক থাকুন এবং নিরাপদে ডিল করুন।
-
 </p>
-
 
 </div>
 
@@ -1810,8 +1865,6 @@ content:`
 
 },
 
-
-/* TUTORIAL */
 
 tutorial:{
 
@@ -1825,37 +1878,29 @@ content:`
 
 <div class="detail-box">
 
-
 <h2>
 📖 Tutorial
 </h2>
-
 
 <p>
 আপনার প্রয়োজনীয় সার্ভিস নির্বাচন করে বিস্তারিত তথ্য দেখুন।
 </p>
 
-
 <ul>
-
 
 <li>
 1️⃣ পছন্দের সার্ভিস নির্বাচন করুন
 </li>
 
-
 <li>
 2️⃣ সার্ভিসের বিস্তারিত দেখুন
 </li>
-
 
 <li>
 3️⃣ প্রয়োজন হলে এডমিনের সঙ্গে যোগাযোগ করুন
 </li>
 
-
 </ul>
-
 
 </div>
 
@@ -1874,11 +1919,7 @@ closeMenu();
 
 let page=pages[name];
 
-if(!page){
-
-return;
-
-}
+if(!page)return;
 
 
 document
@@ -1918,29 +1959,15 @@ document
 .innerHTML=page.content;
 
 
+/* বর্তমানে থাকা পেজ মনে রাখবে */
+
+localStorage.setItem(
+"currentPage",
+name
+);
+
+
 window.scrollTo(0,0);
-
-}
-
-
-/* ================= SELECT STARS ================= */
-
-function selectStars(stars){
-
-openPage("starsadmin");
-
-setTimeout(function(){
-
-let selected=document
-.getElementById("selectedStars");
-
-if(selected){
-
-selected.innerHTML=stars;
-
-}
-
-},100);
 
 }
 
@@ -1961,6 +1988,12 @@ document
 .display="block";
 
 
+localStorage.setItem(
+"currentPage",
+"home"
+);
+
+
 window.scrollTo(0,0);
 
 }
@@ -1975,16 +2008,42 @@ goHome();
 setTimeout(function(){
 
 document
-.querySelector(".services")
+.getElementById("servicesSection")
 .scrollIntoView({
 
 behavior:"smooth"
 
 });
 
-},100);
+},150);
 
 }
+
+
+/* ================= REFRESH FIX ================= */
+
+window.addEventListener(
+"load",
+function(){
+
+let savedPage=
+localStorage.getItem(
+"currentPage"
+);
+
+
+if(
+savedPage &&
+savedPage!=="home" &&
+pages[savedPage]
+){
+
+openPage(savedPage);
+
+}
+
+}
+);
 
 
 /* ================= BACK BUTTON ================= */
@@ -2006,25 +2065,29 @@ document.addEventListener(
 
 function(event){
 
-let now=new Date().getTime();
+let now=
+new Date()
+.getTime();
 
-if(now-lastTouchEnd<=300){
+
+if(
+now-lastTouchEnd<=300
+){
 
 event.preventDefault();
 
 }
 
+
 lastTouchEnd=now;
 
 },
 
-{passive:false}
+false
 
 );
 
 </script>
 
-
 </body>
-
 </html>
