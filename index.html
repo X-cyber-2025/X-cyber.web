@@ -252,24 +252,13 @@ body{
     background:#ffffff;
     display:flex;
     align-items:center;
-    gap:12px;
+    justify-content:center;
     padding:0 15px;
     box-shadow:0 3px 12px rgba(0,0,0,.08);
     border-top:3px solid #ff3d56;
     position:sticky;
     top:0;
     z-index:100;
-}
-
-.back-btn{
-    border:none;
-    width:42px;
-    height:42px;
-    border-radius:13px;
-    background:#fff0f3;
-    color:#ef2f61;
-    font-size:25px;
-    cursor:pointer;
 }
 
 .detail-title-small{
@@ -790,11 +779,6 @@ onclick="openPage('whyus')">
 
 <header class="detail-header">
 
-<button class="back-btn"
-onclick="goBack()">
-←
-</button>
-
 <div class="detail-title-small"
 id="headerTitle">
 বিস্তারিত
@@ -865,6 +849,41 @@ Contact Us
 
 <script>
 
+/* ================= HISTORY & PAGE SAVE ================= */
+
+let currentPage = null;
+
+/* পেজ রিফ্রেশ হলে আগের পেজে থাকার জন্য */
+
+window.addEventListener("load",function(){
+
+    let savedPage = localStorage.getItem("currentPage");
+
+    if(savedPage && pages[savedPage]){
+
+        openPage(savedPage,false);
+
+    }
+
+});
+
+/* ফোনের Back Button */
+
+window.addEventListener("popstate",function(event){
+
+    if(event.state && event.state.page){
+
+        openPage(event.state.page,false);
+
+    }else{
+
+        showHome(false);
+
+    }
+
+});
+
+
 /* ================= SELECT ADMIN ================= */
 
 function selectAdmin(service,details){
@@ -896,6 +915,7 @@ function selectAdmin(service,details){
 
 }
 
+
 /* ================= SEND WHATSAPP ================= */
 
 function sendWhatsAppTo(number){
@@ -924,6 +944,7 @@ function sendWhatsAppTo(number){
 
 }
 
+
 /* ================= CUSTOM TIKTOK COIN ================= */
 
 function customCoin(){
@@ -951,6 +972,67 @@ function customCoin(){
     );
 
 }
+
+
+/* ================= CUSTOM PLAY OFFER ================= */
+
+function customOffer(){
+
+    let offer =
+    document.getElementById(
+        "customOfferText"
+    ).value.trim();
+
+    if(offer === ""){
+
+        alert(
+            "দয়া করে আপনার Offer সম্পর্কে লিখুন।"
+        );
+
+        return;
+    }
+
+    selectAdmin(
+        "Google Play Offer",
+        offer
+    );
+
+}
+
+
+/* ================= CUSTOM TELEGRAM STARS ================= */
+
+function customStars(type){
+
+    let amount =
+    document.getElementById(
+        "customStarsAmount"
+    ).value;
+
+    if(
+        amount === "" ||
+        Number(amount) <= 0
+    ){
+
+        alert(
+            "দয়া করে Stars এর পরিমাণ লিখুন।"
+        );
+
+        return;
+    }
+
+    let serviceName =
+    type === "buy"
+    ? "Telegram Stars কিনতে চাই"
+    : "Telegram Stars বিক্রি করতে চাই";
+
+    selectAdmin(
+        serviceName,
+        amount + " Stars"
+    );
+
+}
+
 
 /* ================= PAGE DATA ================= */
 
@@ -1070,6 +1152,8 @@ onclick="selectAdmin(
 
 },
 
+/* ================= GOOGLE PLAY OFFER ================= */
+
 offer:{
 
 icon:"🎁",
@@ -1128,9 +1212,37 @@ onclick="selectAdmin(
 
 </div>
 
+<div class="detail-box">
+
+<h2>
+✨ Custom Offer
+</h2>
+
+<p>
+আপনার Google Play-তে থাকা Offer বা Discount সম্পর্কে লিখুন।
+</p>
+
+<textarea
+id="customOfferText"
+class="custom-input"
+placeholder="আপনার কী Offer আছে বা কী Offer প্রয়োজন তা লিখুন...">
+</textarea>
+
+<button
+class="order-btn"
+onclick="customOffer()">
+
+📝 Custom Offer পাঠান
+
+</button>
+
+</div>
+
 `
 
 },
+
+/* ================= TELEGRAM STARS ================= */
 
 telegramstars:{
 
@@ -1138,7 +1250,7 @@ icon:"⭐",
 
 title:"Telegram Stars",
 
-subtitle:"Telegram Stars সংক্রান্ত সার্ভিস",
+subtitle:"Telegram Stars কেনা ও বিক্রির সার্ভিস",
 
 content:`
 
@@ -1149,41 +1261,64 @@ content:`
 </h2>
 
 <p>
-আপনার প্রয়োজনীয় Stars এর পরিমাণ নির্বাচন করুন।
+আপনি Telegram Stars কিনতে অথবা বিক্রি করতে পারবেন।
+নিচের প্রয়োজনীয় অপশনটি নির্বাচন করুন।
 </p>
 
-<div class="coin-grid">
+<div class="offer-grid">
 
-<button class="coin-btn"
+<button class="offer"
 onclick="selectAdmin(
 'Telegram Stars',
-'100 Stars'
+'Stars কিনতে চাই'
 )">
-⭐ 100 Stars
+🛒 Stars কিনুন
 </button>
 
-<button class="coin-btn"
+<button class="offer"
 onclick="selectAdmin(
 'Telegram Stars',
-'500 Stars'
+'Stars বিক্রি করতে চাই'
 )">
-⭐ 500 Stars
+💰 Stars বিক্রি করুন
 </button>
 
-<button class="coin-btn"
-onclick="selectAdmin(
-'Telegram Stars',
-'1000 Stars'
-)">
-⭐ 1000 Stars
+</div>
+
+</div>
+
+<div class="detail-box">
+
+<h2>
+✨ Custom Stars
+</h2>
+
+<p>
+আপনার প্রয়োজনীয় Stars এর পরিমাণ লিখুন।
+</p>
+
+<input
+type="number"
+id="customStarsAmount"
+class="custom-input"
+placeholder="কত Stars?">
+
+<div class="admin-send-grid">
+
+<button
+class="admin-send-btn"
+onclick="customStars('buy')">
+
+🛒 Stars কিনুন
+
 </button>
 
-<button class="coin-btn"
-onclick="selectAdmin(
-'Telegram Stars',
-'Custom Stars'
-)">
-✨ Custom
+<button
+class="admin-send-btn"
+onclick="customStars('sell')">
+
+💰 Stars বিক্রি করুন
+
 </button>
 
 </div>
@@ -1292,9 +1427,6 @@ onclick="selectAdmin(
 
 </div>
 
-
-<!-- CUSTOM COIN -->
-
 <div class="detail-box">
 
 <h2>
@@ -1320,9 +1452,6 @@ onclick="customCoin()">
 </button>
 
 </div>
-
-
-<!-- VIDEO BOOST -->
 
 <div class="detail-box">
 
@@ -1499,7 +1628,6 @@ content:`
 
 </p>
 
-
 <div class="admin-card">
 
 <div class="admin-avatar">
@@ -1509,7 +1637,7 @@ content:`
 <div class="admin-info">
 
 <h3>
-ᴘɪʏᴀꜱ ⋆⋅☆⋅⋆ 
+ᴘɪʏᴀꜱ ⋆⋅☆⋅⋆
 </h3>
 
 <span>
@@ -1528,7 +1656,6 @@ class="admin-whatsapp">
 </a>
 
 </div>
-
 
 <div class="admin-card">
 
@@ -1561,7 +1688,6 @@ class="admin-whatsapp">
 
 </div>
 
-
 <div class="detail-box">
 
 <h2 id="contactTitle">
@@ -1579,7 +1705,6 @@ class="custom-input"
 placeholder="আপনার প্রয়োজনীয় সার্ভিস সম্পর্কে লিখুন...">
 </textarea>
 
-
 <div class="admin-send-grid">
 
 <button
@@ -1589,7 +1714,6 @@ onclick="sendWhatsAppTo('8801925681872')">
 👨‍💻 Piyas-কে পাঠান
 
 </button>
-
 
 <button
 class="admin-send-btn"
@@ -1602,7 +1726,6 @@ onclick="sendWhatsAppTo('8801761504673')">
 </div>
 
 </div>
-
 
 <div class="detail-box">
 
@@ -1667,11 +1790,10 @@ content:`
 
 };
 
+
 /* ================= OPEN PAGE ================= */
 
-let currentPage = null;
-
-function openPage(name){
+function openPage(name,addHistory = true){
 
     let page = pages[name];
 
@@ -1709,13 +1831,31 @@ function openPage(name){
 
     currentPage = name;
 
+    localStorage.setItem(
+        "currentPage",
+        name
+    );
+
+    if(addHistory){
+
+        history.pushState(
+            {
+                page:name
+            },
+            "",
+            "#" + name
+        );
+
+    }
+
     window.scrollTo(0,0);
 
 }
 
+
 /* ================= HOME ================= */
 
-function goHome(){
+function showHome(addHistory = true){
 
     document.getElementById(
         "detailPage"
@@ -1727,31 +1867,81 @@ function goHome(){
 
     currentPage = null;
 
+    localStorage.removeItem(
+        "currentPage"
+    );
+
+    if(addHistory){
+
+        history.pushState(
+            {},
+            "",
+            window.location.pathname
+        );
+
+    }
+
     window.scrollTo(0,0);
 
 }
 
-function goBack(){
-    goHome();
+function goHome(){
+
+    if(currentPage !== null){
+
+        history.back();
+
+    }else{
+
+        showHome(false);
+
+    }
+
 }
+
 
 /* ================= SERVICES ================= */
 
 function scrollToServices(){
 
     if(currentPage !== null){
+
         goHome();
+
+        setTimeout(function(){
+
+            document.getElementById(
+                "mainServices"
+            ).scrollIntoView({
+                behavior:"smooth"
+            });
+
+        },300);
+
+        return;
+
     }
 
-    setTimeout(function(){
+    document.getElementById(
+        "mainServices"
+    ).scrollIntoView({
+        behavior:"smooth"
+    });
 
-        document.getElementById(
-            "mainServices"
-        ).scrollIntoView({
-            behavior:"smooth"
-        });
+}
 
-    },100);
+
+/* ================= INITIAL HISTORY ================= */
+
+if(
+    !history.state
+){
+
+    history.replaceState(
+        {},
+        "",
+        window.location.href
+    );
 
 }
 
