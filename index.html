@@ -1,2274 +1,1409 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
-
-    <title>PIYAS</title>
-
-    <link rel="preconnect"
-          href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap"
-          rel="stylesheet">
-
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: "Hind Siliguri", sans-serif;
-            background: #081120;
-            color: #ffffff;
-            min-height: 100vh;
-        }
-
-
-        /* =========================
-           HEADER
-        ========================= */
-
-        header {
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-
-            background: #111c2e;
-
-            border-top: 3px solid #ec4899;
-
-            border-bottom:
-                1px solid rgba(255,255,255,0.08);
-
-            padding: 15px 20px;
-        }
-
-
-        .navbar {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            max-width: 1200px;
-
-            margin: auto;
-        }
-
-
-        /* =========================
-           MENU BUTTON
-        ========================= */
-
-        .menu-btn {
-
-            background: transparent;
-
-            border: none;
-
-            color: white;
-
-            font-size: 38px;
-
-            cursor: pointer;
-
-            width: 55px;
-
-            height: 55px;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-        }
-
-
-        /* =========================
-           LOGO
-        ========================= */
-
-        .logo {
-
-            font-size: 32px;
-
-            font-weight: 700;
-
-            letter-spacing: 1px;
-
-            position: absolute;
-
-            left: 50%;
-
-            transform: translateX(-50%);
-        }
-
-        .logo span {
-
-            color: #4ba7e8;
-        }
-
-
-        /* =========================
-           EMPTY RIGHT SPACE
-        ========================= */
-
-        .right-space {
-
-            width: 55px;
-        }
-
-
-        /* =========================
-           SIDE MENU
-        ========================= */
-
-        .side-menu {
-
-            position: fixed;
-
-            top: 0;
-
-            left: -100%;
-
-            width: 78%;
-
-            max-width: 380px;
-
-            height: 100vh;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #18283d,
-                    #101b2c
-                );
-
-            z-index: 2000;
-
-            padding: 25px 18px;
-
-            transition: 0.35s ease;
-
-            border-right:
-                1px solid rgba(255,255,255,0.10);
-
-            box-shadow:
-                10px 0 40px rgba(0,0,0,0.45);
-        }
-
-
-        .side-menu.active {
-
-            left: 0;
-        }
-
-
-        .menu-top {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            margin-bottom: 35px;
-        }
-
-
-        .menu-logo {
-
-            font-size: 27px;
-
-            font-weight: bold;
-        }
-
-
-        .menu-logo span {
-
-            color: #4ba7e8;
-        }
-
-
-        .close-btn {
-
-            background: transparent;
-
-            border: none;
-
-            color: white;
-
-            font-size: 35px;
-
-            cursor: pointer;
-        }
-
-
-        /* =========================
-           MENU ITEMS
-        ========================= */
-
-        .menu-item {
-
-            width: 100%;
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 16px;
-
-            padding: 18px 16px;
-
-            margin-bottom: 14px;
-
-            text-decoration: none;
-
-            color: white;
-
-            background:
-                rgba(255,255,255,0.07);
-
-            border:
-                1px solid rgba(255,255,255,0.08);
-
-            border-radius: 18px;
-
-            font-size: 19px;
-
-            font-weight: 600;
-
-            cursor: pointer;
-
-            transition: 0.3s;
-        }
-
-
-        .menu-item:hover {
-
-            background: #253750;
-
-            transform: translateX(4px);
-        }
-
-
-        .menu-arrow {
-
-            margin-left: auto;
-
-            color: #94a3b8;
-
-            font-size: 28px;
-        }
-
-
-        /* =========================
-           OVERLAY
-        ========================= */
-
-        .overlay {
-
-            position: fixed;
-
-            inset: 0;
-
-            background:
-                rgba(0,0,0,0.60);
-
-            z-index: 1500;
-
-            opacity: 0;
-
-            visibility: hidden;
-
-            transition: 0.3s;
-        }
-
-
-        .overlay.active {
-
-            opacity: 1;
-
-            visibility: visible;
-        }
-
-
-        /* =========================
-           SEARCH
-        ========================= */
-
-        .search-area {
-
-            padding: 20px 20px 10px;
-
-            max-width: 1200px;
-
-            margin: auto;
-        }
-
-
-        .search-box {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 12px;
-
-            background: #111c2e;
-
-            border:
-                1px solid #34455e;
-
-            border-radius: 18px;
-
-            padding: 16px 18px;
-        }
-
-
-        .search-icon {
-
-            font-size: 25px;
-
-            color: #94a3b8;
-        }
-
-
-        .search-box input {
-
-            width: 100%;
-
-            border: none;
-
-            outline: none;
-
-            background: transparent;
-
-            color: white;
-
-            font-family: inherit;
-
-            font-size: 17px;
-        }
-
-
-        .search-box input::placeholder {
-
-            color: #94a3b8;
-        }
-
-
-        /* =========================
-           HERO
-        ========================= */
-
-        .hero {
-
-            text-align: center;
-
-            padding:
-                35px 20px 30px;
-        }
-
-
-        .hero h1 {
-
-            font-size: 36px;
-
-            line-height: 1.4;
-
-            margin-bottom: 8px;
-        }
-
-
-        .hero p {
-
-            color: #94a3b8;
-
-            font-size: 18px;
-        }
-
-
-        /* =========================
-           SERVICE SECTION
-        ========================= */
-
-        .container {
-
-            width: 100%;
-
-            max-width: 1200px;
-
-            margin: auto;
-
-            padding: 10px 20px 60px;
-        }
-
-
-        .services-grid {
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 16px;
-        }
-
-
-        /* =========================
-           SERVICE CARD
-        ========================= */
-
-        .service-card {
-
-            min-height: 190px;
-
-            padding: 18px;
-
-            border-radius: 22px;
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 14px;
-
-            cursor: pointer;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #29394f,
-                    #202d40
-                );
-
-            border:
-                1px solid #394d66;
-
-            transition: 0.3s;
-        }
-
-
-        .service-card:hover {
-
-            transform:
-                translateY(-5px);
-
-            border-color:
-                #4ba7e8;
-
-            box-shadow:
-                0 12px 30px
-                rgba(0,0,0,0.30);
-        }
-
-
-        .service-icon {
-
-            min-width: 70px;
-
-            height: 70px;
-
-            display: flex;
-
-            justify-content: center;
-
-            align-items: center;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #334258,
-                    #263348
-                );
-
-            border-radius: 18px;
-
-            border:
-                1px solid #43536a;
-
-            font-size: 35px;
-        }
-
-
-        .service-name {
-
-            flex: 1;
-
-            font-size: 21px;
-
-            font-weight: 600;
-
-            line-height: 1.35;
-        }
-
-
-        .card-arrow {
-
-            font-size: 28px;
-
-            color: #64748b;
-        }
-
-
-        /* =========================
-           DETAILS MODAL
-        ========================= */
-
-        .details-modal {
-
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 3000;
-
-            display: none;
-
-            justify-content: center;
-
-            align-items: flex-end;
-
-            background:
-                rgba(0,0,0,0.65);
-        }
-
-
-        .details-modal.active {
-
-            display: flex;
-        }
-
-
-        .details-box {
-
-            width: 100%;
-
-            max-height: 88vh;
-
-            overflow-y: auto;
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #1d2b3f,
-                    #101a29
-                );
-
-            border-radius:
-                28px 28px 0 0;
-
-            padding: 25px 22px 45px;
-
-            animation:
-                slideUp 0.3s ease;
-        }
-
-
-        @keyframes slideUp {
-
-            from {
-
-                transform:
-                    translateY(100%);
-            }
-
-            to {
-
-                transform:
-                    translateY(0);
-            }
-        }
-
-
-        .details-header {
-
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            margin-bottom: 20px;
-        }
-
-
-        .details-title {
-
-            font-size: 26px;
-
-            font-weight: 700;
-        }
-
-
-        .details-close {
-
-            width: 45px;
-
-            height: 45px;
-
-            border-radius: 50%;
-
-            border: none;
-
-            background: #29394f;
-
-            color: white;
-
-            font-size: 28px;
-
-            cursor: pointer;
-        }
-
-
-        .details-content {
-
-            color: #cbd5e1;
-
-            font-size: 17px;
-
-            line-height: 1.8;
-        }
-
-
-        .details-content h3 {
-
-            color: white;
-
-            margin-top: 20px;
-
-            margin-bottom: 10px;
-        }
-
-
-        .details-content ul {
-
-            padding-left: 20px;
-
-            margin-top: 10px;
-        }
-
-
-        .details-content li {
-
-            margin-bottom: 10px;
-        }
-
-
-        .country-list {
-
-            display: flex;
-
-            flex-wrap: wrap;
-
-            gap: 10px;
-
-            margin-top: 15px;
-        }
-
-
-        .country {
-
-            padding: 8px 13px;
-
-            border-radius: 10px;
-
-            background: #26374d;
-
-            border:
-                1px solid #3b5069;
-
-            color: white;
-        }
-
-
-        .offer {
-
-            display: inline-block;
-
-            padding: 9px 14px;
-
-            margin: 5px;
-
-            border-radius: 10px;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #ec4899,
-                    #7c3aed
-                );
-
-            color: white;
-
-            font-weight: bold;
-        }
-
-
-        .login-note {
-
-            margin-top: 20px;
-
-            padding: 15px;
-
-            border-radius: 15px;
-
-            background:
-                rgba(255,193,7,0.08);
-
-            border:
-                1px solid
-                rgba(255,193,7,0.25);
-
-            color: #f1d58b;
-        }
-
-
-        /* =========================
-           ADMIN PAGE
-        ========================= */
-
-        .page-modal {
-
-            position: fixed;
-
-            inset: 0;
-
-            z-index: 2500;
-
-            display: none;
-
-            overflow-y: auto;
-
-            background: #081120;
-
-            padding-bottom: 40px;
-        }
-
-
-        .page-modal.active {
-
-            display: block;
-        }
-
-
-        .page-header {
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 15px;
-
-            padding: 20px;
-
-            background: #111c2e;
-
-            border-top:
-                3px solid #ec4899;
-        }
-
-
-        .back-btn {
-
-            width: 45px;
-
-            height: 45px;
-
-            border-radius: 50%;
-
-            border: none;
-
-            background: #26374d;
-
-            color: white;
-
-            font-size: 28px;
-
-            cursor: pointer;
-        }
-
-
-        .page-title {
-
-            font-size: 25px;
-
-            font-weight: bold;
-        }
-
-
-        .page-content {
-
-            padding: 30px 20px;
-        }
-
-
-        .admin-card {
-
-            background:
-                linear-gradient(
-                    145deg,
-                    #29394f,
-                    #202d40
-                );
-
-            border:
-                1px solid #394d66;
-
-            border-radius: 22px;
-
-            padding: 25px;
-
-            text-align: center;
-
-            margin-bottom: 20px;
-        }
-
-
-        .admin-icon {
-
-            font-size: 55px;
-
-            margin-bottom: 10px;
-        }
-
-
-        .admin-card h3 {
-
-            font-size: 23px;
-
-            margin-bottom: 8px;
-        }
-
-
-        .admin-status {
-
-            color: #94a3b8;
-
-            margin-bottom: 20px;
-        }
-
-
-        .whatsapp-btn {
-
-            display: block;
-
-            padding: 15px;
-
-            border-radius: 14px;
-
-            text-decoration: none;
-
-            color: white;
-
-            font-weight: bold;
-
-            background:
-                linear-gradient(
-                    135deg,
-                    #25d366,
-                    #128c7e
-                );
-        }
-
-
-        /* =========================
-           WARNING
-        ========================= */
-
-        .warning-box {
-
-            background:
-                linear-gradient(
-                    145deg,
-                    rgba(100,30,35,0.8),
-                    rgba(55,15,20,0.9)
-                );
-
-            border:
-                1px solid #ef4444;
-
-            border-radius: 22px;
-
-            padding: 25px;
-        }
-
-
-        .warning-box h2 {
-
-            color: #ff8a8a;
-
-            margin-bottom: 20px;
-        }
-
-
-        .warning-box p {
-
-            color: #f1c7c7;
-
-            margin-bottom: 15px;
-
-            line-height: 1.8;
-        }
-
-
-        /* =========================
-           MOBILE
-        ========================= */
-
-        @media (max-width: 600px) {
-
-            .services-grid {
-
-                gap: 14px;
-            }
-
-
-            .service-card {
-
-                min-height: 175px;
-
-                padding: 15px;
-
-                gap: 10px;
-            }
-
-
-            .service-icon {
-
-                min-width: 58px;
-
-                height: 58px;
-
-                font-size: 29px;
-
-                border-radius: 16px;
-            }
-
-
-            .service-name {
-
-                font-size: 17px;
-            }
-
-
-            .card-arrow {
-
-                font-size: 22px;
-            }
-
-
-            .hero h1 {
-
-                font-size: 30px;
-            }
-
-
-            .hero p {
-
-                font-size: 16px;
-            }
-
-
-            .logo {
-
-                font-size: 28px;
-            }
-        }
-
-
-        @media (max-width: 380px) {
-
-            .service-name {
-
-                font-size: 15px;
-            }
-
-
-            .service-icon {
-
-                min-width: 52px;
-
-                height: 52px;
-
-                font-size: 25px;
-            }
-        }
-
-    </style>
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1,
+maximum-scale=1,
+user-scalable=no">
+
+<title>PIYAS - Digital Services</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Roboto+Slab:wght@500;600;700&display=swap"
+rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
+}
+
+html{
+    -webkit-text-size-adjust:100%;
+    touch-action:manipulation;
+}
+
+body{
+    font-family:"Hind Siliguri",sans-serif;
+    background:#f0f2f8;
+    color:#25344a;
+    padding-bottom:85px;
+}
+
+/* HEADER */
+
+.header{
+    height:65px;
+    background:#ffffff;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 15px;
+    box-shadow:0 3px 15px rgba(0,0,0,.08);
+    border-top:3px solid #ff3d56;
+    position:sticky;
+    top:0;
+    z-index:100;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:5px;
+    font-size:20px;
+    font-weight:700;
+    letter-spacing:.5px;
+    color:#1f2d49;
+}
+
+.logo-icon{
+    color:#ef2f61;
+    font-size:26px;
+}
+
+.logo span{
+    color:#ef2f61;
+}
+
+.menu-btn{
+    width:40px;
+    height:40px;
+    border:none;
+    background:#fff0f3;
+    color:#ef2f61;
+    border-radius:12px;
+    font-size:22px;
+    cursor:pointer;
+}
+
+/* TOP BUTTONS */
+
+.top-links{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:7px;
+    padding:10px;
+    background:#ffffff;
+}
+
+.top-btn{
+    text-decoration:none;
+    background:#ff3d56;
+    color:white;
+    padding:9px 3px;
+    border-radius:8px;
+    text-align:center;
+    font-size:11px;
+    font-weight:700;
+    box-shadow:0 5px 12px rgba(255,61,86,.22);
+}
+
+.top-btn:active{
+    transform:scale(.96);
+}
+
+/* HERO */
+
+.hero{
+    padding:25px 15px 15px;
+    text-align:center;
+}
+
+.hero h1{
+    font-family:"Roboto Slab",serif;
+    font-size:23px;
+    color:#30435c;
+}
+
+.hero p{
+    color:#738096;
+    font-size:13px;
+    margin-top:4px;
+}
+
+/* SECTION */
+
+.section-title{
+    font-family:"Roboto Slab",serif;
+    text-align:center;
+    font-size:20px;
+    color:#30435c;
+    margin:18px 0;
+}
+
+/* SERVICES */
+
+.services{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px 10px;
+    padding:0 14px;
+}
+
+.service{
+    border:none;
+    background:transparent;
+    font-family:inherit;
+    cursor:pointer;
+    color:#33445b;
+    text-align:center;
+}
+
+.service-image{
+    width:100%;
+    aspect-ratio:1/1;
+    border-radius:11px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:37px;
+    margin-bottom:6px;
+    background:linear-gradient(145deg,#3a174b,#ff2d74);
+    box-shadow:0 7px 15px rgba(0,0,0,.13);
+    border:1px solid rgba(255,255,255,.35);
+}
+
+.service:nth-child(2) .service-image,
+.service:nth-child(5) .service-image,
+.service:nth-child(8) .service-image{
+    background:linear-gradient(145deg,#0c5e98,#39b9ed);
+}
+
+.service:nth-child(3) .service-image,
+.service:nth-child(6) .service-image{
+    background:linear-gradient(145deg,#703510,#e8a12d);
+}
+
+.service:nth-child(4) .service-image,
+.service:nth-child(7) .service-image{
+    background:linear-gradient(145deg,#56348c,#a76dff);
+}
+
+.service-title{
+    font-family:"Roboto Slab",serif;
+    font-size:11px;
+    font-weight:600;
+    line-height:1.3;
+    min-height:32px;
+}
+
+.service:active{
+    transform:scale(.96);
+}
+
+/* SIDE MENU */
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.45);
+    opacity:0;
+    visibility:hidden;
+    transition:.3s;
+    z-index:998;
+}
+
+.overlay.active{
+    opacity:1;
+    visibility:visible;
+}
+
+.side-menu{
+    position:fixed;
+    top:0;
+    right:-300px;
+    width:280px;
+    max-width:82%;
+    height:100vh;
+    background:#ffffff;
+    z-index:999;
+    padding:20px 15px;
+    transition:.35s;
+    box-shadow:-10px 0 30px rgba(0,0,0,.15);
+}
+
+.side-menu.active{
+    right:0;
+}
+
+.menu-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.menu-header h2{
+    color:#ef2f61;
+}
+
+.close-menu{
+    border:none;
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    background:#fff0f3;
+    color:#ef2f61;
+    font-size:22px;
+}
+
+.menu-item{
+    width:100%;
+    border:none;
+    background:#f5f6fa;
+    padding:15px;
+    margin-bottom:10px;
+    border-radius:14px;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:inherit;
+    font-size:15px;
+    font-weight:600;
+    color:#33445b;
+    cursor:pointer;
+}
+
+/* BOTTOM NAV */
+
+.bottom-nav{
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:72px;
+    background:#ffffff;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    border-radius:22px 22px 0 0;
+    box-shadow:0 -5px 20px rgba(0,0,0,.10);
+    z-index:500;
+}
+
+.nav-item{
+    border:none;
+    background:transparent;
+    color:#657084;
+    font-family:inherit;
+    font-size:10px;
+    font-weight:600;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:2px;
+}
+
+.nav-icon{
+    font-size:22px;
+}
+
+.nav-item.active{
+    color:#ef2f61;
+}
+
+/* DETAIL PAGE */
+
+#detailPage{
+    display:none;
+    min-height:100vh;
+    background:#f0f2f8;
+    padding-bottom:20px;
+}
+
+.detail-header{
+    height:65px;
+    background:#ffffff;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    padding:0 15px;
+    box-shadow:0 3px 12px rgba(0,0,0,.08);
+    border-top:3px solid #ff3d56;
+}
+
+.back-btn{
+    border:none;
+    width:40px;
+    height:40px;
+    border-radius:12px;
+    background:#fff0f3;
+    color:#ef2f61;
+    font-size:23px;
+}
+
+.detail-title-small{
+    font-size:16px;
+    font-weight:700;
+    color:#2c3d55;
+}
+
+.detail-hero{
+    text-align:center;
+    padding:25px 15px 15px;
+}
+
+.detail-icon{
+    width:65px;
+    height:65px;
+    margin:auto;
+    border-radius:20px;
+    background:linear-gradient(145deg,#ff2f6d,#9e2b84);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:34px;
+    box-shadow:0 10px 25px rgba(255,61,86,.25);
+}
+
+.detail-hero h1{
+    margin-top:10px;
+    font-size:22px;
+    color:#2e4058;
+}
+
+.detail-hero p{
+    color:#718096;
+    font-size:13px;
+    margin-top:4px;
+}
+
+.detail-content{
+    padding:0 15px;
+    max-width:700px;
+    margin:auto;
+}
+
+.detail-box{
+    background:#ffffff;
+    border-radius:18px;
+    padding:17px;
+    margin-bottom:14px;
+    box-shadow:0 5px 18px rgba(0,0,0,.06);
+}
+
+.detail-box h2{
+    font-size:18px;
+    color:#30435c;
+    margin-bottom:10px;
+}
+
+.detail-box p{
+    font-size:14px;
+    color:#66758a;
+    line-height:1.8;
+    margin-bottom:10px;
+}
+
+.detail-box ul{
+    list-style:none;
+}
+
+.detail-box li{
+    padding:11px;
+    margin-top:8px;
+    border-radius:10px;
+    background:#f5f7fb;
+    color:#4b5b70;
+    font-size:13px;
+}
+
+/* COUNTRIES */
+
+.countries{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:8px;
+}
+
+.country{
+    padding:10px 5px;
+    text-align:center;
+    border-radius:10px;
+    background:#f5f7fb;
+    font-size:12px;
+}
+
+/* OFFER */
+
+.offer-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:9px;
+}
+
+.offer{
+    padding:13px 5px;
+    border-radius:12px;
+    text-align:center;
+    background:linear-gradient(135deg,#ff3d6a,#a72d86);
+    color:white;
+    font-size:13px;
+    font-weight:700;
+}
+
+/* ADMIN */
+
+.admin{
+    text-align:center;
+    padding:18px;
+    background:#f6f7fb;
+    border-radius:15px;
+    margin-top:10px;
+}
+
+.admin h3{
+    font-size:18px;
+    color:#33445b;
+}
+
+.whatsapp{
+    display:block;
+    background:#20b866;
+    color:white;
+    padding:12px;
+    margin-top:12px;
+    border-radius:10px;
+    text-decoration:none;
+    font-weight:700;
+}
+
+/* WARNING */
+
+.warning{
+    background:#fff4f4;
+    border:1px solid #ffcaca;
+}
+
+.warning h2{
+    color:#e63950;
+}
+
+/* MOBILE */
+
+@media(max-width:350px){
+
+    .services{
+        gap:18px 7px;
+        padding:0 10px;
+    }
+
+    .service-title{
+        font-size:10px;
+    }
+
+    .service-image{
+        font-size:32px;
+    }
+
+}
+
+</style>
 </head>
-
 
 <body>
 
 
-    <!-- =========================
-         HEADER
-    ========================= -->
+<!-- SIDE MENU -->
 
-    <header>
+<div class="overlay"
+id="overlay"
+onclick="closeMenu()">
+</div>
 
-        <div class="navbar">
 
-            <button class="menu-btn"
-                    onclick="openMenu()">
+<div class="side-menu"
+id="sideMenu">
 
-                ☰
+<div class="menu-header">
 
-            </button>
+<h2>PIYAS</h2>
 
+<button class="close-menu"
+onclick="closeMenu()">
+×
+</button>
 
-            <div class="logo">
+</div>
 
-                PI<span>YAS</span>
+<button class="menu-item"
+onclick="openPage('admin')">
+👨‍💼 এডমিনদের যোগাযোগ
+</button>
 
-            </div>
+<button class="menu-item"
+onclick="openPage('warning')">
+⚠️ গুরুত্বপূর্ণ সতর্কবার্তা
+</button>
 
+</div>
 
-            <div class="right-space"></div>
 
-        </div>
+<!-- HOME PAGE -->
 
-    </header>
+<div id="homePage">
 
+<header class="header">
 
+<div class="logo">
 
-    <!-- =========================
-         SIDE MENU
-    ========================= -->
+<span class="logo-icon">⚡</span>
 
-    <div class="overlay"
-         id="overlay"
-         onclick="closeMenu()">
+PIYAS
 
-    </div>
+<span>SERVICES</span>
 
+</div>
 
-    <div class="side-menu"
-         id="sideMenu">
+<button class="menu-btn"
+onclick="openMenu()">
+☰
+</button>
 
+</header>
 
-        <div class="menu-top">
 
-            <div class="menu-logo">
+<!-- TOP LINKS -->
 
-                PI<span>YAS</span>
+<div class="top-links">
 
-            </div>
+<a href="https://t.me/Teach_with_bd"
+target="_blank"
+class="top-btn">
+✈️ Telegram
+</a>
 
 
-            <button class="close-btn"
-                    onclick="closeMenu()">
+<a href="https://chat.whatsapp.com/DzeUDoeYVhV7OShIndRKQt?s=cl&p=a&mlu=4&ilr=4"
+target="_blank"
+class="top-btn">
+👥 Join Group
+</a>
 
-                ×
 
-            </button>
+<a href="https://wa.me/8801925681872"
+target="_blank"
+class="top-btn">
+💬 WhatsApp
+</a>
 
-        </div>
+</div>
 
 
+<!-- HERO -->
 
-        <div class="menu-item"
-             onclick="goHome()">
+<section class="hero">
 
-            🏠
+<h1>
+🌟 আমাদের ডিজিটাল সেবাসমূহ
+</h1>
 
-            <span>সেবাসমূহ</span>
+<p>
+আপনার প্রয়োজনীয় সার্ভিস নির্বাচন করুন
+</p>
 
-            <span class="menu-arrow">
+</section>
 
-                ›
-            </span>
 
-        </div>
+<!-- SPECIAL OFFER -->
 
+<h2 class="section-title">
+SPECIAL OFFER
+</h2>
 
 
-        <div class="menu-item"
-             onclick="openAdmin()">
+<div class="services">
 
-            👨‍💼
 
-            <span>এডমিনদের যোগাযোগ</span>
+<button class="service"
+onclick="openPage('playpoints')">
 
-            <span class="menu-arrow">
+<div class="service-image">🎮</div>
 
-                ›
-            </span>
+<div class="service-title">
+Google Play Points
+</div>
 
-        </div>
+</button>
 
 
+<button class="service"
+onclick="openPage('parkon')">
 
-        <div class="menu-item"
-             onclick="openWarning()">
+<div class="service-image">🅿️</div>
 
-            ⚠️
+<div class="service-title">
+Play Points Park ON
+</div>
 
-            <span>গুরুত্বপূর্ণ সতর্কবার্তা</span>
+</button>
 
-            <span class="menu-arrow">
 
-                ›
-            </span>
+<button class="service"
+onclick="openPage('offer')">
 
-        </div>
+<div class="service-image">🎁</div>
 
-    </div>
+<div class="service-title">
+Google Play Offer
+</div>
 
+</button>
 
+</div>
 
-    <!-- =========================
-         SEARCH
-    ========================= -->
 
-    <div class="search-area">
+<!-- POPULAR SERVICES -->
 
-        <div class="search-box">
+<h2 class="section-title">
+POPULAR SERVICES
+</h2>
 
-            <span class="search-icon">
 
-                🔎
+<div class="services">
 
-            </span>
 
-            <input type="text"
-                   id="searchInput"
-                   placeholder="আপনার সার্ভিস খুঁজুন"
-                   onkeyup="searchService()">
+<button class="service"
+onclick="openPage('quest')">
 
-        </div>
+<div class="service-image">🎯</div>
 
-    </div>
+<div class="service-title">
+Quest Complete
+</div>
 
+</button>
 
 
-    <!-- =========================
-         HERO
-    ========================= -->
+<button class="service"
+onclick="openPage('tiktok')">
 
-    <section class="hero">
+<div class="service-image">🪙</div>
 
-        <h1>
+<div class="service-title">
+TikTok Coin ও Boost
+</div>
 
-            🌟 আমাদের ডিজিটাল সেবাসমূহ
+</button>
 
-        </h1>
 
+<button class="service"
+onclick="openPage('youtube')">
 
-        <p>
+<div class="service-image">▶️</div>
 
-            আপনার প্রয়োজনীয় সার্ভিস নির্বাচন করুন
+<div class="service-title">
+YouTube Premium
+</div>
 
-        </p>
+</button>
 
-    </section>
 
+<button class="service"
+onclick="openPage('vpn')">
 
+<div class="service-image">🌐</div>
 
-    <!-- =========================
-         SERVICES
-    ========================= -->
+<div class="service-title">
+VPN সার্ভিস
+</div>
 
-    <main class="container">
+</button>
 
-        <div class="services-grid"
-             id="servicesGrid">
 
+<button class="service"
+onclick="openPage('whyus')">
 
+<div class="service-image">👑</div>
 
-            <!-- Google Play Points -->
+<div class="service-title">
+কেন আমাদের বেছে নেবেন?
+</div>
 
-            <div class="service-card"
-                 data-service="Google Play Points"
-                 onclick="showDetails('playPoints')">
+</button>
 
-                <div class="service-icon">
 
-                    🎮
+<button class="service"
+onclick="openPage('admin')">
 
-                </div>
+<div class="service-image">👨‍💼</div>
 
-                <div class="service-name">
+<div class="service-title">
+Admin Contact
+</div>
 
-                    Google Play Points
+</button>
 
-                </div>
+</div>
 
-                <div class="card-arrow">
+</div>
 
-                    ›
 
-                </div>
+<!-- BOTTOM NAV -->
 
-            </div>
+<nav class="bottom-nav">
 
+<button class="nav-item active"
+onclick="goHome()">
 
+<div class="nav-icon">⌂</div>
 
-            <!-- Park ON -->
+Home
 
-            <div class="service-card"
-                 data-service="Play Points Park ON"
-                 onclick="showDetails('parkOn')">
+</button>
 
-                <div class="service-icon">
 
-                    🅿️
+<button class="nav-item"
+onclick="openPage('tutorial')">
 
-                </div>
+<div class="nav-icon">📖</div>
 
-                <div class="service-name">
+Tutorial
 
-                    Play Points Park ON
+</button>
 
-                </div>
 
-                <div class="card-arrow">
+<button class="nav-item"
+onclick="scrollToServices()">
 
-                    ›
+<div class="nav-icon">▦</div>
 
-                </div>
+Services
 
-            </div>
+</button>
 
 
+<button class="nav-item"
+onclick="openPage('admin')">
 
-            <!-- Quest -->
+<div class="nav-icon">🎧</div>
 
-            <div class="service-card"
-                 data-service="Quest Complete"
-                 onclick="showDetails('quest')">
+Contact Us
 
-                <div class="service-icon">
+</button>
 
-                    🎯
+</nav>
 
-                </div>
 
-                <div class="service-name">
+<!-- DETAIL PAGE -->
 
-                    Quest Complete
+<div id="detailPage">
 
-                </div>
+<header class="detail-header">
 
-                <div class="card-arrow">
+<button class="back-btn"
+onclick="goHome()">
+←
+</button>
 
-                    ›
+<div class="detail-title-small"
+id="headerTitle">
+বিস্তারিত
+</div>
 
-                </div>
+</header>
 
-            </div>
 
+<section class="detail-hero">
 
+<div class="detail-icon"
+id="detailIcon">
+🌟
+</div>
 
-            <!-- Offer -->
+<h1 id="detailTitle">
+বিস্তারিত
+</h1>
 
-            <div class="service-card"
-                 data-service="Google Play Offer"
-                 onclick="showDetails('offer')">
+<p id="detailSubtitle">
+সার্ভিস সম্পর্কে বিস্তারিত তথ্য
+</p>
 
-                <div class="service-icon">
+</section>
 
-                    🎁
 
-                </div>
+<div class="detail-content"
+id="detailContent">
+</div>
 
-                <div class="service-name">
+</div>
 
-                    Google Play Offer
 
-                </div>
+<script>
 
-                <div class="card-arrow">
+/* MENU */
 
-                    ›
+function openMenu(){
 
-                </div>
+document.getElementById("sideMenu")
+.classList.add("active");
 
-            </div>
+document.getElementById("overlay")
+.classList.add("active");
 
+}
 
 
-            <!-- TikTok -->
+function closeMenu(){
 
-            <div class="service-card"
-                 data-service="TikTok Coin Video Boost"
-                 onclick="showDetails('tiktok')">
+document.getElementById("sideMenu")
+.classList.remove("active");
 
-                <div class="service-icon">
+document.getElementById("overlay")
+.classList.remove("active");
 
-                    🪙
+}
 
-                </div>
 
-                <div class="service-name">
+/* PAGE DATA */
 
-                    TikTok Coin ও Video Boost
+const pages={
 
-                </div>
 
-                <div class="card-arrow">
+playpoints:{
 
-                    ›
+icon:"🎮",
 
-                </div>
+title:"Google Play Points",
 
-            </div>
+subtitle:"Google Play Points সম্পর্কিত সার্ভিস",
 
+content:`
 
+<div class="detail-box">
 
-            <!-- YouTube -->
+<h2>🎮 Google Play Points</h2>
 
-            <div class="service-card"
-                 data-service="YouTube Premium"
-                 onclick="showDetails('youtube')">
+<p>
+আমাদের মাধ্যমে Google Play Points সংক্রান্ত বিভিন্ন সার্ভিস পাওয়া যায়।
+</p>
 
-                <div class="service-icon">
+<h2>🌍 যেসব দেশের Play Points</h2>
 
-                    ▶️
+<div class="countries">
 
-                </div>
+<div class="country">🇯🇵 Japan</div>
 
-                <div class="service-name">
+<div class="country">🇭🇰 Hong Kong</div>
 
-                    YouTube Premium
+<div class="country">🇸🇦 Saudi Arabia</div>
 
-                </div>
+<div class="country">🇺🇸 USA</div>
 
-                <div class="card-arrow">
+<div class="country">🇬🇧 UK</div>
 
-                    ›
+</div>
 
-                </div>
+</div>
 
-            </div>
+`
 
+},
 
 
-            <!-- VPN -->
+parkon:{
 
-            <div class="service-card"
-                 data-service="VPN সার্ভিস"
-                 onclick="showDetails('vpn')">
+icon:"🅿️",
 
-                <div class="service-icon">
+title:"Play Points Park ON",
 
-                    🌐
+subtitle:"Park ON সংক্রান্ত সার্ভিস",
 
-                </div>
+content:`
 
-                <div class="service-name">
+<div class="detail-box">
 
-                    VPN সার্ভিস
+<h2>🅿️ Play Points Park ON</h2>
 
-                </div>
+<p>
+Google Play Points Park ON সংক্রান্ত সার্ভিসের জন্য যোগাযোগ করুন।
+</p>
 
-                <div class="card-arrow">
+<ul>
 
-                    ›
+<li>🎁 বিভিন্ন Play Points সুবিধা</li>
 
-                </div>
+<li>📅 সাপ্তাহিক সুযোগ</li>
 
-            </div>
+<li>🏆 Points পরিবর্তিত হতে পারে</li>
 
+<li>🫶 বিস্তারিত জানতে যোগাযোগ করুন</li>
 
+</ul>
 
-            <!-- Why Us -->
+</div>
 
-            <div class="service-card"
-                 data-service="কেন আমাদের বেছে নেবেন"
-                 onclick="showDetails('whyUs')">
+`
 
-                <div class="service-icon">
+},
 
-                    👑
 
-                </div>
+quest:{
 
-                <div class="service-name">
+icon:"🎯",
 
-                    কেন আমাদের বেছে নেবেন?
+title:"Quest Complete",
 
-                </div>
+subtitle:"Quest সম্পর্কিত সার্ভিস",
 
-                <div class="card-arrow">
+content:`
 
-                    ›
+<div class="detail-box">
 
-                </div>
+<h2>🎯 Quest Complete</h2>
 
-            </div>
+<p>
+বিভিন্ন Google Play Points Quest সংক্রান্ত সার্ভিস পাওয়া যায়।
+</p>
 
+<ul>
 
-        </div>
+<li>🎯 বিভিন্ন Quest</li>
 
-    </main>
+<li>📋 প্রয়োজন অনুযায়ী সার্ভিস</li>
 
+<li>💬 বিস্তারিত জানতে যোগাযোগ করুন</li>
 
+</ul>
 
-    <!-- =========================
-         SERVICE DETAILS MODAL
-    ========================= -->
+</div>
 
-    <div class="details-modal"
-         id="detailsModal">
+`
 
-        <div class="details-box">
+},
 
-            <div class="details-header">
 
-                <div class="details-title"
-                     id="detailsTitle">
+offer:{
 
-                </div>
+icon:"🎁",
 
+title:"Google Play Offer",
 
-                <button class="details-close"
-                        onclick="closeDetails()">
+subtitle:"বিভিন্ন Google Play অফার",
 
-                    ×
+content:`
 
-                </button>
+<div class="detail-box">
 
-            </div>
+<h2>🎁 Google Play Offer</h2>
 
+<p>
+বিভিন্ন ধরনের বিশেষ Google Play Offer পাওয়া যায়।
+</p>
 
-            <div class="details-content"
-                 id="detailsContent">
+<div class="offer-grid">
 
-            </div>
+<div class="offer">💵 $1 OFF</div>
 
-        </div>
+<div class="offer">💵 $2 OFF</div>
 
-    </div>
+<div class="offer">💵 $4 OFF</div>
 
+<div class="offer">🔥 95% OFF</div>
 
+</div>
 
-    <!-- =========================
-         ADMIN PAGE
-    ========================= -->
+</div>
 
-    <div class="page-modal"
-         id="adminPage">
+`
 
+},
 
-        <div class="page-header">
 
-            <button class="back-btn"
-                    onclick="closeAdmin()">
+tiktok:{
 
-                ←
+icon:"🪙",
 
-            </button>
+title:"TikTok Coin ও Video Boost",
 
+subtitle:"TikTok সম্পর্কিত সার্ভিস",
 
-            <div class="page-title">
+content:`
 
-                👨‍💼 এডমিনদের যোগাযোগ
+<div class="detail-box">
 
-            </div>
+<h2>🪙 TikTok Coin</h2>
 
-        </div>
+<p>
+আপনার প্রয়োজন অনুযায়ী TikTok Coin সংক্রান্ত সার্ভিস পাওয়া যায়।
+</p>
 
+</div>
 
+<div class="detail-box">
 
-        <div class="page-content">
+<h2>📈 Video Boost</h2>
 
+<ul>
 
-            <p style="
-                color:#94a3b8;
-                margin-bottom:25px;
-                text-align:center;
-            ">
+<li>📢 ভিডিও প্রচারের সুযোগ</li>
 
-                নিরাপদ ডিলের জন্য এডমিনের সঙ্গে যোগাযোগ করুন
+<li>📈 বেশি দর্শকের কাছে পৌঁছানোর সম্ভাবনা</li>
 
-            </p>
+<li>👥 নতুন দর্শক পাওয়ার সুযোগ</li>
 
+<li>🚀 ভিডিও প্রচারে সহায়ক</li>
 
+</ul>
 
-            <!-- Admin 1 -->
+</div>
 
-            <div class="admin-card">
+`
 
-                <div class="admin-icon">
+},
 
-                    👨‍💼
 
-                </div>
+youtube:{
 
+icon:"▶️",
 
-                <h3>
+title:"YouTube Premium",
 
-                    Admin 1
+subtitle:"YouTube Premium সার্ভিস",
 
-                </h3>
+content:`
 
+<div class="detail-box">
 
-                <p class="admin-status">
+<h2>▶️ YouTube Premium</h2>
 
-                    🟢 সরাসরি WhatsApp-এ যোগাযোগ করুন
+<p>
+বিভিন্ন মেয়াদের YouTube Premium সংক্রান্ত সার্ভিস পাওয়া যায়।
+</p>
 
-                </p>
+<ul>
 
+<li>🚫 বিজ্ঞাপন ছাড়া ভিডিও দেখা</li>
 
-                <a href="https://wa.me/8801925681872"
-                   target="_blank"
-                   class="whatsapp-btn">
+<li>▶️ Background Playback</li>
 
-                    💬 WhatsApp যোগাযোগ
+<li>📥 Offline Download</li>
 
-                </a>
+<li>🎵 YouTube Music Premium</li>
 
-            </div>
+</ul>
 
+</div>
 
+`
 
-            <!-- Admin 2 -->
+},
 
-            <div class="admin-card">
 
-                <div class="admin-icon">
+vpn:{
 
-                    👨‍💼
+icon:"🌐",
 
-                </div>
+title:"VPN সার্ভিস",
 
+subtitle:"Premium VPN সংক্রান্ত সার্ভিস",
 
-                <h3>
+content:`
 
-                    Admin 2
+<div class="detail-box">
 
-                </h3>
+<h2>🌐 Premium VPN</h2>
 
+<p>
+আপনার প্রয়োজন অনুযায়ী বিভিন্ন Premium VPN সার্ভিস পাওয়া যায়।
+</p>
 
-                <p class="admin-status">
+<ul>
 
-                    🟢 সরাসরি WhatsApp-এ যোগাযোগ করুন
+<li>🌍 বিভিন্ন দেশের সার্ভার</li>
 
-                </p>
+<li>🔒 নিরাপদ সংযোগে সহায়ক</li>
 
+<li>📶 স্থিতিশীল সংযোগ</li>
 
-                <a href="https://wa.me/8801761504673"
-                   target="_blank"
-                   class="whatsapp-btn">
+<li>📱 বিভিন্ন ডিভাইসে ব্যবহার</li>
 
-                    💬 WhatsApp যোগাযোগ
+</ul>
 
-                </a>
+</div>
 
-            </div>
+`
 
+},
 
-        </div>
 
-    </div>
+whyus:{
 
+icon:"👑",
 
+title:"কেন আমাদের বেছে নেবেন?",
 
-    <!-- =========================
-         WARNING PAGE
-    ========================= -->
+subtitle:"আমাদের সেবার সুবিধাসমূহ",
 
-    <div class="page-modal"
-         id="warningPage">
+content:`
 
+<div class="detail-box">
 
-        <div class="page-header">
+<h2>👑 আমাদের সুবিধা</h2>
 
-            <button class="back-btn"
-                    onclick="closeWarning()">
+<ul>
 
-                ←
+<li>🤝 এডমিনের মাধ্যমে নিরাপদ ডিল</li>
 
-            </button>
+<li>⚡ দ্রুত সেবা দেওয়ার চেষ্টা</li>
 
+<li>🛡️ নিরাপদ লেনদেন</li>
 
-            <div class="page-title">
+<li>💬 প্রয়োজনীয় সাপোর্ট</li>
 
-                ⚠️ গুরুত্বপূর্ণ সতর্কবার্তা
+</ul>
 
-            </div>
+</div>
 
-        </div>
+`
 
+},
 
 
-        <div class="page-content">
+admin:{
 
+icon:"👨‍💼",
 
-            <div class="warning-box">
+title:"এডমিনদের যোগাযোগ",
 
+subtitle:"নিরাপদ ডিলের জন্য যোগাযোগ করুন",
 
-                <h2>
+content:`
 
-                    ⚠️ গুরুত্বপূর্ণ সতর্কবার্তা
+<div class="admin">
 
-                </h2>
+<div style="font-size:40px;">
+👨‍💼
+</div>
 
+<h3>Admin 1</h3>
 
-                <p>
+<p>
+🟢 সরাসরি WhatsApp-এ যোগাযোগ করুন
+</p>
 
-                    <strong>
+<a href="https://wa.me/8801925681872"
+target="_blank"
+class="whatsapp">
 
-                        প্রিয় সদস্যবৃন্দ,
+💬 WhatsApp যোগাযোগ
 
-                    </strong>
+</a>
 
-                </p>
+</div>
 
 
-                <p>
+<div class="admin">
 
-                    যেকোনো ধরনের কেনা-বেচা বা ডিল করার আগে অবশ্যই
-                    <strong>
-                        এডমিনের মাধ্যমে লেনদেন করবেন।
-                    </strong>
+<div style="font-size:40px;">
+👨‍💼
+</div>
 
-                </p>
+<h3>Admin 2</h3>
 
+<p>
+🟢 সরাসরি WhatsApp-এ যোগাযোগ করুন
+</p>
 
-                <p>
+<a href="https://wa.me/8801761504673"
+target="_blank"
+class="whatsapp">
 
-                    এডমিনকে বাদ দিয়ে কারও সঙ্গে সরাসরি লেনদেন করলে
-                    এবং কোনো ধরনের প্রতারণার শিকার হলে এর দায়ভার
-                    এডমিন কর্তৃপক্ষ গ্রহণ করবে না।
+💬 WhatsApp যোগাযোগ
 
-                </p>
+</a>
 
+</div>
 
-                <p>
+`
 
-                    ✅ সতর্ক থাকুন এবং নিরাপদে ডিল করুন।
+},
 
-                </p>
 
+warning:{
 
-            </div>
+icon:"⚠️",
 
-        </div>
+title:"গুরুত্বপূর্ণ সতর্কবার্তা",
 
-    </div>
+subtitle:"নিরাপদ লেনদেনের নির্দেশনা",
 
+content:`
 
+<div class="detail-box warning">
 
-    <!-- =========================
-         JAVASCRIPT
-    ========================= -->
+<h2>⚠️ প্রিয় সদস্যবৃন্দ</h2>
 
-    <script>
+<p>
+যেকোনো ধরনের কেনা-বেচা বা ডিল করার আগে অবশ্যই
+<strong>এডমিনের মাধ্যমে লেনদেন করবেন।</strong>
+</p>
 
+<p>
+এডমিনকে বাদ দিয়ে কারও সঙ্গে সরাসরি লেনদেন করলে এবং কোনো ধরনের প্রতারণার শিকার হলে এর দায়ভার এডমিন কর্তৃপক্ষ গ্রহণ করবে না।
+</p>
 
-        /* MENU */
+<p>
+✅ সতর্ক থাকুন এবং নিরাপদে ডিল করুন।
+</p>
 
-        function openMenu() {
+</div>
 
-            document
-                .getElementById("sideMenu")
-                .classList
-                .add("active");
+`
 
+},
 
-            document
-                .getElementById("overlay")
-                .classList
-                .add("active");
-        }
 
+tutorial:{
 
+icon:"📖",
 
-        function closeMenu() {
+title:"Tutorial",
 
-            document
-                .getElementById("sideMenu")
-                .classList
-                .remove("active");
+subtitle:"সার্ভিস ব্যবহারের নির্দেশনা",
 
+content:`
 
-            document
-                .getElementById("overlay")
-                .classList
-                .remove("active");
-        }
+<div class="detail-box">
 
+<h2>📖 Tutorial</h2>
 
+<p>
+আপনার প্রয়োজনীয় সার্ভিস নির্বাচন করে বিস্তারিত তথ্য দেখুন।
+</p>
 
-        function goHome() {
+<ul>
 
-            closeMenu();
+<li>1️⃣ পছন্দের সার্ভিস নির্বাচন করুন</li>
 
-            window.scrollTo({
+<li>2️⃣ সার্ভিসের বিস্তারিত দেখুন</li>
 
-                top: 0,
+<li>3️⃣ প্রয়োজন হলে এডমিনের সঙ্গে যোগাযোগ করুন</li>
 
-                behavior: "smooth"
+</ul>
 
-            });
-        }
+</div>
 
+`
 
+}
 
-        /* ADMIN */
+};
 
-        function openAdmin() {
 
-            closeMenu();
+/* OPEN DETAIL PAGE */
 
-            document
-                .getElementById("adminPage")
-                .classList
-                .add("active");
-        }
+function openPage(name){
 
+closeMenu();
 
+let page=pages[name];
 
-        function closeAdmin() {
+if(!page)return;
 
-            document
-                .getElementById("adminPage")
-                .classList
-                .remove("active");
-        }
+document.getElementById("homePage")
+.style.display="none";
 
+document.getElementById("detailPage")
+.style.display="block";
 
+document.getElementById("detailIcon")
+.innerHTML=page.icon;
 
-        /* WARNING */
+document.getElementById("detailTitle")
+.innerHTML=page.title;
 
-        function openWarning() {
+document.getElementById("headerTitle")
+.innerHTML=page.title;
 
-            closeMenu();
+document.getElementById("detailSubtitle")
+.innerHTML=page.subtitle;
 
-            document
-                .getElementById("warningPage")
-                .classList
-                .add("active");
-        }
+document.getElementById("detailContent")
+.innerHTML=page.content;
 
+window.scrollTo(0,0);
 
+}
 
-        function closeWarning() {
 
-            document
-                .getElementById("warningPage")
-                .classList
-                .remove("active");
-        }
+/* HOME */
 
+function goHome(){
 
+document.getElementById("detailPage")
+.style.display="none";
 
-        /* DETAILS */
+document.getElementById("homePage")
+.style.display="block";
 
-        function showDetails(type) {
+window.scrollTo(0,0);
 
+}
 
-            let title =
-                document.getElementById(
-                    "detailsTitle"
-                );
 
+/* SERVICES */
 
-            let content =
-                document.getElementById(
-                    "detailsContent"
-                );
+function scrollToServices(){
 
+goHome();
 
-            let modal =
-                document.getElementById(
-                    "detailsModal"
-                );
+setTimeout(function(){
 
+document.querySelector(".services")
+.scrollIntoView({
+behavior:"smooth"
+});
 
-            /* GOOGLE PLAY POINTS */
+},100);
 
-            if (type === "playPoints") {
+}
 
-                title.innerHTML =
-                    "🎮 Google Play Points";
 
+/* BACK BUTTON */
 
-                content.innerHTML = `
+window.onpopstate=function(){
 
-                    <p>
+goHome();
 
-                        আমাদের মাধ্যমে Google Play Points
-                        ক্রয় ও বিক্রি করতে পারবেন।
-                        এছাড়াও Google Play Points সংক্রান্ত
-                        বিভিন্ন ধরনের সার্ভিস দেওয়া হয়।
+};
 
-                    </p>
 
+/* DOUBLE TAP ZOOM BLOCK */
 
-                    <h3>
+let lastTouchEnd=0;
 
-                        🌍 যেসব দেশের Play Points চালু করা হয়
+document.addEventListener(
 
-                    </h3>
+"touchend",
 
+function(event){
 
-                    <div class="country-list">
+let now=new Date().getTime();
 
-                        <div class="country">
-                            🇯🇵 Japan
-                        </div>
+if(now-lastTouchEnd<=300){
 
-                        <div class="country">
-                            🇭🇰 Hong Kong
-                        </div>
+event.preventDefault();
 
-                        <div class="country">
-                            🇸🇦 Saudi Arabia
-                        </div>
+}
 
-                        <div class="country">
-                            🇺🇸 USA
-                        </div>
+lastTouchEnd=now;
 
-                        <div class="country">
-                            🇬🇧 United Kingdom
-                        </div>
+},
 
-                    </div>
+false
 
+);
 
-                    <div class="login-note">
-
-                        🔐 Google অ্যাকাউন্ট সংক্রান্ত কোনো কাজের
-                        ক্ষেত্রে নিরাপত্তার জন্য নিজের পাসওয়ার্ড
-                        কারও সঙ্গে শেয়ার করবেন না। প্রয়োজন হলে
-                        অফিসিয়াল ও নিরাপদ অনুমোদন পদ্ধতি ব্যবহার করুন।
-
-                    </div>
-
-                `;
-            }
-
-
-
-            /* PARK ON */
-
-            else if (type === "parkOn") {
-
-                title.innerHTML =
-                    "🅿️ Play Points Park ON";
-
-
-                content.innerHTML = `
-
-                    <p>
-
-                        আমাদের মাধ্যমে আপনার Google Play Points-এর
-                        Park ON সংক্রান্ত সেবা নিতে পারবেন।
-
-                    </p>
-
-
-                    <h3>
-
-                        🎁 সুবিধাসমূহ
-
-                    </h3>
-
-
-                    <ul>
-
-                        <li>
-                            Google Play Points Park ON করার সুবিধা
-                        </li>
-
-                        <li>
-                            প্রতি সপ্তাহে Play Points পাওয়ার সুযোগ
-                        </li>
-
-                        <li>
-                            কত Play Points পাবেন তা নির্দিষ্ট নয়।
-                            এটি বিভিন্ন বিষয়ের ওপর নির্ভর করতে পারে।
-                        </li>
-
-                        <li>
-                            ধন্যবাদ 🫶
-                        </li>
-
-                    </ul>
-
-                `;
-            }
-
-
-
-            /* QUEST */
-
-            else if (type === "quest") {
-
-                title.innerHTML =
-                    "🎯 Quest Complete";
-
-
-                content.innerHTML = `
-
-                    <p>
-
-                        আপনার প্রয়োজন অনুযায়ী বিভিন্ন ধরনের
-                        Google Play Points Quest Complete
-                        সংক্রান্ত সার্ভিস নিতে পারবেন।
-
-                    </p>
-
-
-                    <ul>
-
-                        <li>
-                            🎯 বিভিন্ন ধরনের Quest সংক্রান্ত সহায়তা
-                        </li>
-
-                        <li>
-                            🫶 বিস্তারিত জানতে এডমিনের সঙ্গে যোগাযোগ করুন
-                        </li>
-
-                    </ul>
-
-                `;
-            }
-
-
-
-            /* OFFER */
-
-            else if (type === "offer") {
-
-                title.innerHTML =
-                    "🎁 Google Play Offer";
-
-
-                content.innerHTML = `
-
-                    <p>
-
-                        আমরা বিভিন্ন ধরনের Google Play Offer
-                        কিনে থাকি।
-
-                    </p>
-
-
-                    <h3>
-
-                        🎁 কিছু অফার
-
-                    </h3>
-
-
-                    <div>
-
-                        <span class="offer">
-                            💵 $1 OFF
-                        </span>
-
-                        <span class="offer">
-                            💵 $2 OFF
-                        </span>
-
-                        <span class="offer">
-                            💵 $4 OFF
-                        </span>
-
-                        <span class="offer">
-                            🔥 95% OFF
-                        </span>
-
-                    </div>
-
-
-                    <p style="margin-top:20px;">
-
-                        এছাড়াও অন্যান্য বিশেষ অফার কেনা হতে পারে।
-                        আপনার কাছে কোনো অফার থাকলে
-                        এডমিনের সঙ্গে যোগাযোগ করতে পারেন।
-
-                    </p>
-
-                `;
-            }
-
-
-
-            /* TIKTOK */
-
-            else if (type === "tiktok") {
-
-                title.innerHTML =
-                    "🪙 TikTok Coin ও Video Boost";
-
-
-                content.innerHTML = `
-
-                    <p>
-
-                        আপনার প্রয়োজন অনুযায়ী TikTok Coin
-                        এবং Video Boost সংক্রান্ত সেবা নিতে পারবেন।
-
-                    </p>
-
-
-                    <h3>
-
-                        📢 Video Boost
-
-                    </h3>
-
-
-                    <ul>
-
-                        <li>
-                            ভিডিওর প্রচার বাড়াতে সাহায্য করতে পারে
-                        </li>
-
-                        <li>
-                            বেশি দর্শকের কাছে পৌঁছানোর সুযোগ তৈরি হতে পারে
-                        </li>
-
-                        <li>
-                            নতুন দর্শক ও ফলোয়ার পাওয়ার সম্ভাবনা থাকতে পারে
-                        </li>
-
-                        <li>
-                            লাইক ও অন্যান্য এনগেজমেন্ট বাড়ার সুযোগ থাকতে পারে
-                        </li>
-
-                    </ul>
-
-                `;
-            }
-
-
-
-            /* YOUTUBE */
-
-            else if (type === "youtube") {
-
-                title.innerHTML =
-                    "▶️ YouTube Premium";
-
-
-                content.innerHTML = `
-
-                    <p>
-
-                        বিভিন্ন মেয়াদের YouTube Premium
-                        সংক্রান্ত সার্ভিস পাওয়া যেতে পারে।
-
-                    </p>
-
-
-                    <h3>
-
-                        ✨ সুবিধাসমূহ
-
-                    </h3>
-
-
-                    <ul>
-
-                        <li>
-                            🚫 বিজ্ঞাপন ছাড়া ভিডিও দেখার সুবিধা
-                        </li>
-
-                        <li>
-                            ▶️ ব্যাকগ্রাউন্ডে ভিডিও বা গান চালানো
-                        </li>
-
-                        <li>
-                            📥 অফলাইন ব্যবহারের সুবিধা
-                        </li>
-
-                        <li>
-                            🎵 YouTube Music Premium
-                        </li>
-
-                    </ul>
-
-                `;
-            }
-
-
-
-            /* VPN */
-
-            else if (type === "vpn") {
-
-                title.innerHTML =
-                    "🌐 VPN সার্ভিস";
-
-
-                content.innerHTML = `
-
-                    <p>
-
-                        বিভিন্ন ধরনের Premium VPN
-                        সংক্রান্ত সার্ভিস পাওয়া যায়।
-
-                    </p>
-
-
-                    <ul>
-
-                        <li>
-                            🌍 বিভিন্ন দেশের সার্ভারের সুবিধা
-                        </li>
-
-                        <li>
-                            🔒 অনলাইনে অতিরিক্ত গোপনীয়তা
-                        </li>
-
-                        <li>
-                            📶 বিভিন্ন ডিভাইসে ব্যবহারের সুবিধা
-                        </li>
-
-                        <li>
-                            🛡️ নিরাপত্তায় সহায়ক হতে পারে
-                        </li>
-
-                    </ul>
-
-                `;
-            }
-
-
-
-            /* WHY US */
-
-            else if (type === "whyUs") {
-
-                title.innerHTML =
-                    "👑 কেন আমাদের বেছে নেবেন?";
-
-
-                content.innerHTML = `
-
-                    <ul>
-
-                        <li>
-                            🤝 এডমিনের মাধ্যমে নিরাপদ ডিল
-                        </li>
-
-                        <li>
-                            ⚡ দ্রুত সেবা দেওয়ার চেষ্টা
-                        </li>
-
-                        <li>
-                            🛡️ নিরাপদ লেনদেন
-                        </li>
-
-                        <li>
-                            💬 প্রয়োজনে এডমিন সাপোর্ট
-                        </li>
-
-                    </ul>
-
-                `;
-            }
-
-
-            modal.classList.add("active");
-        }
-
-
-
-        function closeDetails() {
-
-            document
-                .getElementById("detailsModal")
-                .classList
-                .remove("active");
-        }
-
-
-
-        /* SEARCH */
-
-        function searchService() {
-
-            let input =
-                document
-                    .getElementById("searchInput")
-                    .value
-                    .toLowerCase();
-
-
-            let cards =
-                document.querySelectorAll(
-                    ".service-card"
-                );
-
-
-            cards.forEach(function(card) {
-
-
-                let serviceName =
-                    card
-                        .getAttribute(
-                            "data-service"
-                        )
-                        .toLowerCase();
-
-
-                if (
-                    serviceName.includes(input)
-                ) {
-
-                    card.style.display =
-                        "flex";
-
-                }
-
-                else {
-
-                    card.style.display =
-                        "none";
-                }
-
-            });
-
-        }
-
-
-        /* MODAL OUTSIDE CLICK */
-
-        document
-            .getElementById("detailsModal")
-            .addEventListener(
-                "click",
-                function(event) {
-
-                    if (
-                        event.target === this
-                    ) {
-
-                        closeDetails();
-                    }
-
-                }
-            );
-
-
-    </script>
-
+</script>
 
 </body>
 </html>
