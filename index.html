@@ -769,6 +769,19 @@ onclick="openPage('whyus')">
 
 </button>
 
+<!-- ================= CALL OF DUTY ================= -->
+
+<button class="service"
+onclick="openPage('callofduty')">
+
+<div class="service-image">🎮</div>
+
+<div class="service-title">
+Call of Duty Coupon
+</div>
+
+</button>
+
 </div>
 
 </div>
@@ -853,8 +866,6 @@ Contact Us
 
 let currentPage = null;
 
-/* পেজ রিফ্রেশ হলে আগের পেজে থাকার জন্য */
-
 window.addEventListener("load",function(){
 
     let savedPage = localStorage.getItem("currentPage");
@@ -866,8 +877,6 @@ window.addEventListener("load",function(){
     }
 
 });
-
-/* ফোনের Back Button */
 
 window.addEventListener("popstate",function(event){
 
@@ -956,11 +965,11 @@ function customCoin(){
 
     if(
         amount === "" ||
-        Number(amount) <= 0
+        Number(amount) < 30
     ){
 
         alert(
-            "দয়া করে প্রয়োজনীয় Coin এর পরিমাণ লিখুন।"
+            "TikTok Coin কিনতে সর্বনিম্ন ৩০ Coin প্রয়োজন।"
         );
 
         return;
@@ -1034,6 +1043,37 @@ function customStars(type){
 }
 
 
+/* ================= CUSTOM CALL OF DUTY COUPON ================= */
+
+function customCodCoupon(type){
+
+    let coupon =
+    document.getElementById(
+        "customCodCoupon"
+    ).value.trim();
+
+    if(coupon === ""){
+
+        alert(
+            "দয়া করে Coupon সম্পর্কে বিস্তারিত লিখুন।"
+        );
+
+        return;
+    }
+
+    let serviceName =
+    type === "buy"
+    ? "Call of Duty Coupon কিনতে চাই"
+    : "Call of Duty Coupon বিক্রি করতে চাই";
+
+    selectAdmin(
+        serviceName,
+        coupon
+    );
+
+}
+
+
 /* ================= PAGE DATA ================= */
 
 const pages = {
@@ -1070,13 +1110,9 @@ Google Play Points সংক্রান্ত বিভিন্ন সার�
 <div class="play-country-list">
 
 <div class="play-country">🇯🇵 Japan</div>
-
 <div class="play-country">🇭🇰 Hong Kong</div>
-
 <div class="play-country">🇸🇦 Saudi Arabia</div>
-
 <div class="play-country">🇺🇸 USA</div>
-
 <div class="play-country">🇬🇧 UK</div>
 
 </div>
@@ -1152,8 +1188,6 @@ onclick="selectAdmin(
 
 },
 
-/* ================= GOOGLE PLAY OFFER ================= */
-
 offer:{
 
 icon:"🎁",
@@ -1177,34 +1211,22 @@ content:`
 <div class="offer-grid">
 
 <button class="offer"
-onclick="selectAdmin(
-'Google Play Offer',
-'$1 OFF Offer'
-)">
+onclick="selectAdmin('Google Play Offer','$1 OFF Offer')">
 💵 $1 OFF
 </button>
 
 <button class="offer"
-onclick="selectAdmin(
-'Google Play Offer',
-'$2 OFF Offer'
-)">
+onclick="selectAdmin('Google Play Offer','$2 OFF Offer')">
 💵 $2 OFF
 </button>
 
 <button class="offer"
-onclick="selectAdmin(
-'Google Play Offer',
-'$4 OFF Offer'
-)">
+onclick="selectAdmin('Google Play Offer','$4 OFF Offer')">
 💵 $4 OFF
 </button>
 
 <button class="offer"
-onclick="selectAdmin(
-'Google Play Offer',
-'95% OFF Offer'
-)">
+onclick="selectAdmin('Google Play Offer','95% OFF Offer')">
 🔥 95% OFF
 </button>
 
@@ -1242,8 +1264,6 @@ onclick="customOffer()">
 
 },
 
-/* ================= TELEGRAM STARS ================= */
-
 telegramstars:{
 
 icon:"⭐",
@@ -1262,24 +1282,37 @@ content:`
 
 <p>
 আপনি Telegram Stars কিনতে অথবা বিক্রি করতে পারবেন।
-নিচের প্রয়োজনীয় অপশনটি নির্বাচন করুন।
 </p>
 
 <div class="offer-grid">
 
 <button class="offer"
-onclick="selectAdmin(
-'Telegram Stars',
-'Stars কিনতে চাই'
-)">
-🛒 Stars কিনুন
+onclick="selectAdmin('Telegram Stars','100 Stars কিনতে চাই')">
+🛒 100 Stars কিনুন
 </button>
 
 <button class="offer"
-onclick="selectAdmin(
-'Telegram Stars',
-'Stars বিক্রি করতে চাই'
-)">
+onclick="selectAdmin('Telegram Stars','150 Stars কিনতে চাই')">
+🛒 150 Stars কিনুন
+</button>
+
+<button class="offer"
+onclick="selectAdmin('Telegram Stars','250 Stars কিনতে চাই')">
+🛒 250 Stars কিনুন
+</button>
+
+<button class="offer"
+onclick="selectAdmin('Telegram Stars','500 Stars কিনতে চাই')">
+🛒 500 Stars কিনুন
+</button>
+
+<button class="offer"
+onclick="selectAdmin('Telegram Stars','1000 Stars কিনতে চাই')">
+🛒 1000 Stars কিনুন
+</button>
+
+<button class="offer"
+onclick="selectAdmin('Telegram Stars','Stars বিক্রি করতে চাই')">
 💰 Stars বিক্রি করুন
 </button>
 
@@ -1367,8 +1400,6 @@ onclick="selectAdmin(
 
 },
 
-/* ================= TIKTOK ================= */
-
 tiktok:{
 
 icon:"🪙",
@@ -1392,34 +1423,22 @@ content:`
 <div class="coin-grid">
 
 <button class="coin-btn"
-onclick="selectAdmin(
-'TikTok Coin',
-'100 Coin'
-)">
+onclick="selectAdmin('TikTok Coin','100 Coin')">
 🪙 100 Coin
 </button>
 
 <button class="coin-btn"
-onclick="selectAdmin(
-'TikTok Coin',
-'500 Coin'
-)">
+onclick="selectAdmin('TikTok Coin','500 Coin')">
 🪙 500 Coin
 </button>
 
 <button class="coin-btn"
-onclick="selectAdmin(
-'TikTok Coin',
-'1000 Coin'
-)">
+onclick="selectAdmin('TikTok Coin','1000 Coin')">
 🪙 1000 Coin
 </button>
 
 <button class="coin-btn"
-onclick="selectAdmin(
-'TikTok Coin',
-'5000 Coin'
-)">
+onclick="selectAdmin('TikTok Coin','5000 Coin')">
 🪙 5000 Coin
 </button>
 
@@ -1435,6 +1454,7 @@ onclick="selectAdmin(
 
 <p>
 আপনার প্রয়োজন অনুযায়ী TikTok Coin এর সংখ্যা লিখুন।
+সর্বনিম্ন ৩০ Coin কিনতে হবে।
 </p>
 
 <input
@@ -1500,11 +1520,8 @@ content:`
 <ul>
 
 <li>🚫 বিজ্ঞাপন ছাড়া ভিডিও দেখা</li>
-
 <li>▶️ Background Playback</li>
-
 <li>📥 Offline Download</li>
-
 <li>🎵 YouTube Music Premium</li>
 
 </ul>
@@ -1545,9 +1562,7 @@ content:`
 <ul>
 
 <li>🌍 বিভিন্ন দেশের সার্ভার</li>
-
 <li>🔒 নিরাপদ সংযোগে সহায়ক</li>
-
 <li>📱 বিভিন্ন ডিভাইসে ব্যবহার</li>
 
 </ul>
@@ -1588,11 +1603,8 @@ content:`
 <ul>
 
 <li>🤝 প্রয়োজনীয় সাপোর্ট</li>
-
 <li>⚡ দ্রুত সেবা দেওয়ার চেষ্টা</li>
-
 <li>💬 সহজে যোগাযোগের সুবিধা</li>
-
 <li>🛡️ নিরাপদ তথ্য ব্যবহারে সচেতনতা</li>
 
 </ul>
@@ -1603,7 +1615,136 @@ content:`
 
 },
 
-/* ================= CONTACT ================= */
+/* ================= CALL OF DUTY ================= */
+
+callofduty:{
+
+icon:"🎮",
+
+title:"Call of Duty Coupon",
+
+subtitle:"Call of Duty Coupon কেনা ও বিক্রির সার্ভিস",
+
+content:`
+
+<div class="detail-box">
+
+<h2>
+🎮 Call of Duty Coupon
+</h2>
+
+<p>
+আপনি Call of Duty Coupon কিনতে অথবা বিক্রি করতে পারবেন।
+নিচের প্রয়োজনীয় অপশনটি নির্বাচন করুন।
+</p>
+
+<div class="offer-grid">
+
+<button class="offer"
+onclick="selectAdmin(
+'Call of Duty Coupon',
+'$4 Coupon কিনতে চাই'
+)">
+
+🛒 $4 Coupon কিনুন
+
+</button>
+
+<button class="offer"
+onclick="selectAdmin(
+'Call of Duty Coupon',
+'$4 Coupon বিক্রি করতে চাই'
+)">
+
+💰 $4 Coupon বিক্রি করুন
+
+</button>
+
+<button class="offer"
+onclick="selectAdmin(
+'Call of Duty Coupon',
+'$10 Coupon কিনতে চাই'
+)">
+
+🛒 $10 Coupon কিনুন
+
+</button>
+
+<button class="offer"
+onclick="selectAdmin(
+'Call of Duty Coupon',
+'$10 Coupon বিক্রি করতে চাই'
+)">
+
+💰 $10 Coupon বিক্রি করুন
+
+</button>
+
+<button class="offer"
+onclick="selectAdmin(
+'Call of Duty Coupon',
+'$20 Coupon কিনতে চাই'
+)">
+
+🛒 $20 Coupon কিনুন
+
+</button>
+
+<button class="offer"
+onclick="selectAdmin(
+'Call of Duty Coupon',
+'$20 Coupon বিক্রি করতে চাই'
+)">
+
+💰 $20 Coupon বিক্রি করুন
+
+</button>
+
+</div>
+
+</div>
+
+<div class="detail-box">
+
+<h2>
+✨ Custom Coupon
+</h2>
+
+<p>
+আপনার কাছে থাকা অথবা প্রয়োজনীয় Call of Duty Coupon সম্পর্কে বিস্তারিত লিখুন।
+</p>
+
+<textarea
+id="customCodCoupon"
+class="custom-input"
+placeholder="আপনার Coupon-এর বিস্তারিত লিখুন...">
+</textarea>
+
+<div class="admin-send-grid">
+
+<button
+class="admin-send-btn"
+onclick="customCodCoupon('buy')">
+
+🛒 Coupon কিনুন
+
+</button>
+
+<button
+class="admin-send-btn"
+onclick="customCodCoupon('sell')">
+
+💰 Coupon বিক্রি করুন
+
+</button>
+
+</div>
+
+</div>
+
+`
+
+},
 
 contact:{
 
@@ -1760,25 +1901,11 @@ content:`
 
 <ul>
 
-<li>
-1️⃣ পছন্দের সার্ভিস নির্বাচন করুন
-</li>
-
-<li>
-2️⃣ সার্ভিসের বিস্তারিত দেখুন
-</li>
-
-<li>
-3️⃣ অর্ডার বাটনে চাপ দিন
-</li>
-
-<li>
-4️⃣ Contact Us পেজে অর্ডারের মেসেজ তৈরি হবে
-</li>
-
-<li>
-5️⃣ পছন্দের অ্যাডমিনকে WhatsApp-এ মেসেজ পাঠান
-</li>
+<li>1️⃣ পছন্দের সার্ভিস নির্বাচন করুন</li>
+<li>2️⃣ সার্ভিসের বিস্তারিত দেখুন</li>
+<li>3️⃣ অর্ডার বাটনে চাপ দিন</li>
+<li>4️⃣ Contact Us পেজে অর্ডারের মেসেজ তৈরি হবে</li>
+<li>5️⃣ পছন্দের অ্যাডমিনকে WhatsApp-এ মেসেজ পাঠান</li>
 
 </ul>
 
@@ -1933,9 +2060,7 @@ function scrollToServices(){
 
 /* ================= INITIAL HISTORY ================= */
 
-if(
-    !history.state
-){
+if(!history.state){
 
     history.replaceState(
         {},
