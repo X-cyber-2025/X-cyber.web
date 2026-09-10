@@ -17,15 +17,13 @@ user-scalable=no">
 href="https://fonts.googleapis.com">
 
 <link rel="preconnect"
-href="https://fonts.gstatic.com"
+href="https://fonts.googleapis.com"
 crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Roboto+Slab:wght@500;600;700&display=swap"
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Roboto+Slab:wght@500;600;700;800&display=swap"
 rel="stylesheet">
 
 <style>
-
-/* ================= RESET ================= */
 
 *{
     margin:0;
@@ -45,6 +43,14 @@ body{
     color:#25344a;
     padding-bottom:85px;
     overflow-x:hidden;
+    touch-action:pan-y;
+}
+
+button,
+.service{
+    touch-action:manipulation;
+    user-select:none;
+    -webkit-user-select:none;
 }
 
 
@@ -68,14 +74,15 @@ body{
     display:flex;
     align-items:center;
     gap:7px;
+    font-family:"Roboto Slab",serif;
     font-size:21px;
-    font-weight:700;
+    font-weight:800;
     letter-spacing:.5px;
     color:#1f2d49;
 }
 
 .logo-icon{
-    font-size:27px;
+    font-size:28px;
 }
 
 .logo span:last-child{
@@ -159,6 +166,7 @@ body{
     cursor:pointer;
     color:#33445b;
     text-align:center;
+    min-width:0;
 }
 
 .service-image{
@@ -169,12 +177,15 @@ body{
     align-items:center;
     justify-content:center;
     margin-bottom:8px;
-    background:linear-gradient(145deg,#3a174b,#ff2d74);
-    box-shadow:0 8px 18px rgba(0,0,0,.15);
-    border:1px solid rgba(255,255,255,.4);
-    overflow:hidden;
     position:relative;
-    transition:.25s ease;
+    overflow:hidden;
+    border:2px solid rgba(255,255,255,.75);
+
+    box-shadow:
+    0 8px 18px rgba(0,0,0,.15),
+    inset 0 1px 0 rgba(255,255,255,.6);
+
+    transition:.2s ease;
 }
 
 .service-image::before{
@@ -182,23 +193,32 @@ body{
     position:absolute;
     width:150%;
     height:150%;
-    background:radial-gradient(
+    top:-55%;
+    left:-45%;
+
+    background:
+    radial-gradient(
         circle,
-        rgba(255,255,255,.18),
+        rgba(255,255,255,.20),
         transparent 58%
     );
-    top:-50%;
-    left:-50%;
+
     pointer-events:none;
 }
 
-.service-logo{
-    width:62%;
-    height:62%;
-    object-fit:contain;
-    position:relative;
-    z-index:2;
-    filter:drop-shadow(0 8px 10px rgba(0,0,0,.25));
+.service-image::after{
+    content:"";
+    position:absolute;
+    inset:0;
+
+    background:
+    linear-gradient(
+        180deg,
+        rgba(255,255,255,.12),
+        transparent 45%
+    );
+
+    pointer-events:none;
 }
 
 .service:active .service-image{
@@ -206,410 +226,56 @@ body{
 }
 
 
-/* ================= SERVICE COLORS ================= */
+/* ================= COMMON LOGO ================= */
 
-.play-service .service-image{
-    background:linear-gradient(145deg,#45165c,#e5005d);
-}
-
-.gmail-service .service-image{
-    background:linear-gradient(145deg,#521541,#ff1760);
-}
-
-.telegram-service .service-image{
-    background:linear-gradient(145deg,#0877a8,#35b5e8);
-}
-
-.quest-service .service-image{
-    background:linear-gradient(135deg,#6fc490,#3b9e72);
-}
-
-.tiktok-service .service-image{
-    background:linear-gradient(145deg,#050505,#303030);
-}
-
-.youtube-service .service-image{
-    background:linear-gradient(145deg,#ff1111,#d80000);
-}
-
-.vpn-service .service-image{
-    background:linear-gradient(145deg,#43307f,#8554d8);
-}
-
-.whyus-service .service-image{
-    background:linear-gradient(145deg,#581044,#e91668);
-}
-
-
-/* ================= CALL OF DUTY CUSTOM LOGO ================= */
-
-.cod-service .service-image{
-    background:#101814;
-    padding:0;
-}
-
-.cod-logo{
-    width:100%;
-    height:100%;
+.service-logo{
+    width:56px !important;
+    height:56px !important;
+    max-width:56px;
+    max-height:56px;
+    object-fit:contain;
     position:relative;
-    overflow:hidden;
-    background:
-    radial-gradient(
-        circle at 50% 15%,
-        rgba(255,210,70,.30),
-        transparent 30%
-    ),
-    linear-gradient(
-        145deg,
-        #4d654f,
-        #202b23 55%,
-        #090d0a
-    );
-    box-shadow:
-    inset 0 0 35px
-    rgba(0,0,0,.40);
-    transform:scale(1.12);
-}
-
-.cod-logo-light{
-    position:absolute;
-    width:100%;
-    height:100%;
-    border-radius:50%;
-    top:-42%;
-    left:5%;
-    background:
-    radial-gradient(
-        circle,
-        rgba(255,210,70,.50),
-        rgba(255,170,0,.15) 45%,
-        transparent 70%
-    );
-    filter:blur(8px);
-}
-
-.cod-smoke{
-    position:absolute;
-    width:90%;
-    height:40%;
-    border-radius:50%;
-    background:
-    radial-gradient(
-        ellipse,
-        rgba(210,220,200,.20),
-        transparent 70%
-    );
-    filter:blur(10px);
-}
-
-.cod-smoke-one{
-    top:25%;
-    left:-45%;
-}
-
-.cod-smoke-two{
-    top:45%;
-    right:-50%;
-}
-
-.cod-soldier{
-    position:absolute;
-    width:72%;
-    height:75%;
-    left:50%;
-    top:8%;
-    transform:translateX(-50%);
     z-index:5;
-}
 
-.cod-helmet{
-    position:absolute;
-    width:64%;
-    height:28%;
-    left:18%;
-    top:0;
-    border-radius:60px 60px 35px 35px;
-    background:
-    linear-gradient(
-        145deg,
-        #a5ad84,
-        #59614a 45%,
-        #20271d
-    );
-    box-shadow:
-    inset 10px 8px 15px rgba(255,255,255,.18),
-    inset -10px -8px 15px rgba(0,0,0,.45),
-    0 8px 12px rgba(0,0,0,.35);
-}
-
-.cod-helmet::before{
-    content:"";
-    position:absolute;
-    width:40%;
-    height:22%;
-    top:16%;
-    left:16%;
-    border-radius:50%;
-    background:rgba(255,255,255,.15);
-    filter:blur(4px);
-}
-
-.cod-visor{
-    position:absolute;
-    width:54%;
-    height:13%;
-    top:13%;
-    left:23%;
-    border-radius:10px 10px 20px 20px;
-    background:
-    linear-gradient(
-        180deg,
-        #090d0a,
-        #354239
-    );
-    border:2px solid rgba(160,180,145,.28);
-}
-
-.cod-face-mask{
-    position:absolute;
-    width:37%;
-    height:18%;
-    top:24%;
-    left:31%;
-    border-radius:10px 10px 25px 25px;
-    background:
-    linear-gradient(
-        145deg,
-        #3b4438,
-        #101510
-    );
-}
-
-.cod-neck{
-    position:absolute;
-    width:28%;
-    height:17%;
-    top:37%;
-    left:36%;
-    background:
-    linear-gradient(
-        90deg,
-        #1c251e,
-        #5a614e,
-        #1b211b
-    );
-}
-
-.cod-arm{
-    position:absolute;
-    width:24%;
-    height:48%;
-    top:44%;
-    border-radius:25px;
-    background:
-    linear-gradient(
-        145deg,
-        #778065,
-        #2a3329,
-        #111711
-    );
-    z-index:1;
-}
-
-.cod-left-arm{
-    left:4%;
-    transform:rotate(25deg);
-}
-
-.cod-right-arm{
-    right:4%;
-    transform:rotate(-25deg);
-}
-
-.cod-body-armor{
-    position:absolute;
-    width:84%;
-    height:55%;
-    top:42%;
-    left:8%;
-    background:
-    linear-gradient(
-        145deg,
-        #68735d,
-        #293128 55%,
-        #101610
-    );
-    clip-path:
-    polygon(
-        22% 0,
-        78% 0,
-        100% 28%,
-        88% 100%,
-        12% 100%,
-        0 28%
-    );
-    z-index:3;
-}
-
-.cod-armor-line{
-    position:absolute;
-    width:4%;
-    height:35%;
-    top:52%;
-    background:rgba(10,15,10,.65);
-    border-radius:10px;
-    z-index:4;
-}
-
-.cod-armor-left{
-    left:38%;
-}
-
-.cod-armor-right{
-    right:38%;
-}
-
-.cod-rifle{
-    position:absolute;
-    width:110%;
-    height:12%;
-    top:66%;
-    left:-8%;
-    transform:rotate(-18deg);
-    z-index:10;
-}
-
-.cod-rifle-stock{
-    position:absolute;
-    width:30%;
-    height:65%;
-    left:0;
-    top:18%;
-    border-radius:12px 3px 3px 12px;
-    background:#171d18;
-}
-
-.cod-rifle-body{
-    position:absolute;
-    width:60%;
-    height:78%;
-    left:18%;
-    top:12%;
-    border-radius:4px;
-    background:
-    linear-gradient(
-        180deg,
-        #090d0a,
-        #626962,
-        #101410
-    );
-}
-
-.cod-rifle-barrel{
-    position:absolute;
-    width:42%;
-    height:35%;
-    right:0;
-    top:32%;
-    border-radius:4px;
-    background:#111512;
-}
-
-.cod-game-name{
-    position:absolute;
-    width:100%;
-    bottom:7%;
-    left:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:2px;
-    z-index:20;
-    text-transform:uppercase;
     filter:
     drop-shadow(
-        0 5px 5px
-        rgba(0,0,0,.85)
+        0 5px 7px rgba(0,0,0,.22)
     );
 }
 
-.cod-call,
-.cod-duty{
-    color:#ffffff;
-    font-family:Impact,"Arial Black",sans-serif;
-    font-size:17px;
-    font-weight:900;
-    letter-spacing:-1px;
-    text-shadow:2px 3px 5px rgba(0,0,0,.9);
-}
 
-.cod-of{
-    color:#c9c9c9;
-    font-family:Arial,sans-serif;
-    font-size:7px;
-    font-weight:900;
-    margin-top:3px;
-}
+/* ================= GOOGLE PLAY ================= */
 
-.cod-mobile{
-    position:absolute;
-    top:110%;
-    left:50%;
-    transform:translateX(-50%);
-    color:#ffc400;
-    font-family:Arial,sans-serif;
-    font-size:5px;
-    font-weight:900;
-    letter-spacing:3px;
-    white-space:nowrap;
-    text-shadow:0 2px 4px rgba(0,0,0,.9);
-}
-
-.cod-gaming-badge{
-    position:absolute;
-    top:8%;
-    right:8%;
-    width:24%;
-    aspect-ratio:1/1;
-    border-radius:50%;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+.play-service .service-image{
     background:
     linear-gradient(
         145deg,
-        #ffe76b,
-        #d99600
+        #45165c,
+        #e5005d
     );
-    font-size:13px;
-    box-shadow:0 5px 12px rgba(0,0,0,.4);
-    z-index:30;
 }
 
 
-/* ================= PARK ON LOGO ================= */
+/* ================= PARK ON ================= */
 
 .park-service .service-image{
-    background:linear-gradient(145deg,#f8f7f2,#e8e5dc);
+    background:
+    linear-gradient(
+        145deg,
+        #fafaf7,
+        #e6e4dd
+    );
 }
 
 .park-logo{
-    width:100%;
-    height:100%;
+    width:60px;
+    height:60px;
     position:relative;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    overflow:hidden;
-    z-index:2;
-}
-
-.park-ring{
-    position:absolute;
-    width:92%;
-    height:92%;
+    z-index:5;
     border-radius:50%;
-    background:conic-gradient(
+
+    background:
+    conic-gradient(
         from 210deg,
         #ee8d9c,
         #65b8e8,
@@ -619,485 +285,1335 @@ body{
         #56c58d,
         #ee8d9c
     );
-    padding:4px;
-    opacity:.85;
+
+    padding:5px;
+
+    box-shadow:
+    0 6px 12px rgba(0,0,0,.20);
 }
 
-.park-ring::after{
+.park-logo::before{
     content:"";
     position:absolute;
-    inset:4px;
+    inset:5px;
     border-radius:50%;
-    background:rgba(255,255,255,.80);
-}
-
-.park-inner-ring{
-    position:absolute;
-    width:67%;
-    height:67%;
-    border-radius:50%;
-    border:7px solid rgba(90,130,105,.20);
-    z-index:1;
-}
-
-.park-ribbon{
-    position:absolute;
-    width:28%;
-    height:36%;
-    top:55%;
-    z-index:2;
-    background:linear-gradient(90deg,#8e4a51,#c97679);
-    clip-path:polygon(0 0,100% 0,100% 100%,50% 80%,0 100%);
+    background:#ffffff;
 }
 
 .park-medal{
     position:absolute;
-    width:53%;
-    height:53%;
+    width:42px;
+    height:42px;
+    left:9px;
+    top:9px;
     border-radius:50%;
-    background:linear-gradient(145deg,#edbd8d,#c98656);
-    border:3px solid rgba(255,255,255,.65);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:4;
-    box-shadow:0 8px 12px rgba(0,0,0,.25);
-}
 
-.park-medal-inner{
-    width:72%;
-    height:72%;
-    border-radius:50%;
-    border:3px solid rgba(255,255,255,.40);
+    background:
+    radial-gradient(
+        circle at 35% 30%,
+        #ffe4aa,
+        #e4ad72 55%,
+        #c9844f
+    );
+
+    border:3px solid rgba(255,255,255,.85);
+
     display:flex;
     align-items:center;
     justify-content:center;
+
+    z-index:4;
+
+    box-shadow:
+    0 5px 9px rgba(0,0,0,.22);
 }
 
 .park-star{
-    color:#704326;
-    font-size:42px;
-    line-height:1;
-    font-family:Arial,sans-serif;
-    font-weight:bold;
+    color:#6d4327;
+    font-size:27px;
+    font-weight:900;
+}
+
+.park-ribbon{
+    position:absolute;
+    width:18px;
+    height:25px;
+    left:21px;
+    bottom:0;
+    z-index:3;
+
+    background:
+    linear-gradient(
+        90deg,
+        #a94550,
+        #dc777d
+    );
+
+    clip-path:
+    polygon(
+        0 0,
+        100% 0,
+        100% 100%,
+        50% 80%,
+        0 100%
+    );
 }
 
 
-/* ================= GOOGLE PLAY OFFER LOGO ================= */
+/* ================= GOOGLE PLAY OFFER ================= */
 
 .offer-service .service-image{
-    background:radial-gradient(
+    background:
+    radial-gradient(
         circle at center,
-        #1f3974 0%,
-        #111b48 55%,
-        #090d2a 100%
+        #214886 0%,
+        #13285b 55%,
+        #09122d 100%
     );
-    border:2px solid rgba(255,190,0,.65);
-    box-shadow:
-        0 8px 18px rgba(0,0,0,.18),
-        0 0 15px rgba(0,174,255,.25);
+
+    border:2px solid rgba(255,205,50,.75);
 }
 
-.play-discount-logo{
+.offer-logo{
+    width:64px;
+    height:64px;
+    position:relative;
+    z-index:5;
+}
+
+.offer-bag{
+    position:absolute;
+    width:47px;
+    height:38px;
+    left:8px;
+    bottom:5px;
+
+    border-radius:8px 8px 11px 11px;
+
+    background:
+    linear-gradient(
+        135deg,
+        #08bff5,
+        #00d477 45%,
+        #ffb300
+    );
+
+    box-shadow:
+    0 5px 9px rgba(0,0,0,.25);
+}
+
+.offer-handle{
+    position:absolute;
+    width:25px;
+    height:20px;
+    left:19px;
+    top:1px;
+
+    border:5px solid #ffffff;
+    border-bottom:none;
+    border-radius:18px 18px 0 0;
+
+    z-index:3;
+}
+
+.offer-percent{
+    position:absolute;
+    left:18px;
+    top:12px;
+    z-index:5;
+
+    color:#ffffff;
+    font-family:Arial,sans-serif;
+    font-size:27px;
+    font-weight:900;
+}
+
+.offer-tag{
+    position:absolute;
+    right:-3px;
+    top:21px;
+    z-index:7;
+
+    padding:4px 5px;
+
+    background:#ef3030;
+    color:#ffffff;
+
+    border-radius:5px;
+
+    font-size:6px;
+    font-weight:900;
+
+    transform:rotate(28deg);
+}
+
+
+/* ================= GMAIL ================= */
+
+.gmail-service .service-image{
+    background:
+    linear-gradient(
+        145deg,
+        #ff5672,
+        #c70d48
+    );
+}
+
+
+/* ================= TELEGRAM ================= */
+
+.telegram-service .service-image{
+    background:
+    linear-gradient(
+        145deg,
+        #24c7ed,
+        #0788c8
+    );
+}
+
+
+/* ================= QUEST ================= */
+
+.quest-service .service-image{
+    background:
+    linear-gradient(
+        145deg,
+        #72d39a,
+        #339d72
+    );
+}
+
+.quest-logo{
+    width:64px;
+    height:58px;
+    position:relative;
+    z-index:5;
+}
+
+.quest-lid{
+    position:absolute;
+    width:56px;
+    height:23px;
+    left:4px;
+    top:4px;
+
+    border-radius:
+    15px 15px 5px 5px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #fff39b,
+        #ffb300
+    );
+
+    border:2px solid #d98b00;
+}
+
+.quest-body{
+    position:absolute;
+    width:58px;
+    height:32px;
+    left:3px;
+    top:26px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffe269,
+        #e99900
+    );
+
+    border-radius:
+    3px 3px 8px 8px;
+}
+
+.quest-green{
+    position:absolute;
+    width:42px;
+    height:24px;
+    left:11px;
+    top:30px;
+    z-index:2;
+
+    background:
+    linear-gradient(
+        145deg,
+        #14996d,
+        #075f4c
+    );
+
+    border-radius:3px;
+}
+
+.quest-lock{
+    position:absolute;
+    width:14px;
+    height:15px;
+    left:25px;
+    top:27px;
+    z-index:6;
+
+    background:#ffd92d;
+    border:2px solid #a96e00;
+    border-radius:3px;
+}
+
+.quest-star{
+    position:absolute;
+    right:2px;
+    top:0;
+    z-index:8;
+
+    color:#ffffff;
+    font-size:17px;
+}
+
+
+/* ================= TIKTOK ================= */
+
+.tiktok-service .service-image{
+    background:
+    linear-gradient(
+        145deg,
+        #242424,
+        #050505
+    );
+}
+
+.tiktok-logo-img{
+    width:56px !important;
+    height:56px !important;
+    object-fit:contain;
+    position:relative;
+    z-index:5;
+
+    filter:
+    drop-shadow(
+        0 5px 7px rgba(0,0,0,.35)
+    );
+}
+
+
+/* ================= YOUTUBE ================= */
+
+.youtube-service .service-image{
+    background:#ffffff;
+    border:2px solid #eeeeee;
+}
+
+
+/* ================= FUTURISTIC VPN ================= */
+
+.vpn-service .service-image{
+    background:
+    radial-gradient(
+        circle at 50% 48%,
+        #073f9f 0%,
+        #031f5c 38%,
+        #020d2b 72%,
+        #000817 100%
+    );
+
+    border:2px solid rgba(25,223,255,.75);
+}
+
+
+/* VPN LOGO */
+
+.vpn-logo{
     width:100%;
     height:100%;
+    min-height:120px;
+
     position:relative;
+    overflow:hidden;
+
     display:flex;
-    flex-direction:column;
     align-items:center;
     justify-content:center;
-    overflow:hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% 48%,
+            #073f9f 0%,
+            #031f5c 38%,
+            #020d2b 72%,
+            #000817 100%
+        );
+
+    isolation:isolate;
+}
+
+
+/* NEON OUTER BORDER */
+
+.vpn-border{
+    position:absolute;
+
+    inset:5px;
+
+    border:2px solid #19dfff;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 0 5px #19dfff,
+        0 0 12px rgba(0,217,255,.9),
+        inset 0 0 12px rgba(0,153,255,.3);
+
+    z-index:10;
+
+    pointer-events:none;
+}
+
+.vpn-border::before{
+    content:"";
+
+    position:absolute;
+
+    inset:2px;
+
+    border:1px solid rgba(255,255,255,.55);
+
+    border-radius:15px;
+}
+
+
+/* BACKGROUND GLOW */
+
+.vpn-glow{
+    position:absolute;
+
+    width:150px;
+    height:150px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,194,255,.5),
+            rgba(0,89,255,.22) 42%,
+            transparent 72%
+        );
+
+    filter:blur(18px);
+
+    z-index:-1;
+}
+
+
+/* SHIELD */
+
+.vpn-shield{
+    position:absolute;
+
+    width:112px;
+    height:118px;
+
+    left:50%;
+    top:51%;
+
+    transform:translate(-50%,-50%);
+
+    background:
+        linear-gradient(
+            145deg,
+            #f4ffff 0%,
+            #45eaff 12%,
+            #008dff 38%,
+            #124de8 68%,
+            #00dfff 100%
+        );
+
+    clip-path:polygon(
+        50% 0,
+        93% 17%,
+        89% 57%,
+        75% 79%,
+        50% 100%,
+        25% 79%,
+        11% 57%,
+        7% 17%
+    );
+
+    filter:
+        drop-shadow(0 0 7px #00dfff)
+        drop-shadow(0 9px 12px rgba(0,0,0,.7));
+
     z-index:2;
 }
 
-.play-discount-logo::before{
-    content:"";
+
+/* SHIELD INNER */
+
+.vpn-shield-inner{
     position:absolute;
-    width:80%;
-    height:80%;
-    border-radius:50%;
-    background:radial-gradient(
-        circle,
-        rgba(0,220,255,.35),
-        rgba(255,0,120,.15) 45%,
-        transparent 72%
+
+    inset:6px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #041b4a,
+            #021039 45%,
+            #00236c 72%,
+            #06133c
+        );
+
+    clip-path:polygon(
+        50% 0,
+        93% 17%,
+        89% 57%,
+        75% 79%,
+        50% 100%,
+        25% 79%,
+        11% 57%,
+        7% 17%
     );
-    filter:blur(14px);
 }
 
-.play-discount-logo::after{
+.vpn-shield-inner::before{
     content:"";
+
     position:absolute;
-    inset:5px;
-    border-radius:15px;
-    border:1px solid rgba(255,194,0,.55);
+
+    width:100%;
+    height:100%;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent 48%,
+            rgba(0,217,255,.16) 50%,
+            transparent 52%
+        );
+
+    opacity:.7;
 }
 
-.discount-spark{
+
+/* VPN TEXT */
+
+.vpn-title{
+    position:relative;
+
+    z-index:8;
+
+    margin-top:3px;
+
+    font-family:
+        Impact,
+        Haettenschweiler,
+        "Arial Narrow Bold",
+        "Arial Black",
+        sans-serif;
+
+    font-size:clamp(48px,14vw,76px);
+
+    font-weight:900;
+
+    line-height:.85;
+
+    letter-spacing:-2px;
+
+    transform:
+        skew(-4deg)
+        scaleX(1.04);
+
+    color:#ffffff;
+
+    -webkit-text-stroke:2px #061b49;
+
+    text-shadow:
+
+        2px 2px 0 #b9fbff,
+
+        3px 4px 0 #168fff,
+
+        5px 6px 0 #0636a5,
+
+        7px 9px 0 #020b25,
+
+        0 0 8px rgba(0,217,255,.9),
+
+        0 12px 16px rgba(0,0,0,.8);
+}
+
+
+/* Metallic highlight */
+
+.vpn-title::before{
+    content:"VPN";
+
     position:absolute;
+
+    left:0;
+    top:0;
+
+    color:transparent;
+
+    background:
+        linear-gradient(
+            180deg,
+            #ffffff 0%,
+            #ffffff 24%,
+            #d8faff 42%,
+            #46dfff 68%,
+            #007eff 100%
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    -webkit-text-stroke:0;
+
+    pointer-events:none;
+}
+
+
+/* ORBIT LIGHT */
+
+.vpn-orbit{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    border-radius:50%;
+
+    pointer-events:none;
+
+    z-index:5;
+
+    border:2px solid transparent;
+
+    border-top-color:#28eaff;
+    border-bottom-color:#00bfff;
+
+    filter:
+        drop-shadow(0 0 5px #00dfff);
+}
+
+.orbit-one{
+    width:145px;
+    height:50px;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(-17deg);
+}
+
+.orbit-two{
+    width:155px;
+    height:58px;
+
+    transform:
+        translate(-50%,-50%)
+        rotate(18deg);
+
+    opacity:.45;
+}
+
+
+/* BRIGHT LIGHT POINT */
+
+.orbit-one::after{
+    content:"";
+
+    position:absolute;
+
+    width:7px;
+    height:7px;
+
+    right:3px;
+    top:1px;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    box-shadow:
+        0 0 5px #ffffff,
+        0 0 12px #00eaff,
+        0 0 22px #00cfff;
+}
+
+
+/* GLOW DOTS */
+
+.vpn-dot{
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:#ffffff;
+
+    box-shadow:
+        0 0 5px #00eaff,
+        0 0 10px #00aaff;
+
     z-index:6;
-    color:#fff3a0;
-    animation:discountSpark 1.8s infinite alternate;
+
+    animation:vpnDot 2s infinite alternate;
 }
 
-.discount-spark.s1{
-    top:15%;
-    left:16%;
+.dot-one{
+    left:13%;
+    top:35%;
 }
 
-.discount-spark.s2{
-    top:27%;
-    right:12%;
+.dot-two{
+    right:13%;
+    top:28%;
+
+    animation-delay:.6s;
 }
 
-.discount-spark.s3{
-    bottom:38%;
-    left:10%;
+.dot-three{
+    right:20%;
+    bottom:22%;
+
+    animation-delay:1s;
 }
 
-.discount-spark.s4{
-    bottom:26%;
-    right:14%;
-}
-
-@keyframes discountSpark{
-
+@keyframes vpnDot{
     from{
-        transform:scale(.65);
-        opacity:.4;
+        opacity:.25;
+        transform:scale(.7);
     }
 
     to{
-        transform:scale(1.2);
         opacity:1;
+        transform:scale(1.5);
+    }
+}
+
+
+/* VPN RESPONSIVE */
+
+@media(max-width:400px){
+
+    .vpn-logo{
+        min-height:100px;
+    }
+
+    .vpn-border{
+        inset:4px;
+        border-radius:15px;
+    }
+
+    .vpn-shield{
+        width:82px;
+        height:88px;
+    }
+
+    .vpn-title{
+        font-size:48px;
+        letter-spacing:-1px;
+
+        -webkit-text-stroke:1.5px #061b49;
+
+        text-shadow:
+            2px 2px 0 #b9fbff,
+            3px 4px 0 #168fff,
+            5px 6px 0 #0636a5,
+            6px 8px 0 #020b25,
+            0 0 7px rgba(0,217,255,.9);
+    }
+
+    .orbit-one{
+        width:120px;
+        height:42px;
+    }
+
+    .orbit-two{
+        width:130px;
+        height:48px;
     }
 
 }
 
-.mini-bag-area{
-    position:absolute;
-    width:72%;
-    height:58%;
-    top:5%;
-    left:14%;
-    z-index:3;
-}
 
-.mini-bag{
-    position:absolute;
-    width:100%;
-    height:66%;
-    left:0;
-    bottom:0;
-    border-radius:12px 12px 16px 16px;
-    overflow:hidden;
-    background:linear-gradient(
-        135deg,
-        #00c6ff,
-        #008cff 28%,
-        #00d56b 48%,
-        #ff1744 72%,
-        #ff9800
-    );
-}
+/* ================= WHY US ================= */
 
-.mini-handle{
-    position:absolute;
-    width:45%;
-    height:48%;
-    left:27.5%;
-    top:0;
-    border:7px solid #eef5ff;
-    border-bottom:none;
-    border-radius:30px 30px 0 0;
-    z-index:5;
-}
-
-.mini-percent{
-    position:absolute;
-    z-index:5;
-    color:#ffffff;
-    font-family:Arial,sans-serif;
-    font-size:43px;
-    font-weight:900;
-    left:50%;
-    top:52%;
-    transform:translate(-50%,-50%);
-}
-
-.mini-discount-tag{
-    position:absolute;
-    width:39%;
-    height:44%;
-    right:-12%;
-    top:25%;
-    border-radius:8px 12px 12px 8px;
-    background:linear-gradient(135deg,#ff3030,#b80000);
-    transform:rotate(35deg);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    z-index:6;
-}
-
-.mini-discount-tag span{
-    color:#ffffff;
-    font-size:7px;
-    font-weight:900;
-    transform:rotate(-35deg);
-}
-
-.mini-play-store{
-    position:absolute;
-    top:64%;
-    width:100%;
-    text-align:center;
-    z-index:5;
-    color:#ffffff;
-    font-size:13px;
-    font-weight:900;
-}
-
-.mini-discount-offer{
-    position:absolute;
-    top:78%;
-    left:12%;
-    width:76%;
-    padding:4px 2px;
-    border-radius:15px;
-    text-align:center;
-    z-index:5;
-    color:#101b3c;
-    background:linear-gradient(180deg,#fff55c,#ffb300);
-    font-size:9px;
-    font-weight:900;
-}
-
-.mini-cart{
-    position:absolute;
-    bottom:1%;
-    left:50%;
-    transform:translateX(-50%);
-    z-index:5;
-    font-size:15px;
-}
-
-
-/* ================= QUEST LOGO ================= */
-
-.quest-logo{
-    width:100%;
-    height:100%;
-    position:relative;
-    overflow:hidden;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    background:linear-gradient(135deg,#6fc490,#3b9e72);
-    z-index:2;
-}
-
-.quest-bg{
-    position:absolute;
-    inset:0;
-    background:linear-gradient(
-        135deg,
-        transparent,
-        rgba(255,255,255,.12) 45%,
-        transparent 46%
-    );
-}
-
-.quest-shadow{
-    position:absolute;
-    width:90%;
-    height:16%;
-    left:5%;
-    bottom:5%;
-    background:rgba(0,60,40,.35);
-    filter:blur(12px);
-    border-radius:50%;
-}
-
-.chest-lid{
-    position:absolute;
-    width:68%;
-    height:48%;
-    left:12%;
-    top:10%;
-    z-index:4;
-    overflow:hidden;
-    border-radius:55% 55% 15% 15%;
-}
-
-.lid-gold{
-    position:absolute;
-    inset:0;
-    border-radius:55% 55% 10% 10%;
-    background:linear-gradient(
+.whyus-service .service-image{
+    background:
+    linear-gradient(
         145deg,
-        #fff6b8,
-        #ffd62d 35%,
-        #ffad00 75%
+        #df2b82,
+        #94145c
     );
-}
-
-.lid-green{
-    position:absolute;
-    width:78%;
-    height:75%;
-    left:11%;
-    top:20%;
-    border-radius:55% 55% 0 0;
-    background:linear-gradient(145deg,#1da46e,#00694f);
-}
-
-.right-arch{
-    position:absolute;
-    width:43%;
-    height:38%;
-    right:8%;
-    top:27%;
-    z-index:5;
-    border:12px solid #ffbd12;
-    border-bottom:none;
-    border-radius:55% 55% 0 0;
-}
-
-.chest-gap{
-    position:absolute;
-    width:75%;
-    height:10%;
-    left:12%;
-    top:48%;
-    z-index:6;
-    background:linear-gradient(180deg,#1d4e46,#082d29);
-    transform:skewY(8deg);
-}
-
-.chest-front{
-    position:absolute;
-    width:82%;
-    height:46%;
-    left:5%;
-    bottom:8%;
-    z-index:3;
-    background:linear-gradient(145deg,#ffec7d,#ffb10b);
-}
-
-.chest-panel{
-    position:absolute;
-    background:linear-gradient(145deg,#129268,#075448);
-}
-
-.left-panel{
-    width:36%;
-    height:62%;
-    left:8%;
-    bottom:16%;
-}
-
-.right-panel{
-    width:34%;
-    height:62%;
-    right:8%;
-    bottom:16%;
-}
-
-.frame-top{
-    position:absolute;
-    width:82%;
-    height:8%;
-    left:5%;
-    top:51%;
-    z-index:8;
-    background:#ffd11d;
-    transform:rotate(13deg);
-}
-
-.frame-left,
-.frame-center,
-.frame-right{
-    position:absolute;
-    height:45%;
-    bottom:7%;
-    z-index:8;
-    background:#ffc20e;
-}
-
-.frame-left{
-    width:9%;
-    left:5%;
-}
-
-.frame-center{
-    width:8%;
-    left:48%;
-}
-
-.frame-right{
-    width:9%;
-    right:13%;
-}
-
-.chest-lock{
-    position:absolute;
-    width:18%;
-    height:18%;
-    left:28%;
-    top:42%;
-    z-index:15;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    border-radius:10px;
-    background:linear-gradient(145deg,#fff8c4,#ffcf32);
-}
-
-.chest-lock span{
-    color:#503000;
-    font-size:24px;
-}
-
-.sparkle{
-    position:absolute;
-    color:#ffffff;
-    z-index:20;
-}
-
-.sparkle-one{
-    top:9%;
-    left:23%;
-    font-size:28px;
-}
-
-.sparkle-two{
-    bottom:13%;
-    left:47%;
-    font-size:18px;
-}
-
-
-/* ================= SPECIAL ICONS ================= */
-
-.vpn-icon{
-    position:relative;
-    z-index:2;
-    color:#ffffff;
-    font-family:Arial,sans-serif;
-    font-size:30px;
-    font-weight:900;
-    letter-spacing:2px;
-    padding:12px 15px;
-    border:3px solid #25c7ff;
-    border-radius:16px;
-    background:rgba(0,0,0,.15);
 }
 
 .whyus-icon{
-    font-size:65px;
     position:relative;
+    z-index:5;
+    font-size:54px;
+
+    filter:
+    drop-shadow(
+        0 6px 7px rgba(0,0,0,.25)
+    );
+}
+
+
+/* ================= FREE FIRE ================= */
+
+.freefire-service .service-image{
+    background:
+    radial-gradient(
+        circle at 50% 20%,
+        #38dfff 0%,
+        #087bd2 48%,
+        #052b62 100%
+    );
+
+    box-shadow:
+    0 8px 18px rgba(0,0,0,.18),
+    0 0 16px rgba(0,190,255,.25);
+}
+
+.freefire-character{
+    width:62px;
+    height:66px;
+    position:relative;
+    z-index:5;
+
+    filter:
+    drop-shadow(
+        0 7px 7px rgba(0,0,0,.40)
+    );
+}
+
+.ff-head{
+    position:absolute;
+
+    width:29px;
+    height:29px;
+
+    left:17px;
+    top:4px;
+
+    border-radius:
+    48% 48% 44% 44%;
+
+    background:
+    linear-gradient(
+        145deg,
+        #ffd2a4,
+        #d98962 65%,
+        #8e4b42
+    );
+
+    border:2px solid rgba(0,0,0,.35);
+
+    z-index:5;
+}
+
+.ff-hair{
+    position:absolute;
+
+    width:34px;
+    height:19px;
+
+    left:14px;
+    top:1px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #20242b,
+        #080a0d
+    );
+
+    border-radius:
+    55% 55% 25% 25%;
+
+    transform:rotate(-4deg);
+
+    z-index:7;
+}
+
+.ff-hair::after{
+    content:"";
+
+    position:absolute;
+
+    width:13px;
+    height:8px;
+
+    right:-3px;
+    top:4px;
+
+    background:#11151b;
+
+    transform:rotate(25deg);
+
+    border-radius:50%;
+}
+
+.ff-eye{
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    top:17px;
+
+    border-radius:50%;
+
+    background:#151515;
+
+    z-index:9;
+}
+
+.ff-eye-left{
+    left:24px;
+}
+
+.ff-eye-right{
+    right:24px;
+}
+
+.ff-mouth{
+    position:absolute;
+
+    width:9px;
+    height:4px;
+
+    left:25px;
+    top:24px;
+
+    border-bottom:2px solid #6b3030;
+
+    border-radius:50%;
+
+    z-index:9;
+}
+
+.ff-neck{
+    position:absolute;
+
+    width:12px;
+    height:10px;
+
+    left:25px;
+    top:30px;
+
+    background:#c97d5b;
+
+    z-index:3;
+}
+
+.ff-body{
+    position:absolute;
+
+    width:40px;
+    height:29px;
+
+    left:11px;
+    top:35px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #303b4a,
+        #151b25 65%,
+        #080b10
+    );
+
+    clip-path:
+    polygon(
+        20% 0,
+        80% 0,
+        100% 100%,
+        0 100%
+    );
+
+    border-radius:8px;
+
     z-index:2;
+}
+
+.ff-armor{
+    position:absolute;
+
+    width:25px;
+    height:21px;
+
+    left:18px;
+    top:38px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #566b78,
+        #1d2933 65%,
+        #0b1117
+    );
+
+    clip-path:
+    polygon(
+        18% 0,
+        82% 0,
+        100% 100%,
+        0 100%
+    );
+
+    z-index:5;
+}
+
+.ff-arm-left{
+    position:absolute;
+
+    width:10px;
+    height:29px;
+
+    left:5px;
+    top:35px;
+
+    border-radius:8px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #394754,
+        #111821
+    );
+
+    transform:rotate(18deg);
+
+    z-index:1;
+}
+
+.ff-arm-right{
+    position:absolute;
+
+    width:10px;
+    height:29px;
+
+    right:5px;
+    top:35px;
+
+    border-radius:8px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #394754,
+        #111821
+    );
+
+    transform:rotate(-18deg);
+
+    z-index:1;
+}
+
+.ff-gun{
+    position:absolute;
+
+    width:43px;
+    height:6px;
+
+    left:12px;
+    top:49px;
+
+    background:
+    linear-gradient(
+        180deg,
+        #5f6870,
+        #12171c
+    );
+
+    border-radius:4px;
+
+    transform:rotate(-19deg);
+
+    z-index:10;
+
+    box-shadow:
+    0 3px 4px rgba(0,0,0,.45);
+}
+
+.ff-gun::after{
+    content:"";
+
+    position:absolute;
+
+    width:10px;
+    height:3px;
+
+    right:-8px;
+    top:2px;
+
+    background:#0a0d10;
+
+    border-radius:3px;
+}
+
+.ff-logo-text{
+    position:absolute;
+
+    left:50%;
+    bottom:-4px;
+
+    transform:translateX(-50%);
+
+    z-index:15;
+
+    color:#ffffff;
+
+    font-family:
+    Impact,
+    "Arial Black",
+    sans-serif;
+
+    font-size:8px;
+
+    font-style:italic;
+
+    letter-spacing:-.3px;
+
+    white-space:nowrap;
+
+    text-shadow:
+    1px 2px 3px #000;
+}
+
+
+/* ================= CALL OF DUTY ================= */
+
+.cod-service .service-image{
+    background:
+    radial-gradient(
+        circle at 50% 15%,
+        #6b7c58,
+        #283529 45%,
+        #0a0f0b
+    );
+}
+
+.cod-logo{
+    width:68px;
+    height:68px;
+    position:relative;
+    z-index:5;
+}
+
+.cod-head{
+    position:absolute;
+
+    width:29px;
+    height:29px;
+
+    left:20px;
+    top:7px;
+
+    border-radius:
+    50% 50% 43% 43%;
+
+    background:
+    linear-gradient(
+        145deg,
+        #a6b18e,
+        #414b3b 55%,
+        #151a14
+    );
+
+    box-shadow:
+    inset 3px 2px 5px rgba(255,255,255,.18),
+    0 4px 5px rgba(0,0,0,.4);
+}
+
+.cod-helmet{
+    position:absolute;
+
+    width:35px;
+    height:14px;
+
+    left:17px;
+    top:4px;
+
+    border-radius:
+    18px 18px 5px 5px;
+
+    background:
+    linear-gradient(
+        145deg,
+        #aab594,
+        #3e4837
+    );
+}
+
+.cod-visor{
+    position:absolute;
+
+    width:25px;
+    height:7px;
+
+    left:22px;
+    top:18px;
+
+    background:#111712;
+
+    border-radius:5px;
+}
+
+.cod-body{
+    position:absolute;
+
+    width:48px;
+    height:35px;
+
+    left:10px;
+    top:35px;
+
+    clip-path:
+    polygon(
+        20% 0,
+        80% 0,
+        100% 100%,
+        0 100%
+    );
+
+    background:
+    linear-gradient(
+        145deg,
+        #68745c,
+        #242d24 60%,
+        #0d120e
+    );
+}
+
+.cod-gun{
+    position:absolute;
+
+    width:58px;
+    height:7px;
+
+    left:5px;
+    top:49px;
+
+    transform:rotate(-17deg);
+
+    background:#101410;
+
+    border-radius:4px;
+
+    box-shadow:
+    0 2px 4px rgba(0,0,0,.5);
+}
+
+.cod-title{
+    position:absolute;
+
+    bottom:-1px;
+
+    width:100%;
+
+    text-align:center;
+
+    color:#ffffff;
+
+    font-family:
+    Impact,
+    "Arial Black",
+    sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:-.4px;
+
+    text-shadow:
+    1px 2px 3px #000;
+}
+
+
+/* ================= EARNING ================= */
+
+.earning-service .service-image{
+    background:
+    linear-gradient(
+        145deg,
+        #16a85a,
+        #056b3c
+    );
+
+    box-shadow:
+    0 8px 18px rgba(0,100,60,.22),
+    0 0 16px rgba(20,190,100,.18);
+}
+
+.earning-logo{
+    width:58px;
+    height:58px;
+
+    position:relative;
+    z-index:5;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border-radius:50%;
+
+    background:
+    linear-gradient(
+        145deg,
+        #fff176,
+        #ffc107
+    );
+
+    border:4px solid rgba(255,255,255,.9);
+
+    box-shadow:
+    0 6px 12px rgba(0,0,0,.25);
+}
+
+.earning-dollar{
+    color:#126b3c;
+
+    font-family:Arial,sans-serif;
+
+    font-size:32px;
+    font-weight:900;
+}
+
+.earning-plus{
+    position:absolute;
+
+    right:-2px;
+    top:-3px;
+
+    width:20px;
+    height:20px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#ffffff;
+    color:#159b58;
+
+    font-family:Arial,sans-serif;
+
+    font-size:16px;
+    font-weight:900;
+
+    box-shadow:
+    0 3px 6px rgba(0,0,0,.2);
 }
 
 
@@ -1105,50 +1621,15 @@ body{
 
 .service-title{
     font-family:"Roboto Slab",serif;
-    font-size:12px;
-    font-weight:600;
+
+    font-size:11.5px;
+    font-weight:700;
+
     line-height:1.35;
+
     min-height:34px;
-}
 
-
-/* ================= BOTTOM NAV ================= */
-
-.bottom-nav{
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
-    height:72px;
-    background:#ffffff;
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    border-radius:22px 22px 0 0;
-    box-shadow:0 -5px 20px rgba(0,0,0,.10);
-    z-index:500;
-}
-
-.nav-item{
-    border:none;
-    background:transparent;
-    color:#657084;
-    font-family:inherit;
-    font-size:11px;
-    font-weight:600;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    justify-content:center;
-    gap:2px;
-    cursor:pointer;
-}
-
-.nav-icon{
-    font-size:22px;
-}
-
-.nav-item.active{
-    color:#ef2f61;
+    color:#172640;
 }
 
 
@@ -1156,20 +1637,30 @@ body{
 
 #detailPage{
     display:none;
+
     min-height:100vh;
+
     background:#f0f2f8;
+
     padding-bottom:25px;
 }
 
 .detail-header{
     height:68px;
+
     background:#ffffff;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     padding:0 15px;
-    box-shadow:0 3px 12px rgba(0,0,0,.08);
+
+    box-shadow:
+    0 3px 12px rgba(0,0,0,.08);
+
     border-top:3px solid #ff3d56;
+
     position:sticky;
     top:0;
     z-index:100;
@@ -1189,14 +1680,26 @@ body{
 .detail-icon{
     width:75px;
     height:75px;
+
     margin:auto;
+
     border-radius:22px;
-    background:linear-gradient(145deg,#ff2f6d,#9e2b84);
+
+    background:
+    linear-gradient(
+        145deg,
+        #ff2f6d,
+        #9e2b84
+    );
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     font-size:38px;
-    box-shadow:0 10px 25px rgba(255,61,86,.25);
+
+    box-shadow:
+    0 10px 25px rgba(255,61,86,.25);
 }
 
 .detail-hero h1{
@@ -1222,22 +1725,32 @@ body{
 
 .detail-box{
     background:#ffffff;
+
     border-radius:18px;
+
     padding:17px;
+
     margin-bottom:14px;
-    box-shadow:0 5px 18px rgba(0,0,0,.06);
+
+    box-shadow:
+    0 5px 18px rgba(0,0,0,.06);
 }
 
 .detail-box h2{
     font-size:19px;
+
     color:#30435c;
+
     margin-bottom:10px;
 }
 
 .detail-box p{
     font-size:14px;
+
     color:#66758a;
+
     line-height:1.8;
+
     margin-bottom:10px;
 }
 
@@ -1247,10 +1760,15 @@ body{
 
 .detail-box li{
     padding:11px;
+
     margin-top:8px;
+
     border-radius:10px;
+
     background:#f5f7fb;
+
     color:#4b5b70;
+
     font-size:14px;
 }
 
@@ -1259,34 +1777,61 @@ body{
 
 .order-btn{
     width:100%;
+
     border:none;
+
     margin-top:14px;
+
     padding:13px;
+
     border-radius:12px;
+
     background:#ef2f61;
+
     color:#ffffff;
+
     font-family:inherit;
+
     font-size:15px;
+
     font-weight:700;
+
     cursor:pointer;
 }
 
 .offer{
     padding:13px 5px;
+
     border:none;
+
     border-radius:12px;
+
     text-align:center;
-    background:linear-gradient(135deg,#ff3d6a,#a72d86);
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff3d6a,
+        #a72d86
+    );
+
     color:#ffffff;
+
     font-family:inherit;
+
     font-size:13px;
+
     font-weight:700;
+
     cursor:pointer;
 }
 
 .offer-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+    repeat(2,1fr);
+
     gap:9px;
 }
 
@@ -1295,13 +1840,21 @@ body{
 
 .custom-input{
     width:100%;
+
     padding:13px;
+
     border:1px solid #dce1ea;
+
     border-radius:11px;
+
     font-family:inherit;
+
     font-size:15px;
+
     outline:none;
+
     margin-top:8px;
+
     background:#ffffff;
 }
 
@@ -1315,25 +1868,43 @@ textarea.custom-input{
 
 .admin-card{
     display:flex;
+
     align-items:center;
+
     gap:12px;
+
     padding:14px;
+
     margin-top:12px;
+
     background:#f7f8fc;
+
     border:1px solid #e6eaf1;
+
     border-radius:16px;
 }
 
 .admin-avatar{
     width:52px;
     height:52px;
+
     min-width:52px;
+
     border-radius:50%;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     font-size:25px;
-    background:linear-gradient(135deg,#ff3d6a,#a72d86);
+
+    background:
+    linear-gradient(
+        135deg,
+        #ff3d6a,
+        #a72d86
+    );
 }
 
 .admin-info{
@@ -1342,42 +1913,69 @@ textarea.custom-input{
 
 .admin-info h3{
     font-size:17px;
+
     color:#30435c;
 }
 
 .admin-info span{
     display:block;
+
     margin-top:2px;
+
     font-size:12px;
+
     color:#7b8798;
 }
 
 .admin-whatsapp{
     text-decoration:none;
+
     background:#20b866;
+
     color:#ffffff;
+
     padding:9px 11px;
+
     border-radius:10px;
+
     font-size:12px;
+
     font-weight:700;
 }
 
 .admin-send-grid{
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+    repeat(2,1fr);
+
     gap:10px;
+
     margin-top:15px;
 }
 
 .admin-send-btn{
     border:none;
+
     padding:13px 8px;
+
     border-radius:12px;
-    background:linear-gradient(135deg,#20b866,#159447);
+
+    background:
+    linear-gradient(
+        135deg,
+        #20b866,
+        #159447
+    );
+
     color:#ffffff;
+
     font-family:inherit;
+
     font-size:13px;
+
     font-weight:700;
+
     cursor:pointer;
 }
 
@@ -1385,99 +1983,290 @@ textarea.custom-input{
 /* ================= PLAY POINTS ================= */
 
 .playpoints-card{
-    background:linear-gradient(145deg,#192b43,#101a2b);
+    background:
+    linear-gradient(
+        145deg,
+        #192b43,
+        #101a2b
+    );
+
     border:1px solid #3975c4;
+
     border-radius:26px;
+
     padding:28px 22px;
+
     margin:10px 0 24px;
+
     color:#f4f7fc;
 }
 
 .playpoints-card h2{
     color:#ffffff;
+
     font-family:"Roboto Slab",serif;
+
     font-size:28px;
+
     margin-bottom:25px;
 }
 
 .play-description{
     color:#c8d1df;
+
     font-size:17px;
+
     line-height:1.8;
+
     margin-bottom:30px;
 }
 
 .country-heading{
     color:#ffffff;
+
     font-size:20px;
+
     font-weight:700;
+
     margin-bottom:20px;
 }
 
 .play-country-list{
     display:flex;
+
     flex-wrap:wrap;
+
     gap:10px;
+
     margin-bottom:25px;
 }
 
 .play-country{
     padding:11px 14px;
+
     border-radius:14px;
+
     background:#243852;
+
     border:1px solid #35577d;
+
     color:#d9e0eb;
+
     font-size:14px;
 }
 
 .play-security-box{
-    background:rgba(92,80,32,.20);
-    border:1px solid rgba(177,150,53,.45);
+    background:
+    rgba(92,80,32,.20);
+
+    border:1px solid
+    rgba(177,150,53,.45);
+
     border-radius:20px;
+
     padding:20px;
+
     color:#e1d2a3;
+
     font-size:15px;
+
     line-height:1.75;
+}
+
+
+/* ================= COMING SOON ================= */
+
+.coming-soon-box{
+    text-align:center;
+    padding:35px 20px;
+}
+
+.coming-soon-icon{
+    width:85px;
+    height:85px;
+
+    margin:0 auto 18px;
+
+    border-radius:50%;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+    linear-gradient(
+        145deg,
+        #18b968,
+        #087944
+    );
+
+    font-size:42px;
+
+    box-shadow:
+    0 10px 22px rgba(0,130,70,.22);
+}
+
+.coming-soon-title{
+    color:#ef2f61;
+
+    font-size:20px;
+
+    font-weight:700;
+
+    margin-top:14px;
+}
+
+
+/* ================= BOTTOM NAV ================= */
+
+.bottom-nav{
+    position:fixed;
+
+    bottom:0;
+    left:0;
+
+    width:100%;
+
+    height:72px;
+
+    background:#ffffff;
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(4,1fr);
+
+    border-radius:
+    22px 22px 0 0;
+
+    box-shadow:
+    0 -5px 20px rgba(0,0,0,.10);
+
+    z-index:500;
+}
+
+.nav-item{
+    border:none;
+
+    background:transparent;
+
+    color:#657084;
+
+    font-family:inherit;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:2px;
+
+    cursor:pointer;
+}
+
+.nav-icon{
+    font-size:22px;
+}
+
+.nav-item.active{
+    color:#ef2f61;
 }
 
 
 /* ================= MOBILE ================= */
 
-@media(max-width:350px){
+@media(max-width:600px){
 
     .services{
-        gap:18px 8px;
-        padding:0 10px 20px;
+        grid-template-columns:
+        repeat(3,1fr);
+
+        gap:21px 10px;
+
+        padding:
+        0 13px 20px;
+    }
+
+    .service-image{
+        border-radius:17px;
+    }
+
+    .service-logo,
+    .tiktok-logo-img{
+        width:54px !important;
+        height:54px !important;
+    }
+
+    .park-logo{
+        width:60px;
+        height:60px;
     }
 
     .service-title{
-        font-size:10px;
+        font-size:10.5px;
     }
 
-    .cod-call,
-    .cod-duty{
-        font-size:14px;
+    .hero h1{
+        font-size:23px;
     }
 
+}
+
+@media(max-width:350px){
+
+    .services{
+        padding-left:9px;
+        padding-right:9px;
+
+        gap:18px 7px;
+    }
+
+    .service-title{
+        font-size:9.5px;
+    }
+
+}
+
+
+/* ================= NO ZOOM ================= */
+
+html,
+body{
+    touch-action:pan-y;
 }
 
 </style>
 
 </head>
 
+
 <body>
 
 
-<!-- ================= HOME PAGE ================= -->
-
 <div id="homePage">
+
 
 <header class="header">
 
 <div class="logo">
-<span class="logo-icon">⚡</span>
+
+<span class="logo-icon">
+⚡
+</span>
+
 PIYAS
-<span>SERVICES</span>
+
+<span>
+SERVICES
+</span>
+
 </div>
 
 </header>
@@ -1485,22 +2274,33 @@ PIYAS
 
 <div class="top-links">
 
-<a href="https://t.me/Teach_with_bd"
+<a
+href="https://t.me/Teach_with_bd"
 target="_blank"
 class="top-btn">
+
 ✈️ Telegram
+
 </a>
 
-<a href="https://chat.whatsapp.com/DzeUDoeYVhV7OShIndRKQt"
+
+<a
+href="https://chat.whatsapp.com/DzeUDoeYVhV7OShIndRKQt"
 target="_blank"
 class="top-btn">
+
 👥 Join Group
+
 </a>
 
-<a href="https://wa.me/8801925681872"
+
+<a
+href="https://wa.me/8801925681872"
 target="_blank"
 class="top-btn">
+
 💬 WhatsApp
+
 </a>
 
 </div>
@@ -1527,7 +2327,8 @@ class="top-btn">
 <div class="services">
 
 
-<button class="service play-service"
+<button
+class="service play-service"
 onclick="openPage('playpoints')">
 
 <div class="service-image">
@@ -1546,28 +2347,23 @@ Google Play Points
 </button>
 
 
-<button class="service park-service"
+<button
+class="service park-service"
 onclick="openPage('parkon')">
 
 <div class="service-image">
 
 <div class="park-logo">
 
-<div class="park-ring"></div>
-<div class="park-inner-ring"></div>
-<div class="park-ribbon"></div>
-
 <div class="park-medal">
 
-<div class="park-medal-inner">
-
 <div class="park-star">
-☆
+★
 </div>
 
 </div>
 
-</div>
+<div class="park-ribbon"></div>
 
 </div>
 
@@ -1580,46 +2376,24 @@ Play Points Park ON
 </button>
 
 
-<button class="service offer-service"
+<button
+class="service offer-service"
 onclick="openPage('offer')">
 
 <div class="service-image">
 
-<div class="play-discount-logo">
+<div class="offer-logo">
 
-<div class="discount-spark s1">✦</div>
-<div class="discount-spark s2">✦</div>
-<div class="discount-spark s3">•</div>
-<div class="discount-spark s4">✦</div>
+<div class="offer-handle"></div>
 
-<div class="mini-bag-area">
+<div class="offer-bag"></div>
 
-<div class="mini-handle"></div>
-
-<div class="mini-bag">
-
-<div class="mini-percent">
+<div class="offer-percent">
 %
 </div>
 
-</div>
-
-<div class="mini-discount-tag">
-<span>DISCOUNT</span>
-</div>
-
-</div>
-
-<div class="mini-play-store">
-PLAY STORE
-</div>
-
-<div class="mini-discount-offer">
-DISCOUNT OFFER
-</div>
-
-<div class="mini-cart">
-🛒
+<div class="offer-tag">
+DISCOUNT
 </div>
 
 </div>
@@ -1635,11 +2409,13 @@ Google Play Offer
 </div>
 
 
-<div class="services"
+<div
+class="services"
 id="mainServices">
 
 
-<button class="service gmail-service"
+<button
+class="service gmail-service"
 onclick="openPage('gmail')">
 
 <div class="service-image">
@@ -1658,7 +2434,8 @@ Gmail Buy & Sell
 </button>
 
 
-<button class="service telegram-service"
+<button
+class="service telegram-service"
 onclick="openPage('telegramstars')">
 
 <div class="service-image">
@@ -1677,42 +2454,25 @@ Telegram Stars
 </button>
 
 
-<button class="service quest-service"
+<button
+class="service quest-service"
 onclick="openPage('quest')">
 
 <div class="service-image">
 
 <div class="quest-logo">
 
-<div class="quest-bg"></div>
-<div class="quest-shadow"></div>
+<div class="quest-lid"></div>
 
-<div class="chest-lid">
-<div class="lid-gold"></div>
-<div class="lid-green"></div>
+<div class="quest-body"></div>
+
+<div class="quest-green"></div>
+
+<div class="quest-lock"></div>
+
+<div class="quest-star">
+✦
 </div>
-
-<div class="right-arch"></div>
-<div class="chest-gap"></div>
-
-<div class="chest-front">
-
-<div class="chest-panel left-panel"></div>
-<div class="chest-panel right-panel"></div>
-
-</div>
-
-<div class="frame-top"></div>
-<div class="frame-left"></div>
-<div class="frame-center"></div>
-<div class="frame-right"></div>
-
-<div class="chest-lock">
-<span>▶</span>
-</div>
-
-<div class="sparkle sparkle-one">✦</div>
-<div class="sparkle sparkle-two">✦</div>
 
 </div>
 
@@ -1725,13 +2485,14 @@ Quest Complete
 </button>
 
 
-<button class="service tiktok-service"
+<button
+class="service tiktok-service"
 onclick="openPage('tiktok')">
 
 <div class="service-image">
 
 <img
-class="service-logo"
+class="tiktok-logo-img"
 src="https://api.iconify.design/logos:tiktok-icon.svg"
 alt="TikTok">
 
@@ -1744,7 +2505,8 @@ TikTok Coin ও Boost
 </button>
 
 
-<button class="service youtube-service"
+<button
+class="service youtube-service"
 onclick="openPage('youtube')">
 
 <div class="service-image">
@@ -1763,13 +2525,32 @@ YouTube Premium
 </button>
 
 
-<button class="service vpn-service"
+<!-- FUTURISTIC VPN -->
+
+<button
+class="service vpn-service"
 onclick="openPage('vpn')">
 
 <div class="service-image">
 
-<div class="vpn-icon">
-VPN
+<div class="vpn-logo">
+
+    <div class="vpn-border"></div>
+    <div class="vpn-glow"></div>
+
+    <div class="vpn-shield">
+        <div class="vpn-shield-inner"></div>
+    </div>
+
+    <div class="vpn-orbit orbit-one"></div>
+    <div class="vpn-orbit orbit-two"></div>
+
+    <div class="vpn-title">VPN</div>
+
+    <div class="vpn-dot dot-one"></div>
+    <div class="vpn-dot dot-two"></div>
+    <div class="vpn-dot dot-three"></div>
+
 </div>
 
 </div>
@@ -1781,7 +2562,8 @@ VPN সার্ভিস
 </button>
 
 
-<button class="service whyus-service"
+<button
+class="service whyus-service"
 onclick="openPage('whyus')">
 
 <div class="service-image">
@@ -1799,65 +2581,73 @@ onclick="openPage('whyus')">
 </button>
 
 
-<button class="service cod-service"
+<button
+class="service freefire-service"
+onclick="openPage('freefire')">
+
+<div class="service-image">
+
+<div class="freefire-character">
+
+<div class="ff-hair"></div>
+
+<div class="ff-head">
+
+<div class="ff-eye ff-eye-left"></div>
+
+<div class="ff-eye ff-eye-right"></div>
+
+<div class="ff-mouth"></div>
+
+</div>
+
+<div class="ff-neck"></div>
+
+<div class="ff-arm-left"></div>
+
+<div class="ff-arm-right"></div>
+
+<div class="ff-body"></div>
+
+<div class="ff-armor"></div>
+
+<div class="ff-gun"></div>
+
+<div class="ff-logo-text">
+FREE FIRE
+</div>
+
+</div>
+
+</div>
+
+<div class="service-title">
+Free Fire Diamond Top Up
+</div>
+
+</button>
+
+
+<button
+class="service cod-service"
 onclick="openPage('callofduty')">
 
 <div class="service-image">
 
 <div class="cod-logo">
 
-<div class="cod-logo-light"></div>
-
-<div class="cod-smoke cod-smoke-one"></div>
-<div class="cod-smoke cod-smoke-two"></div>
-
-<div class="cod-soldier">
-
 <div class="cod-helmet"></div>
+
+<div class="cod-head"></div>
+
 <div class="cod-visor"></div>
-<div class="cod-face-mask"></div>
-<div class="cod-neck"></div>
 
-<div class="cod-arm cod-left-arm"></div>
-<div class="cod-arm cod-right-arm"></div>
+<div class="cod-body"></div>
 
-<div class="cod-body-armor"></div>
+<div class="cod-gun"></div>
 
-<div class="cod-armor-line cod-armor-left"></div>
-<div class="cod-armor-line cod-armor-right"></div>
-
-<div class="cod-rifle">
-
-<div class="cod-rifle-stock"></div>
-<div class="cod-rifle-body"></div>
-<div class="cod-rifle-barrel"></div>
-
-</div>
-
-</div>
-
-<div class="cod-game-name">
-
-<div class="cod-call">
-CALL
-</div>
-
-<div class="cod-of">
-OF
-</div>
-
-<div class="cod-duty">
-DUTY
-</div>
-
-<div class="cod-mobile">
-MOBILE
-</div>
-
-</div>
-
-<div class="cod-gaming-badge">
-🎮
+<div class="cod-title">
+CALL OF DUTY
 </div>
 
 </div>
@@ -1870,20 +2660,51 @@ Call of Duty Coupon
 
 </button>
 
+
+<!-- EARNING -->
+
+<button
+class="service earning-service"
+onclick="openPage('earning')">
+
+<div class="service-image">
+
+<div class="earning-logo">
+
+<div class="earning-dollar">
+$
+</div>
+
+<div class="earning-plus">
++
 </div>
 
 </div>
 
+</div>
 
-<!-- ================= DETAIL PAGE ================= -->
+<div class="service-title">
+Earning
+</div>
+
+</button>
+
+
+</div>
+
+</div>
+
 
 <div id="detailPage">
 
 <header class="detail-header">
 
-<div class="detail-title-small"
+<div
+class="detail-title-small"
 id="headerTitle">
+
 বিস্তারিত
+
 </div>
 
 </header>
@@ -1891,14 +2712,19 @@ id="headerTitle">
 
 <section class="detail-hero">
 
-<div class="detail-icon"
+<div
+class="detail-icon"
 id="detailIcon">
+
 🌟
+
 </div>
+
 
 <h1 id="detailTitle">
 বিস্তারিত
 </h1>
+
 
 <p id="detailSubtitle">
 সার্ভিস সম্পর্কে বিস্তারিত তথ্য
@@ -1907,18 +2733,19 @@ id="detailIcon">
 </section>
 
 
-<div class="detail-content"
+<div
+class="detail-content"
 id="detailContent">
 </div>
 
 </div>
 
 
-<!-- ================= BOTTOM NAV ================= -->
-
 <nav class="bottom-nav">
 
-<button class="nav-item active"
+
+<button
+class="nav-item active"
 onclick="goHome()">
 
 <div class="nav-icon">
@@ -1930,7 +2757,8 @@ Home
 </button>
 
 
-<button class="nav-item"
+<button
+class="nav-item"
 onclick="openPage('tutorial')">
 
 <div class="nav-icon">
@@ -1942,7 +2770,8 @@ Tutorial
 </button>
 
 
-<button class="nav-item"
+<button
+class="nav-item"
 onclick="scrollToServices()">
 
 <div class="nav-icon">
@@ -1954,7 +2783,8 @@ Services
 </button>
 
 
-<button class="nav-item"
+<button
+class="nav-item"
 onclick="openPage('contact')">
 
 <div class="nav-icon">
@@ -1970,14 +2800,18 @@ Contact Us
 
 <script>
 
-let currentPage = null;
+
+let currentPage=null;
 
 
 /* ================= SELECT ADMIN ================= */
 
 function selectAdmin(service,details){
 
-    if(!details || details.trim() === ""){
+    if(
+        !details ||
+        details.trim()===""
+    ){
 
         alert(
             "দয়া করে প্রয়োজনীয় তথ্য নির্বাচন অথবা লিখুন।"
@@ -1991,33 +2825,36 @@ function selectAdmin(service,details){
 
     setTimeout(function(){
 
-        let message =
-
-        "🛒 নতুন অর্ডার\n\n" +
-
-        "📌 সার্ভিস: " +
-        service +
-
-        "\n\n" +
-
-        "📝 বিস্তারিত: " +
-        details +
-
-        "\n\n" +
-
-        "আমি এই সার্ভিসটি নিতে চাই। বিস্তারিত জানাবেন।";
-
-
+        const box=
         document.getElementById(
             "orderMessage"
-        ).value = message;
+        );
 
+        if(box){
 
+            box.value=
+
+`🛒 নতুন অর্ডার
+
+📌 সার্ভিস: ${service}
+
+📝 বিস্তারিত: ${details}
+
+আমি এই সার্ভিসটি নিতে চাই। বিস্তারিত জানাবেন।`;
+
+        }
+
+        const title=
         document.getElementById(
             "contactTitle"
-        ).innerText =
-        "🛒 অর্ডার সম্পন্ন করুন";
+        );
 
+        if(title){
+
+            title.innerText=
+            "🛒 অর্ডার সম্পন্ন করুন";
+
+        }
 
         window.scrollTo({
 
@@ -2036,13 +2873,15 @@ function selectAdmin(service,details){
 
 function sendWhatsAppTo(number){
 
-    let message =
+    const box=
     document.getElementById(
         "orderMessage"
-    ).value.trim();
+    );
 
-
-    if(message === ""){
+    if(
+        !box ||
+        !box.value.trim()
+    ){
 
         alert(
             "দয়া করে অর্ডারের বিস্তারিত লিখুন।"
@@ -2052,13 +2891,13 @@ function sendWhatsAppTo(number){
 
     }
 
-
-    let url =
+    const url=
     "https://wa.me/" +
     number +
     "?text=" +
-    encodeURIComponent(message);
-
+    encodeURIComponent(
+        box.value
+    );
 
     window.open(
         url,
@@ -2068,17 +2907,16 @@ function sendWhatsAppTo(number){
 }
 
 
-/* ================= CUSTOM GOOGLE PLAY OFFER ================= */
+/* ================= CUSTOM PLAY OFFER ================= */
 
 function sendCustomPlayOffer(){
 
-    let details =
+    const details=
     document.getElementById(
         "customPlayOffer"
     ).value.trim();
 
-
-    if(details === ""){
+    if(details===""){
 
         alert(
             "দয়া করে আপনার প্রয়োজনীয় Offer-এর বিস্তারিত লিখুন।"
@@ -2088,30 +2926,27 @@ function sendCustomPlayOffer(){
 
     }
 
-
     selectAdmin(
         "Google Play Offer",
-        "Custom Offer: " +
         details +
-        " বিক্রি করতে চাই"
+        " — আমি এই অফারটি বিক্রি করতে চাই"
     );
 
 }
 
 
-/* ================= CUSTOM TIKTOK COIN ================= */
+/* ================= CUSTOM TIKTOK ================= */
 
 function sendCustomTikTokCoin(){
 
-    let amount =
+    const amount=
     document.getElementById(
         "customTikTokCoin"
     ).value;
 
-
     if(
-        amount === "" ||
-        Number(amount) <= 0
+        amount==="" ||
+        Number(amount)<=0
     ){
 
         alert(
@@ -2121,7 +2956,6 @@ function sendCustomTikTokCoin(){
         return;
 
     }
-
 
     selectAdmin(
         "TikTok Coin",
@@ -2137,86 +2971,85 @@ function sendCustomTikTokCoin(){
 
 function showGmailOptions(type){
 
-    let title =
-    type === "buy"
+    const title=
+    type==="buy"
     ? "🛒 Gmail কিনুন"
     : "💰 Gmail বিক্রি করুন";
 
-    let action =
-    type === "buy"
+    const action=
+    type==="buy"
     ? "কিনতে চাই"
     : "বিক্রি করতে চাই";
 
-
     document.getElementById(
         "gmailOptions"
-    ).innerHTML = `
+    ).innerHTML=`
 
-    <div class="detail-box">
+<div class="detail-box">
 
-    <h2>${title}</h2>
+<h2>${title}</h2>
 
-    <p>
-    আপনার প্রয়োজনীয় Gmail নির্বাচন করুন।
-    </p>
+<p>
+আপনার প্রয়োজনীয় Gmail নির্বাচন করুন।
+</p>
 
-    <div class="offer-grid">
+<div class="offer-grid">
 
-    <button
-    class="offer"
-    onclick="selectAdmin(
-    'Gmail ${type}',
-    'BD Gmail ${action}'
-    )">
+<button
+class="offer"
+onclick="selectAdmin(
+'Gmail ${type}',
+'BD Gmail ${action}'
+)">
 
-    📧 BD Gmail
+📧 BD Gmail
 
-    </button>
-
-
-    <button
-    class="offer"
-    onclick="selectAdmin(
-    'Gmail ${type}',
-    'USA Gmail ${action}'
-    )">
-
-    🇺🇸 USA Gmail
-
-    </button>
+</button>
 
 
-    <button
-    class="offer"
-    onclick="selectAdmin(
-    'Gmail ${type}',
-    'MIX Gmail ${action}'
-    )">
+<button
+class="offer"
+onclick="selectAdmin(
+'Gmail ${type}',
+'USA Gmail ${action}'
+)">
 
-    🌐 MIX Gmail
+🇺🇸 USA Gmail
 
-    </button>
-
-    </div>
+</button>
 
 
-    <textarea
-    id="customGmail"
-    class="custom-input"
-    placeholder="Custom Gmail-এর বিস্তারিত লিখুন..."></textarea>
+<button
+class="offer"
+onclick="selectAdmin(
+'Gmail ${type}',
+'MIX Gmail ${action}'
+)">
+
+🌐 MIX Gmail
+
+</button>
+
+</div>
 
 
-    <button
-    class="order-btn"
-    onclick="sendCustomGmail('${type}')">
+<textarea
+id="customGmail"
+class="custom-input"
+placeholder="Custom Gmail-এর বিস্তারিত লিখুন..."></textarea>
 
-    📝 বিস্তারিত পাঠান
 
-    </button>
+<button
+class="order-btn"
+onclick="sendCustomGmail('${type}')">
 
-    </div>
+📝 বিস্তারিত পাঠান
 
-    `;
+</button>
+
+</div>
+
+`;
 
 }
 
@@ -2225,13 +3058,12 @@ function showGmailOptions(type){
 
 function sendCustomGmail(type){
 
-    let details =
+    const details=
     document.getElementById(
         "customGmail"
     ).value.trim();
 
-
-    if(details === ""){
+    if(details===""){
 
         alert(
             "দয়া করে Gmail-এর বিস্তারিত লিখুন।"
@@ -2241,12 +3073,10 @@ function sendCustomGmail(type){
 
     }
 
-
     selectAdmin(
-        type === "buy"
+        type==="buy"
         ? "Gmail Buy"
         : "Gmail Sell",
-
         details
     );
 
@@ -2257,117 +3087,122 @@ function sendCustomGmail(type){
 
 function showStarsOptions(type){
 
-    let title =
-    type === "buy"
+    const title=
+    type==="buy"
     ? "🛒 Telegram Stars কিনুন"
     : "💰 Telegram Stars বিক্রি করুন";
 
-    let action =
-    type === "buy"
+    const action=
+    type==="buy"
     ? "কিনতে চাই"
     : "বিক্রি করতে চাই";
 
-
     document.getElementById(
         "starsOptions"
-    ).innerHTML = `
+    ).innerHTML=`
 
-    <div class="detail-box">
+<div class="detail-box">
 
-    <h2>${title}</h2>
+<h2>${title}</h2>
 
-    <p>
-    আপনার প্রয়োজনীয় Stars নির্বাচন করুন।
-    </p>
+<p>
+আপনার প্রয়োজনীয় Stars নির্বাচন করুন।
+</p>
 
-    <div class="offer-grid">
+<div class="offer-grid">
 
-    <button class="offer"
-    onclick="selectAdmin(
-    'Telegram Stars ${type}',
-    '50 Stars ${action}'
-    )">
+<button
+class="offer"
+onclick="selectAdmin(
+'Telegram Stars ${type}',
+'50 Stars ${action}'
+)">
 
-    ⭐ 50 Stars
+⭐ 50 Stars
 
-    </button>
-
-
-    <button class="offer"
-    onclick="selectAdmin(
-    'Telegram Stars ${type}',
-    '100 Stars ${action}'
-    )">
-
-    ⭐ 100 Stars
-
-    </button>
+</button>
 
 
-    <button class="offer"
-    onclick="selectAdmin(
-    'Telegram Stars ${type}',
-    '250 Stars ${action}'
-    )">
+<button
+class="offer"
+onclick="selectAdmin(
+'Telegram Stars ${type}',
+'100 Stars ${action}'
+)">
 
-    ⭐ 250 Stars
+⭐ 100 Stars
 
-    </button>
-
-
-    <button class="offer"
-    onclick="selectAdmin(
-    'Telegram Stars ${type}',
-    '500 Stars ${action}'
-    )">
-
-    ⭐ 500 Stars
-
-    </button>
+</button>
 
 
-    <button class="offer"
-    onclick="selectAdmin(
-    'Telegram Stars ${type}',
-    '1000 Stars ${action}'
-    )">
+<button
+class="offer"
+onclick="selectAdmin(
+'Telegram Stars ${type}',
+'250 Stars ${action}'
+)">
 
-    ⭐ 1000 Stars
+⭐ 250 Stars
 
-    </button>
-
-
-    <button class="offer"
-    onclick="selectAdmin(
-    'Telegram Stars ${type}',
-    '5000 Stars ${action}'
-    )">
-
-    ⭐ 5000 Stars
-
-    </button>
-
-    </div>
+</button>
 
 
-    <input
-    type="number"
-    id="customStarsAmount"
-    class="custom-input"
-    placeholder="কত Stars প্রয়োজন?">
+<button
+class="offer"
+onclick="selectAdmin(
+'Telegram Stars ${type}',
+'500 Stars ${action}'
+)">
+
+⭐ 500 Stars
+
+</button>
 
 
-    <button
-    class="order-btn"
-    onclick="sendCustomStars('${type}')">
+<button
+class="offer"
+onclick="selectAdmin(
+'Telegram Stars ${type}',
+'1000 Stars ${action}'
+)">
 
-    📝 Custom Stars পাঠান
+⭐ 1000 Stars
 
-    </button>
+</button>
 
-    </div>
 
-    `;
+<button
+class="offer"
+onclick="selectAdmin(
+'Telegram Stars ${type}',
+'5000 Stars ${action}'
+)">
+
+⭐ 5000 Stars
+
+</button>
+
+</div>
+
+
+<input
+type="number"
+id="customStarsAmount"
+class="custom-input"
+placeholder="কত Stars প্রয়োজন?">
+
+
+<button
+class="order-btn"
+onclick="sendCustomStars('${type}')">
+
+📝 Custom Stars পাঠান
+
+</button>
+
+</div>
+
+`;
 
 }
 
@@ -2376,15 +3211,14 @@ function showStarsOptions(type){
 
 function sendCustomStars(type){
 
-    let amount =
+    const amount=
     document.getElementById(
         "customStarsAmount"
     ).value;
 
-
     if(
-        amount === "" ||
-        Number(amount) <= 0
+        amount==="" ||
+        Number(amount)<=0
     ){
 
         alert(
@@ -2395,15 +3229,13 @@ function sendCustomStars(type){
 
     }
 
-
-    let action =
-    type === "buy"
+    const action=
+    type==="buy"
     ? "কিনতে চাই"
     : "বিক্রি করতে চাই";
 
-
     selectAdmin(
-        type === "buy"
+        type==="buy"
         ? "Telegram Stars Buy"
         : "Telegram Stars Sell",
 
@@ -2415,90 +3247,89 @@ function sendCustomStars(type){
 }
 
 
-/* ================= CALL OF DUTY OPTIONS ================= */
+/* ================= COD OPTIONS ================= */
 
 function showCodOptions(type){
 
-    let title =
-    type === "buy"
+    const title=
+    type==="buy"
     ? "🛒 Coupon কিনুন"
     : "💰 Coupon বিক্রি করুন";
 
-    let action =
-    type === "buy"
+    const action=
+    type==="buy"
     ? "কিনতে চাই"
     : "বিক্রি করতে চাই";
 
-
     document.getElementById(
         "codOptions"
-    ).innerHTML = `
+    ).innerHTML=`
 
-    <div class="detail-box">
+<div class="detail-box">
 
-    <h2>${title}</h2>
+<h2>${title}</h2>
 
-    <p>
-    আপনার প্রয়োজনীয় Coupon নির্বাচন করুন।
-    </p>
+<p>
+আপনার প্রয়োজনীয় Coupon নির্বাচন করুন।
+</p>
 
-    <div class="offer-grid">
+<div class="offer-grid">
 
-    <button
-    class="offer"
-    onclick="selectAdmin(
-    'Call of Duty Coupon ${type}',
-    '$4 Coupon ${action}'
-    )">
+<button
+class="offer"
+onclick="selectAdmin(
+'Call of Duty Coupon ${type}',
+'$4 Coupon ${action}'
+)">
 
-    🎮 $4 Coupon
+🎮 $4 Coupon
 
-    </button>
-
-
-    <button
-    class="offer"
-    onclick="selectAdmin(
-    'Call of Duty Coupon ${type}',
-    '$10 Coupon ${action}'
-    )">
-
-    🎮 $10 Coupon
-
-    </button>
+</button>
 
 
-    <button
-    class="offer"
-    onclick="selectAdmin(
-    'Call of Duty Coupon ${type}',
-    '$20 Coupon ${action}'
-    )">
+<button
+class="offer"
+onclick="selectAdmin(
+'Call of Duty Coupon ${type}',
+'$10 Coupon ${action}'
+)">
 
-    🎮 $20 Coupon
+🎮 $10 Coupon
 
-    </button>
-
-    </div>
+</button>
 
 
-    <textarea
-    id="customCodCoupon"
-    class="custom-input"
-    placeholder="Custom Coupon-এর বিস্তারিত লিখুন..."></textarea>
+<button
+class="offer"
+onclick="selectAdmin(
+'Call of Duty Coupon ${type}',
+'$20 Coupon ${action}'
+)">
+
+🎮 $20 Coupon
+
+</button>
+
+</div>
 
 
-    <button
-    class="order-btn"
-    onclick="sendCustomCod('${type}')">
+<textarea
+id="customCodCoupon"
+class="custom-input"
+placeholder="Custom Coupon-এর বিস্তারিত লিখুন..."></textarea>
 
-    📝 বিস্তারিত পাঠান
 
-    </button>
+<button
+class="order-btn"
+onclick="sendCustomCod('${type}')">
 
-    </div>
+📝 বিস্তারিত পাঠান
 
-    `;
+</button>
+
+</div>
+
+`;
 
 }
 
@@ -2507,13 +3338,12 @@ function showCodOptions(type){
 
 function sendCustomCod(type){
 
-    let details =
+    const details=
     document.getElementById(
         "customCodCoupon"
     ).value.trim();
 
-
-    if(details === ""){
+    if(details===""){
 
         alert(
             "দয়া করে Coupon-এর বিস্তারিত লিখুন।"
@@ -2523,9 +3353,8 @@ function sendCustomCod(type){
 
     }
 
-
     selectAdmin(
-        type === "buy"
+        type==="buy"
         ? "Call of Duty Coupon Buy"
         : "Call of Duty Coupon Sell",
 
@@ -2537,7 +3366,7 @@ function sendCustomCod(type){
 
 /* ================= PAGE DATA ================= */
 
-const pages = {
+const pages={
 
 
 playpoints:{
@@ -2564,44 +3393,34 @@ Google Play Points সংক্রান্ত বিভিন্ন সার�
 </p>
 
 <div class="country-heading">
-
 🌍 যেসব দেশের Play Points নিয়ে তথ্য পাওয়া যায়
-
 </div>
 
 <div class="play-country-list">
 
-<div class="play-country">
-🇯🇵 Japan
-</div>
+<div class="play-country">🇯🇵 Japan</div>
 
-<div class="play-country">
-🇭🇰 Hong Kong
-</div>
+<div class="play-country">🇭🇰 Hong Kong</div>
 
-<div class="play-country">
-🇸🇦 Saudi Arabia
-</div>
+<div class="play-country">🇸🇦 Saudi Arabia</div>
 
-<div class="play-country">
-🇺🇸 USA
-</div>
+<div class="play-country">🇺🇸 USA</div>
 
-<div class="play-country">
-🇬🇧 UK
-</div>
+<div class="play-country">🇬🇧 UK</div>
 
 </div>
 
 <div class="play-security-box">
 
-🔒 <strong>
-নিরাপত্তা সতর্কতা:
-</strong>
+🔒 <strong>নিরাপত্তা সতর্কতা:</strong>
 
 <br><br>
 
-🔐 Google Play Points চালু করার জন্য আপনার Gmail অ্যাকাউন্ট লগইন করা প্রয়োজন। তাই এই কাজটি সম্পন্ন করার জন্য আমাদের কাছে আপনার Gmail-এর Password অথবা Login Approval দিতে হবে।
+Google-এর নিয়ম অনুযায়ী নিরাপত্তা বজায় রাখুন।
+কাউকে আপনার Gmail Password বা OTP দেবেন না।
+প্রয়োজনে শুধুমাত্র অফিসিয়াল Google Sign-in
+অথবা Authorization ব্যবহার করুন।
+
 </div>
 
 <button
@@ -2687,40 +3506,43 @@ content:`
 class="offer"
 onclick="selectAdmin(
 'Google Play Offer',
-'$1 OFF Offer বিক্রি করতে চাই'
+'$1 OFF Offer — আমি এই অফারটি বিক্রি করতে চাই'
 )">
 
 💵 $1 OFF
 
 </button>
 
+
 <button
 class="offer"
 onclick="selectAdmin(
 'Google Play Offer',
-'$2 OFF Offer বিক্রি করতে চাই'
+'$2 OFF Offer — আমি এই অফারটি বিক্রি করতে চাই'
 )">
 
 💵 $2 OFF
 
 </button>
 
+
 <button
 class="offer"
 onclick="selectAdmin(
 'Google Play Offer',
-'$4 OFF Offer বিক্রি করতে চাই'
+'$4 OFF Offer — আমি এই অফারটি বিক্রি করতে চাই'
 )">
 
 💵 $4 OFF
 
 </button>
 
+
 <button
 class="offer"
 onclick="selectAdmin(
 'Google Play Offer',
-'95% OFF Offer বিক্রি করতে চাই'
+'95% OFF Offer — আমি এই অফারটি বিক্রি করতে চাই'
 )">
 
 🔥 95% OFF
@@ -2729,10 +3551,12 @@ onclick="selectAdmin(
 
 </div>
 
+
 <textarea
 id="customPlayOffer"
 class="custom-input"
 placeholder="আপনার প্রয়োজনীয় Custom Offer লিখুন..."></textarea>
+
 
 <button
 class="order-btn"
@@ -2890,7 +3714,7 @@ tiktok:{
 
 icon:"🎵",
 
-title:"TikTok Coin ও Video Boost",
+title:"TikTok Coin ও Boost",
 
 subtitle:"TikTok Coin এবং Boost সার্ভিস",
 
@@ -2994,8 +3818,11 @@ content:`
 <ul>
 
 <li>🚫 বিজ্ঞাপন ছাড়া ভিডিও দেখা</li>
+
 <li>▶️ Background Playback</li>
+
 <li>📥 Offline Download</li>
+
 <li>🎵 YouTube Music সুবিধা</li>
 
 </ul>
@@ -3031,13 +3858,15 @@ content:`
 <div class="detail-box">
 
 <h2>
-🌐 Premium VPN
+🌐 NordVPN
 </h2>
 
 <ul>
 
 <li>🌍 বিভিন্ন দেশের সার্ভার</li>
+
 <li>🔒 নিরাপদ সংযোগে সহায়ক</li>
+
 <li>📱 বিভিন্ন ডিভাইসে ব্যবহার</li>
 
 </ul>
@@ -3046,7 +3875,7 @@ content:`
 class="order-btn"
 onclick="selectAdmin(
 'Premium VPN',
-'VPN Service'
+'NordVPN Service'
 )">
 
 🛒 অর্ডার করুন
@@ -3079,11 +3908,88 @@ content:`
 <ul>
 
 <li>🤝 প্রয়োজনীয় সাপোর্ট</li>
+
 <li>⚡ দ্রুত সেবা দেওয়ার চেষ্টা</li>
+
 <li>💬 সহজে যোগাযোগের সুবিধা</li>
+
 <li>🛡️ নিরাপত্তার বিষয়ে সচেতনতা</li>
 
 </ul>
+
+</div>
+
+`
+
+},
+
+
+freefire:{
+
+icon:"🔥",
+
+title:"Free Fire Diamond Top Up",
+
+subtitle:"Free Fire Diamond Top Up সার্ভিস",
+
+content:`
+
+<div
+class="detail-box coming-soon-box">
+
+<div class="freefire-character"
+style="
+margin:10px auto 25px;
+transform:scale(1.35);
+">
+
+<div class="ff-hair"></div>
+
+<div class="ff-head">
+
+<div class="ff-eye ff-eye-left"></div>
+
+<div class="ff-eye ff-eye-right"></div>
+
+<div class="ff-mouth"></div>
+
+</div>
+
+<div class="ff-neck"></div>
+
+<div class="ff-arm-left"></div>
+
+<div class="ff-arm-right"></div>
+
+<div class="ff-body"></div>
+
+<div class="ff-armor"></div>
+
+<div class="ff-gun"></div>
+
+<div class="ff-logo-text">
+FREE FIRE
+</div>
+
+</div>
+
+
+<h2>
+🔥 Free Fire Diamond Top Up
+</h2>
+
+<p>
+
+Free Fire Diamond Top Up সার্ভিস
+খুব শীঘ্রই চালু করা হবে।
+
+</p>
+
+<div class="coming-soon-title">
+
+🚀 খুব শীঘ্রই আসছে...
+
+</div>
 
 </div>
 
@@ -3141,6 +4047,57 @@ onclick="showCodOptions('sell')">
 },
 
 
+earning:{
+
+icon:"💰",
+
+title:"Earning",
+
+subtitle:"Earning Service",
+
+content:`
+
+<div
+class="detail-box coming-soon-box">
+
+<div class="coming-soon-icon">
+💰
+</div>
+
+<h2>
+💰 Earning
+</h2>
+
+<p>
+
+Earning সংক্রান্ত নতুন সার্ভিস
+খুব শীঘ্রই চালু করা হবে।
+
+</p>
+
+<div class="coming-soon-title">
+
+🚀 খুব শীঘ্রই আসছে...
+
+</div>
+
+<p
+style="
+margin-top:12px;
+">
+
+নতুন আপডেটের জন্য আমাদের সঙ্গে
+যুক্ত থাকুন।
+
+</p>
+
+</div>
+
+`
+
+},
+
+
 contact:{
 
 icon:"🎧",
@@ -3154,7 +4111,9 @@ content:`
 <div class="detail-box">
 
 <h2 style="text-align:center;">
+
 👨‍💼 আমাদের অ্যাডমিন টিম
+
 </h2>
 
 <p style="text-align:center;">
@@ -3230,13 +4189,15 @@ class="admin-whatsapp">
 <div class="detail-box">
 
 <h2 id="contactTitle">
+
 📝 অর্ডারের বিস্তারিত
+
 </h2>
 
 <p>
 
-আপনার প্রয়োজনীয় সার্ভিস সম্পর্কে বিস্তারিত লিখুন
-এবং পছন্দের অ্যাডমিনকে মেসেজ পাঠান।
+আপনার প্রয়োজনীয় সার্ভিস সম্পর্কে বিস্তারিত
+লিখুন এবং পছন্দের অ্যাডমিনকে মেসেজ পাঠান।
 
 </p>
 
@@ -3291,10 +4252,15 @@ content:`
 <ul>
 
 <li>1️⃣ পছন্দের সার্ভিস নির্বাচন করুন</li>
+
 <li>2️⃣ Buy অথবা Sell নির্বাচন করুন</li>
+
 <li>3️⃣ প্রয়োজনীয় Package নির্বাচন করুন</li>
+
 <li>4️⃣ অর্ডারের বিস্তারিত দেখুন</li>
+
 <li>5️⃣ Contact Us পেজে যান</li>
+
 <li>6️⃣ পছন্দের অ্যাডমিনকে WhatsApp-এ মেসেজ পাঠান</li>
 
 </ul>
@@ -3308,11 +4274,14 @@ content:`
 };
 
 
-/* ================= PAGE OPEN ================= */
+/* ================= OPEN PAGE ================= */
 
-function openPage(name,addHistory=true){
+function openPage(
+    name,
+    addHistory=true
+){
 
-    let page = pages[name];
+    const page=pages[name];
 
     if(!page){
         return;
@@ -3320,33 +4289,33 @@ function openPage(name,addHistory=true){
 
     document.getElementById(
         "homePage"
-    ).style.display = "none";
+    ).style.display="none";
 
     document.getElementById(
         "detailPage"
-    ).style.display = "block";
+    ).style.display="block";
 
     document.getElementById(
         "detailIcon"
-    ).innerText = page.icon;
+    ).innerText=page.icon;
 
     document.getElementById(
         "detailTitle"
-    ).innerText = page.title;
+    ).innerText=page.title;
 
     document.getElementById(
         "headerTitle"
-    ).innerText = page.title;
+    ).innerText=page.title;
 
     document.getElementById(
         "detailSubtitle"
-    ).innerText = page.subtitle;
+    ).innerText=page.subtitle;
 
     document.getElementById(
         "detailContent"
-    ).innerHTML = page.content;
+    ).innerHTML=page.content;
 
-    currentPage = name;
+    currentPage=name;
 
     localStorage.setItem(
         "currentPage",
@@ -3370,50 +4339,29 @@ function openPage(name,addHistory=true){
 
 /* ================= HOME ================= */
 
-function showHome(addHistory=true){
+function goHome(){
 
     document.getElementById(
         "detailPage"
-    ).style.display = "none";
+    ).style.display="none";
 
     document.getElementById(
         "homePage"
-    ).style.display = "block";
+    ).style.display="block";
 
-    currentPage = null;
+    currentPage=null;
 
     localStorage.removeItem(
         "currentPage"
     );
 
-    if(addHistory){
-
-        history.pushState(
-            {},
-            "",
-            window.location.pathname
-        );
-
-    }
+    history.pushState(
+        {},
+        "",
+        window.location.pathname
+    );
 
     window.scrollTo(0,0);
-
-}
-
-
-/* ================= GO HOME ================= */
-
-function goHome(){
-
-    if(currentPage !== null){
-
-        showHome();
-
-    }else{
-
-        showHome(false);
-
-    }
 
 }
 
@@ -3422,9 +4370,9 @@ function goHome(){
 
 function scrollToServices(){
 
-    if(currentPage !== null){
+    if(currentPage){
 
-        showHome(false);
+        goHome();
 
         setTimeout(function(){
 
@@ -3459,7 +4407,10 @@ window.addEventListener(
 "popstate",
 function(event){
 
-    if(event.state && event.state.page){
+    if(
+        event.state &&
+        event.state.page
+    ){
 
         openPage(
             event.state.page,
@@ -3468,20 +4419,28 @@ function(event){
 
     }else{
 
-        showHome(false);
+        document.getElementById(
+            "detailPage"
+        ).style.display="none";
+
+        document.getElementById(
+            "homePage"
+        ).style.display="block";
+
+        currentPage=null;
 
     }
 
 });
 
 
-/* ================= PAGE RESTORE ================= */
+/* ================= RESTORE PAGE ================= */
 
 window.addEventListener(
 "load",
 function(){
 
-    let savedPage =
+    const savedPage=
     localStorage.getItem(
         "currentPage"
     );
@@ -3512,6 +4471,43 @@ if(!history.state){
     );
 
 }
+
+
+/* ================= PREVENT DOUBLE TAP ZOOM ================= */
+
+let lastTouch=0;
+
+document.addEventListener(
+"touchend",
+function(event){
+
+    const now=Date.now();
+
+    if(
+        now-lastTouch<=300
+    ){
+
+        event.preventDefault();
+
+    }
+
+    lastTouch=now;
+
+},
+{
+    passive:false
+});
+
+
+/* ================= PREVENT PINCH ZOOM ================= */
+
+document.addEventListener(
+"gesturestart",
+function(event){
+
+    event.preventDefault();
+
+});
 
 </script>
 
