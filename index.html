@@ -17,7 +17,7 @@ user-scalable=no">
 href="https://fonts.googleapis.com">
 
 <link rel="preconnect"
-href="https://fonts.googleapis.com"
+href="https://fonts.gstatic.com"
 crossorigin>
 
 <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Roboto+Slab:wght@500;600;700;800&display=swap"
@@ -618,9 +618,6 @@ button,
     border:2px solid rgba(25,223,255,.75);
 }
 
-
-/* VPN LOGO */
-
 .vpn-logo{
     width:100%;
     height:100%;
@@ -645,16 +642,11 @@ button,
     isolation:isolate;
 }
 
-
-/* NEON OUTER BORDER */
-
 .vpn-border{
     position:absolute;
-
     inset:5px;
 
     border:2px solid #19dfff;
-
     border-radius:18px;
 
     box-shadow:
@@ -663,24 +655,16 @@ button,
         inset 0 0 12px rgba(0,153,255,.3);
 
     z-index:10;
-
     pointer-events:none;
 }
 
 .vpn-border::before{
     content:"";
-
     position:absolute;
-
     inset:2px;
-
     border:1px solid rgba(255,255,255,.55);
-
     border-radius:15px;
 }
-
-
-/* BACKGROUND GLOW */
 
 .vpn-glow{
     position:absolute;
@@ -707,9 +691,6 @@ button,
 
     z-index:-1;
 }
-
-
-/* SHIELD */
 
 .vpn-shield{
     position:absolute;
@@ -750,12 +731,8 @@ button,
     z-index:2;
 }
 
-
-/* SHIELD INNER */
-
 .vpn-shield-inner{
     position:absolute;
-
     inset:6px;
 
     background:
@@ -781,9 +758,7 @@ button,
 
 .vpn-shield-inner::before{
     content:"";
-
     position:absolute;
-
     width:100%;
     height:100%;
 
@@ -798,12 +773,8 @@ button,
     opacity:.7;
 }
 
-
-/* VPN TEXT */
-
 .vpn-title{
     position:relative;
-
     z-index:8;
 
     margin-top:3px;
@@ -818,7 +789,6 @@ button,
     font-size:clamp(48px,14vw,76px);
 
     font-weight:900;
-
     line-height:.85;
 
     letter-spacing:-2px;
@@ -832,22 +802,13 @@ button,
     -webkit-text-stroke:2px #061b49;
 
     text-shadow:
-
         2px 2px 0 #b9fbff,
-
         3px 4px 0 #168fff,
-
         5px 6px 0 #0636a5,
-
         7px 9px 0 #020b25,
-
         0 0 8px rgba(0,217,255,.9),
-
         0 12px 16px rgba(0,0,0,.8);
 }
-
-
-/* Metallic highlight */
 
 .vpn-title::before{
     content:"VPN";
@@ -876,9 +837,6 @@ button,
 
     pointer-events:none;
 }
-
-
-/* ORBIT LIGHT */
 
 .vpn-orbit{
     position:absolute;
@@ -921,9 +879,6 @@ button,
     opacity:.45;
 }
 
-
-/* BRIGHT LIGHT POINT */
-
 .orbit-one::after{
     content:"";
 
@@ -944,9 +899,6 @@ button,
         0 0 12px #00eaff,
         0 0 22px #00cfff;
 }
-
-
-/* GLOW DOTS */
 
 .vpn-dot{
     position:absolute;
@@ -987,6 +939,7 @@ button,
 }
 
 @keyframes vpnDot{
+
     from{
         opacity:.25;
         transform:scale(.7);
@@ -996,10 +949,8 @@ button,
         opacity:1;
         transform:scale(1.5);
     }
+
 }
-
-
-/* VPN RESPONSIVE */
 
 @media(max-width:400px){
 
@@ -1797,6 +1748,8 @@ button,
     font-weight:700;
 
     cursor:pointer;
+
+    display:block;
 }
 
 .offer{
@@ -2277,6 +2230,7 @@ SERVICES
 <a
 href="https://t.me/Teach_with_bd"
 target="_blank"
+rel="noopener noreferrer"
 class="top-btn">
 
 ✈️ Telegram
@@ -2287,6 +2241,7 @@ class="top-btn">
 <a
 href="https://chat.whatsapp.com/DzeUDoeYVhV7OShIndRKQt"
 target="_blank"
+rel="noopener noreferrer"
 class="top-btn">
 
 👥 Join Group
@@ -2297,6 +2252,7 @@ class="top-btn">
 <a
 href="https://wa.me/8801925681872"
 target="_blank"
+rel="noopener noreferrer"
 class="top-btn">
 
 💬 WhatsApp
@@ -2328,6 +2284,7 @@ class="top-btn">
 
 
 <button
+type="button"
 class="service play-service"
 onclick="openPage('playpoints')">
 
@@ -2348,6 +2305,7 @@ Google Play Points
 
 
 <button
+type="button"
 class="service park-service"
 onclick="openPage('parkon')">
 
@@ -2377,6 +2335,7 @@ Play Points Park ON
 
 
 <button
+type="button"
 class="service offer-service"
 onclick="openPage('offer')">
 
@@ -2415,6 +2374,7 @@ id="mainServices">
 
 
 <button
+type="button"
 class="service gmail-service"
 onclick="openPage('gmail')">
 
@@ -2435,6 +2395,7 @@ Gmail Buy & Sell
 
 
 <button
+type="button"
 class="service telegram-service"
 onclick="openPage('telegramstars')">
 
@@ -2455,6 +2416,7 @@ Telegram Stars
 
 
 <button
+type="button"
 class="service quest-service"
 onclick="openPage('quest')">
 
@@ -2486,6 +2448,7 @@ Quest Complete
 
 
 <button
+type="button"
 class="service tiktok-service"
 onclick="openPage('tiktok')">
 
@@ -2506,6 +2469,7 @@ TikTok Coin ও Boost
 
 
 <button
+type="button"
 class="service youtube-service"
 onclick="openPage('youtube')">
 
@@ -2525,9 +2489,8 @@ YouTube Premium
 </button>
 
 
-<!-- FUTURISTIC VPN -->
-
 <button
+type="button"
 class="service vpn-service"
 onclick="openPage('vpn')">
 
@@ -2535,21 +2498,29 @@ onclick="openPage('vpn')">
 
 <div class="vpn-logo">
 
-    <div class="vpn-border"></div>
-    <div class="vpn-glow"></div>
+<div class="vpn-border"></div>
 
-    <div class="vpn-shield">
-        <div class="vpn-shield-inner"></div>
-    </div>
+<div class="vpn-glow"></div>
 
-    <div class="vpn-orbit orbit-one"></div>
-    <div class="vpn-orbit orbit-two"></div>
+<div class="vpn-shield">
 
-    <div class="vpn-title">VPN</div>
+<div class="vpn-shield-inner"></div>
 
-    <div class="vpn-dot dot-one"></div>
-    <div class="vpn-dot dot-two"></div>
-    <div class="vpn-dot dot-three"></div>
+</div>
+
+<div class="vpn-orbit orbit-one"></div>
+
+<div class="vpn-orbit orbit-two"></div>
+
+<div class="vpn-title">
+VPN
+</div>
+
+<div class="vpn-dot dot-one"></div>
+
+<div class="vpn-dot dot-two"></div>
+
+<div class="vpn-dot dot-three"></div>
 
 </div>
 
@@ -2563,6 +2534,7 @@ VPN সার্ভিস
 
 
 <button
+type="button"
 class="service whyus-service"
 onclick="openPage('whyus')">
 
@@ -2582,6 +2554,7 @@ onclick="openPage('whyus')">
 
 
 <button
+type="button"
 class="service freefire-service"
 onclick="openPage('freefire')">
 
@@ -2629,6 +2602,7 @@ Free Fire Diamond Top Up
 
 
 <button
+type="button"
 class="service cod-service"
 onclick="openPage('callofduty')">
 
@@ -2661,9 +2635,8 @@ Call of Duty Coupon
 </button>
 
 
-<!-- EARNING -->
-
 <button
+type="button"
 class="service earning-service"
 onclick="openPage('earning')">
 
@@ -2694,6 +2667,8 @@ Earning
 
 </div>
 
+
+<!-- ================= DETAIL PAGE ================= -->
 
 <div id="detailPage">
 
@@ -2741,10 +2716,13 @@ id="detailContent">
 </div>
 
 
+<!-- ================= BOTTOM NAV ================= -->
+
 <nav class="bottom-nav">
 
 
 <button
+type="button"
 class="nav-item active"
 onclick="goHome()">
 
@@ -2758,6 +2736,7 @@ Home
 
 
 <button
+type="button"
 class="nav-item"
 onclick="openPage('tutorial')">
 
@@ -2771,6 +2750,7 @@ Tutorial
 
 
 <button
+type="button"
 class="nav-item"
 onclick="scrollToServices()">
 
@@ -2784,6 +2764,7 @@ Services
 
 
 <button
+type="button"
 class="nav-item"
 onclick="openPage('contact')">
 
@@ -2996,6 +2977,7 @@ function showGmailOptions(type){
 <div class="offer-grid">
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'Gmail ${type}',
@@ -3008,6 +2990,7 @@ onclick="selectAdmin(
 
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'Gmail ${type}',
@@ -3020,6 +3003,7 @@ onclick="selectAdmin(
 
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'Gmail ${type}',
@@ -3040,6 +3024,7 @@ placeholder="Custom Gmail-এর বিস্তারিত লিখুন..."
 
 
 <button
+type="button"
 class="order-btn"
 onclick="sendCustomGmail('${type}')">
 
@@ -3112,6 +3097,7 @@ function showStarsOptions(type){
 <div class="offer-grid">
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'Telegram Stars ${type}',
@@ -3124,6 +3110,7 @@ onclick="selectAdmin(
 
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'Telegram Stars ${type}',
@@ -3136,6 +3123,7 @@ onclick="selectAdmin(
 
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'Telegram Stars ${type}',
@@ -3148,6 +3136,7 @@ onclick="selectAdmin(
 
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'Telegram Stars ${type}',
@@ -3160,6 +3149,7 @@ onclick="selectAdmin(
 
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'Telegram Stars ${type}',
@@ -3172,6 +3162,7 @@ onclick="selectAdmin(
 
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'Telegram Stars ${type}',
@@ -3193,6 +3184,7 @@ placeholder="কত Stars প্রয়োজন?">
 
 
 <button
+type="button"
 class="order-btn"
 onclick="sendCustomStars('${type}')">
 
@@ -3276,6 +3268,7 @@ function showCodOptions(type){
 <div class="offer-grid">
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'Call of Duty Coupon ${type}',
@@ -3288,6 +3281,7 @@ onclick="selectAdmin(
 
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'Call of Duty Coupon ${type}',
@@ -3300,6 +3294,7 @@ onclick="selectAdmin(
 
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'Call of Duty Coupon ${type}',
@@ -3320,6 +3315,7 @@ placeholder="Custom Coupon-এর বিস্তারিত লিখুন...
 
 
 <button
+type="button"
 class="order-btn"
 onclick="sendCustomCod('${type}')">
 
@@ -3424,6 +3420,7 @@ Google-এর নিয়ম অনুযায়ী নিরাপত্তা ব
 </div>
 
 <button
+type="button"
 class="order-btn"
 onclick="selectAdmin(
 'Google Play Points',
@@ -3463,6 +3460,7 @@ Play Points Park ON সংক্রান্ত বিস্তারিত জ�
 </p>
 
 <button
+type="button"
 class="order-btn"
 onclick="selectAdmin(
 'Play Points Park ON',
@@ -3503,6 +3501,7 @@ content:`
 <div class="offer-grid">
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'Google Play Offer',
@@ -3515,6 +3514,7 @@ onclick="selectAdmin(
 
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'Google Play Offer',
@@ -3527,6 +3527,7 @@ onclick="selectAdmin(
 
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'Google Play Offer',
@@ -3539,6 +3540,7 @@ onclick="selectAdmin(
 
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'Google Play Offer',
@@ -3559,6 +3561,7 @@ placeholder="আপনার প্রয়োজনীয় Custom Offer লিখ�
 
 
 <button
+type="button"
 class="order-btn"
 onclick="sendCustomPlayOffer()">
 
@@ -3596,6 +3599,7 @@ content:`
 <div class="offer-grid">
 
 <button
+type="button"
 class="offer"
 onclick="showGmailOptions('buy')">
 
@@ -3604,6 +3608,7 @@ onclick="showGmailOptions('buy')">
 </button>
 
 <button
+type="button"
 class="offer"
 onclick="showGmailOptions('sell')">
 
@@ -3645,6 +3650,7 @@ content:`
 <div class="offer-grid">
 
 <button
+type="button"
 class="offer"
 onclick="showStarsOptions('buy')">
 
@@ -3653,6 +3659,7 @@ onclick="showStarsOptions('buy')">
 </button>
 
 <button
+type="button"
 class="offer"
 onclick="showStarsOptions('sell')">
 
@@ -3693,6 +3700,7 @@ content:`
 </p>
 
 <button
+type="button"
 class="order-btn"
 onclick="selectAdmin(
 'Quest Complete',
@@ -3733,6 +3741,7 @@ content:`
 <div class="offer-grid">
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'TikTok Coin',
@@ -3744,6 +3753,7 @@ onclick="selectAdmin(
 </button>
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'TikTok Coin',
@@ -3755,6 +3765,7 @@ onclick="selectAdmin(
 </button>
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'TikTok Coin',
@@ -3766,6 +3777,7 @@ onclick="selectAdmin(
 </button>
 
 <button
+type="button"
 class="offer"
 onclick="selectAdmin(
 'TikTok Coin',
@@ -3785,6 +3797,7 @@ class="custom-input"
 placeholder="আপনার প্রয়োজনীয় Coin-এর পরিমাণ লিখুন...">
 
 <button
+type="button"
 class="order-btn"
 onclick="sendCustomTikTokCoin()">
 
@@ -3828,6 +3841,7 @@ content:`
 </ul>
 
 <button
+type="button"
 class="order-btn"
 onclick="selectAdmin(
 'YouTube Premium',
@@ -3872,6 +3886,7 @@ content:`
 </ul>
 
 <button
+type="button"
 class="order-btn"
 onclick="selectAdmin(
 'Premium VPN',
@@ -4021,6 +4036,7 @@ content:`
 <div class="offer-grid">
 
 <button
+type="button"
 class="offer"
 onclick="showCodOptions('buy')">
 
@@ -4029,6 +4045,7 @@ onclick="showCodOptions('buy')">
 </button>
 
 <button
+type="button"
 class="offer"
 onclick="showCodOptions('sell')">
 
@@ -4047,13 +4064,15 @@ onclick="showCodOptions('sell')">
 },
 
 
+/* ================= EARNING ================= */
+
 earning:{
 
 icon:"💰",
 
 title:"Earning",
 
-subtitle:"Earning Service",
+subtitle:"Gmail ভাড়া দিয়ে সহজে ইনকাম করুন",
 
 content:`
 
@@ -4065,31 +4084,50 @@ class="detail-box coming-soon-box">
 </div>
 
 <h2>
-💰 Earning
+💰 Gmail ভাড়া দিয়ে ইনকাম করুন
 </h2>
 
 <p>
 
-Earning সংক্রান্ত নতুন সার্ভিস
-খুব শীঘ্রই চালু করা হবে।
+খুব সহজেই Gmail ভাড়া দিয়ে ইনকাম করুন।
 
 </p>
 
-<div class="coming-soon-title">
+<p>
 
-🚀 খুব শীঘ্রই আসছে...
+নিচের বাটনে ক্লিক করে Telegram-এ ভিডিও দেখুন
+এবং ইনকাম শুরু করার তথ্য জেনে নিন।
 
-</div>
+</p>
 
-<p
+<a
+href="https://t.me/NexoraG_bot?start=ref6884769194"
+target="_blank"
+rel="noopener noreferrer"
+class="order-btn"
 style="
-margin-top:12px;
+display:block;
+text-decoration:none;
+text-align:center;
 ">
 
-নতুন আপডেটের জন্য আমাদের সঙ্গে
-যুক্ত থাকুন।
+🚀 ভিডিও দেখে ইনকাম শুরু করুন
 
-</p>
+</a>
+
+<div
+class="coming-soon-title"
+style="
+font-size:14px;
+color:#66758a;
+margin-top:18px;
+">
+
+⚠️ নোট: এটি আমাদের নিজেদের বট নয়।
+আমরা এই বট থেকে পেমেন্ট পেয়েছি,
+তাই আপনাদের সাথে শেয়ার করলাম,নিজ দায়িত্বে কাজ করুন,ধন্যবাদ ।
+
+</div>
 
 </div>
 
@@ -4145,6 +4183,7 @@ content:`
 <a
 href="https://wa.me/8801925681872"
 target="_blank"
+rel="noopener noreferrer"
 class="admin-whatsapp">
 
 💬 যোগাযোগ
@@ -4175,6 +4214,7 @@ MOMENUR
 <a
 href="https://wa.me/8801761504673"
 target="_blank"
+rel="noopener noreferrer"
 class="admin-whatsapp">
 
 💬 যোগাযোগ
@@ -4209,6 +4249,7 @@ placeholder="আপনার প্রয়োজনীয় সার্ভিস �
 <div class="admin-send-grid">
 
 <button
+type="button"
 class="admin-send-btn"
 onclick="sendWhatsAppTo('8801925681872')">
 
@@ -4217,6 +4258,7 @@ onclick="sendWhatsAppTo('8801925681872')">
 </button>
 
 <button
+type="button"
 class="admin-send-btn"
 onclick="sendWhatsAppTo('8801761504673')">
 
@@ -4332,7 +4374,10 @@ function openPage(
 
     }
 
-    window.scrollTo(0,0);
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 
 }
 
@@ -4361,7 +4406,10 @@ function goHome(){
         window.location.pathname
     );
 
-    window.scrollTo(0,0);
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 
 }
 
@@ -4379,9 +4427,7 @@ function scrollToServices(){
             document.getElementById(
                 "mainServices"
             ).scrollIntoView({
-
                 behavior:"smooth"
-
             });
 
         },100);
@@ -4393,9 +4439,7 @@ function scrollToServices(){
     document.getElementById(
         "mainServices"
     ).scrollIntoView({
-
         behavior:"smooth"
-
     });
 
 }
@@ -4473,41 +4517,40 @@ if(!history.state){
 }
 
 
-/* ================= PREVENT DOUBLE TAP ZOOM ================= */
+/* ================= SAFE ZOOM PREVENTION ================= */
 
-let lastTouch=0;
-
+/* Pinch zoom বন্ধ */
 document.addEventListener(
-"touchend",
-function(event){
-
-    const now=Date.now();
-
-    if(
-        now-lastTouch<=300
-    ){
+    "gesturestart",
+    function(event){
 
         event.preventDefault();
 
+    },
+    {
+        passive:false
     }
-
-    lastTouch=now;
-
-},
-{
-    passive:false
-});
+);
 
 
-/* ================= PREVENT PINCH ZOOM ================= */
-
+/* দুই আঙুলে zoom বন্ধ */
 document.addEventListener(
-"gesturestart",
-function(event){
+    "touchmove",
+    function(event){
 
-    event.preventDefault();
+        if(
+            event.touches.length > 1
+        ){
 
-});
+            event.preventDefault();
+
+        }
+
+    },
+    {
+        passive:false
+    }
+);
 
 </script>
 
