@@ -1490,8 +1490,6 @@ PIYAS
 <div class="service-title">Google Play Points</div>
 </button>
 
-<!-- নতুন Buy / Sell মেনু -->
-
 <button type="button" class="service playpoints-bs-service" onclick="openPage('playpointsbs')">
 <div class="service-image">
 <div class="playpoints-bs-logo">
@@ -1645,8 +1643,6 @@ PIYAS
 </div>
 </div>
 
-<!-- ================= DETAIL PAGE ================= -->
-
 <div id="detailPage">
 
 <header class="detail-header">
@@ -1666,8 +1662,6 @@ PIYAS
 <div class="detail-content" id="detailContent"></div>
 
 </div>
-
-<!-- ================= BOTTOM NAV ================= -->
 
 <nav class="bottom-nav">
 
@@ -2291,6 +2285,75 @@ function showCodOptions(type){
         ? "কিনতে চাই"
         : "বিক্রি করতে চাই";
 
+    const couponOptions=
+        type==="buy"
+        ? `
+
+<button
+type="button"
+class="offer"
+onclick="selectAdmin(
+'Call of Duty Coupon Buy',
+'$4 Coupon কিনতে চাই'
+)">
+🎮 $4 Coupon
+</button>
+
+<button
+type="button"
+class="offer"
+onclick="selectAdmin(
+'Call of Duty Coupon Buy',
+'$10 Coupon কিনতে চাই'
+)">
+🎮 $10 Coupon
+</button>
+
+<button
+type="button"
+class="offer"
+onclick="selectAdmin(
+'Call of Duty Coupon Buy',
+'$20 Coupon কিনতে চাই'
+)">
+🎮 $20 Coupon
+</button>
+
+`
+        : `
+
+<button
+type="button"
+class="offer"
+onclick="selectAdmin(
+'Call of Duty Coupon Sell',
+'$4 Coupon — রেট ৳200 — বিক্রি করতে চাই'
+)">
+🎮 $4 Coupon<br>৳200
+</button>
+
+<button
+type="button"
+class="offer"
+onclick="selectAdmin(
+'Call of Duty Coupon Sell',
+'$10 Coupon — রেট ৳550 — বিক্রি করতে চাই'
+)">
+🎮 $10 Coupon<br>৳550
+</button>
+
+<button
+type="button"
+class="offer"
+onclick="selectAdmin(
+'Call of Duty Coupon Sell',
+'$20 Coupon — রেট ৳750 — বিক্রি করতে চাই'
+)">
+🎮 $20 Coupon<br>৳750
+</button>
+
+`;
+
     document.getElementById("codOptions").innerHTML=`
 
 <div class="detail-box">
@@ -2301,29 +2364,7 @@ function showCodOptions(type){
 
 <div class="offer-grid">
 
-<button type="button" class="offer"
-onclick="selectAdmin(
-'Call of Duty Coupon ${type}',
-'$4 Coupon ${action}'
-)">
-🎮 $4 Coupon
-</button>
-
-<button type="button" class="offer"
-onclick="selectAdmin(
-'Call of Duty Coupon ${type}',
-'$10 Coupon ${action}'
-)">
-🎮 $10 Coupon
-</button>
-
-<button type="button" class="offer"
-onclick="selectAdmin(
-'Call of Duty Coupon ${type}',
-'$20 Coupon ${action}'
-)">
-🎮 $20 Coupon
-</button>
+${couponOptions}
 
 </div>
 
@@ -2894,17 +2935,17 @@ onclick="closeCodNotice()">
 <div class="cod-notice-content">
 
 <div class="cod-notice-title">
-⚠️ MARKET DOWN
+⚠️ দাম আপডাউন হতে পারে
 </div>
 
 <div class="cod-notice-text">
 
-বর্তমানে Call of Duty Coupon-এর
-<strong>Market Down</strong> চলছে।
+Call of Duty Coupon-এর দাম সময় অনুযায়ী
+<strong>আপডাউন হতে পারে</strong>।
 <br>
 
-অর্ডার দেওয়ার আগে অ্যাডমিনের সাথে
-বর্তমান রেট জেনে নিন।
+অর্ডার দেওয়ার আগে অ্যাডমিনের কাছ থেকে
+<strong>সঠিক বর্তমান প্রাইজ</strong> জেনে নিন।
 
 </div>
 
@@ -2913,7 +2954,6 @@ onclick="closeCodNotice()">
 </div>
 
 </div>
-
 
 <div class="detail-box">
 
